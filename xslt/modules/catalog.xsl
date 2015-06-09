@@ -232,8 +232,11 @@
 
 	<xsl:template match="item" mode="categorylist_main_brend">
 		<xsl:param name="cat" />
+
+
 		<xsl:variable name="catalog_page" select="document(concat('upage://',@id))/udata/page/properties" />
-		<xsl:variable name="for_images" select="document(concat('upage://',$catalog_page//property[@name = 'kategory']/value/page/@id))/udata/page/properties" />
+		<xsl:variable name="for_images" select="$catalog_page//property[@name = 'izobrazhenie_razdela']/value" />
+
 		<div class="cat_item">
 			<div class="image_radius">
 				<a href="{@link}" title="Перейти к категории">
@@ -243,7 +246,7 @@
 							<xsl:value-of select="$cat" /></xsl:attribute>
 					</xsl:if>
 					<xsl:call-template name="thumbing">
-						<xsl:with-param name="source" select="$for_images/group/property[@name='menu_pic_a']/value" />
+						<xsl:with-param name="source" select="$for_images" />
 						<xsl:with-param name="width" select="167" />
 						<xsl:with-param name="height">167</xsl:with-param>
 					</xsl:call-template>
@@ -261,6 +264,15 @@
 			<h4><a href="{@link}"><xsl:if test="$cat"><xsl:attribute name="href"><xsl:value-of select="@link"/>?fields_filter[brend]=<xsl:value-of select="$cat" /></xsl:attribute></xsl:if><xsl:value-of select="."/></a><font style="font-size:12px;font-weight:normal;">(Товаров <xsl:value-of select="document(concat('usel://item_brend/', $type_id,'/', $obj_id))/udata/total" />)</font></h4><span></span>
 		</div>
 	</xsl:template>
+
+
+
+
+
+
+
+
+
 	<xsl:template match="field" mode="properties_title">
 		<th>
 			<xsl:value-of select="@title" disable-output-escaping="yes" />
