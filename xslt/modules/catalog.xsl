@@ -233,6 +233,8 @@
 	<xsl:template match="item" mode="categorylist_main_brend">
 		<xsl:param name="cat" />
 
+		<xsl:variable name="catalog_page1" select="document(concat('upage://',@id))/udata/page/properties" />
+		<xsl:variable name="for_images1" select="document(concat('upage://',$catalog_page1//property[@name = 'kategory']/value/page/@id))/udata/page/properties" />
 
 		<xsl:variable name="catalog_page" select="document(concat('upage://',@id))/udata/page/properties" />
 		<xsl:variable name="for_images" select="$catalog_page//property[@name = 'izobrazhenie_razdela']/value" />
@@ -254,7 +256,7 @@
 			</div>
 			<div class="cat_icon_block">
 				<xsl:call-template name="thumbing">
-					<xsl:with-param name="source" select="$for_images/group/property[@name='header_pic']/value" />
+					<xsl:with-param name="source" select="$for_images1/group/property[@name='header_pic']/value" />
 					<xsl:with-param name="width" select="72" />
 					<xsl:with-param name="height">72</xsl:with-param>
 				</xsl:call-template>
