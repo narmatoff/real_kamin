@@ -8,7 +8,6 @@
 			<xsl:apply-templates select="summary" mode="basket" />
 
 
-
 	</xsl:template>
 
 	<xsl:template match="summary[amount = 0]" mode="basket">

@@ -1028,6 +1028,61 @@ var liveTex = true,
 
 /* ********************************** */
 var LiveTex = {
+ onLiveTexReady: function() {
+
+//– открытие окна звонка
+ LiveTex.on("chat_open", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("OPEN_CHAT");
+ });
+
+//– действия посетителя в окне приглашения
+  LiveTex.on("chat_invitation_action", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("OPEN_CHAT");
+ });
+
+//– открытие окна приглашения
+  LiveTex.on("chat_invitation_open", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("CHAT_INVITATION_OPEN");
+ });
+
+//– действия посетителя в окне приветствия
+  LiveTex.on("chat_welcome_action", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("CHAT_WELCOME_ACTION");
+ });
+
+// – действия посетителя в форме генератора лидов
+  LiveTex.on("lead_action", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("LEAD_ACTION");
+ });
+
+//– открытие окна генератора лидов
+  LiveTex.on("lead_open", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("LEAD_OPEN");
+ });
+
+//– действия посетителя в форме оффлайн-сообщения
+  LiveTex.on("offline_action", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("OFFLINE_ACTION");
+ });
+
+//– открытие оффлайн-сообщения
+  LiveTex.on("offline_open", function(){
+ // вызов события счетчика
+ yaCounter7760038.reachGoal("OFFLINE_OPEN");
+ });
+ }
+};
+/* ********************************** */
+
+/* ********************************** */
+var LiveTex = {
    onLiveTexReady: function() {
      var btnClose = document.createElement('a');
      var container = document.querySelector('.lt-content');

@@ -16,7 +16,6 @@
             	<h1 class="dialog_par"><xsl:value-of select="@header"/></h1>
                 <xsl:apply-templates select="$errors" />
 
-                <div class="text_description">
 
                 <xsl:choose>
                                         <xsl:when test="page/@parentId=4820">
@@ -53,9 +52,19 @@
                                     </xsl:choose>
 
 
+						<div>
 
-                	<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>
-                	</div>
+							<!--					свернуть/развернуть-->
+
+							<xsl:if test="not(page/properties/group/property[@name='svernut_tekst_dlya_kompaktnosti']/value = true())">
+								<xsl:attribute name="class">text_description</xsl:attribute>
+							</xsl:if>
+							<!--					конец_свернуть/развернуть-->
+
+							<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes" />
+
+						</div>
+<!--                	<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>-->
 
 				<xsl:if test="page/@type-id='281'">
 					<div>
