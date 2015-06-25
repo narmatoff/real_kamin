@@ -414,6 +414,7 @@
 
 
             for(var i = 0, len = cord.length; i &lt; len; i++) {
+            		if(cont[i]== undefined){cont[i]='';};
                     geoObjects[i] = new ymaps.Placemark(cord[i], {balloonContentHeader:head[i], balloonContentBody:adr[i]+cont[i], balloonContentFooter:footer[i]}, {preset: 'islands#orangeIcon'});
             }
 

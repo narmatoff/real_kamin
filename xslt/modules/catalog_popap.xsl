@@ -82,7 +82,7 @@
                 <xsl:when test="$item/page/properties/group/property[@name='price']/value = 5000000">
                     <div class="pricenbuttons">
                         <input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
-                        <span class="not_instok">отсутствует</span>
+                        <span class="not_instok">под заказ</span>
                         <!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
                     </div>
                     <div class="clearfix"></div>
@@ -104,10 +104,10 @@
 
 
                         <!-- <a id="{$item/page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
-                        <input id="{page/@id}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Под заказ"/>
+                        <input id="{page/@id}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
 
                         <!-- <input class="buybutton outnstock" type="button" value="Под заказ" /> -->
-                        <span class="not_instok">отсутствует</span>
+                        <span class="not_instok">под заказ</span>
                         <!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
                     </div>
                     <div class="clearfix"></div>

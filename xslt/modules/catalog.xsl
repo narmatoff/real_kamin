@@ -502,7 +502,7 @@
 					<div class="pricenbuttons">
 						<input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
 
-						<span class="not_instok">отсутствует</span>
+						<span class="not_instok">под заказ</span>
 					</div>
 					<div class="clearfix"></div>
 				</xsl:when>
@@ -511,9 +511,9 @@
 						<xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
 
 						<!-- <a id="{$item/page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
-						<input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Под заказ"/>
+						<input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
 
-						<span class="not_instok">отсутствует</span>
+						<span class="not_instok">под заказ</span>
 						<!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
 					</div>
 					<div class="clearfix"></div>
@@ -589,7 +589,7 @@
 					<div class="pricenbuttons">
 						<input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
 
-						<span class="not_instok">отсутствует</span>
+						<span class="not_instok">под заказ</span>
 					</div>
 					<div class="clearfix"></div>
 				</xsl:when>
@@ -599,9 +599,9 @@
 
 						<!-- <a id="{$item/page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
 
-						<input id="{$item/page/@id}"  data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Под заказ"/>
+						<input id="{$item/page/@id}"  data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
 
-						<span class="not_instok">отсутствует</span>
+						<span class="not_instok">под заказ</span>
 						<!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
 					</div>
 					<div class="clearfix"></div>
@@ -678,7 +678,7 @@
 					<div class="buy_price">
 						<input id="{page/@id}" data-tovarname="{page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', page/@id,'//0'))/udata/price/actual,'#')}" data-article="{age/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
 
-						<span class="not_instok">отсутствует</span>
+						<span class="not_instok">под заказ</span>
 					</div>
 					<div class="clearfix"></div>
 				</xsl:when>
@@ -688,7 +688,7 @@
 
 								<!-- <a id="{page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
 
-								<input id="{page/@id}"  data-tovarname="{page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', page/@id,'//0'))/udata/price/actual,'#')}" data-article="{page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Под заказ"/>
+								<input id="{page/@id}"  data-tovarname="{page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', page/@id,'//0'))/udata/price/actual,'#')}" data-article="{page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
 
 
 							</div>
@@ -703,7 +703,7 @@
 								<!-- <span class="goodcompare"><a href="/emarket/addToCompare/page/{@id}">сравнить</a></span> -->
 							</xsl:when>
 							<xsl:otherwise>
-								<div class="pricenbuttons"><span class="not_instok">отсутствует</span>
+								<div class="pricenbuttons"><span class="not_instok">под заказ</span>
 									<!-- <span class="goodcompare"><a href="/emarket/addToCompare/page/{@id}">сравнить</a></span> -->
 								</div>
 							</xsl:otherwise>

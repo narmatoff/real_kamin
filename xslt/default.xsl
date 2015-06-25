@@ -141,6 +141,9 @@
                 <xsl:when test="result[@module='catalog'][@method='object']/parents/page[@id=3173]">
                     <xsl:value-of select="result/page/properties/group[@name='catalog_option_props']/property[@name='nazvanie']/value" /> купить в Санкт-Петербурге и Москве | цены, отзывы
                 </xsl:when>
+                <xsl:when test="result[@module = 'faq'][@method = 'question']">
+                	<xsl:value-of select=".//property[@name='question']/value"/>
+                </xsl:when>
                 <xsl:otherwise>
                     <xsl:value-of select="result/@title" />
                 </xsl:otherwise>
@@ -1026,11 +1029,12 @@ var liveTex = true,
    liveTexID = 72098,
    liveTex_object = true;
 
+
 /* ********************************** */
 var LiveTex = {
- onLiveTexReady: function() {
+   onLiveTexReady: function() {
 
-//– открытие окна звонка
+	//– открытие окна звонка
  LiveTex.on("chat_open", function(){
  // вызов события счетчика
  yaCounter7760038.reachGoal("OPEN_CHAT");
@@ -1077,13 +1081,7 @@ var LiveTex = {
  // вызов события счетчика
  yaCounter7760038.reachGoal("OFFLINE_OPEN");
  });
- }
-};
-/* ********************************** */
 
-/* ********************************** */
-var LiveTex = {
-   onLiveTexReady: function() {
      var btnClose = document.createElement('a');
      var container = document.querySelector('.lt-content');
      var opInfo = document.querySelector('.lt-content iframe');

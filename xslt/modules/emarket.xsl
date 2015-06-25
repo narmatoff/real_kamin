@@ -653,7 +653,7 @@
 
 					<xsl:otherwise>
 
-							<span class="not_instok">отсутствует</span>
+							<span class="not_instok">под заказ</span>
 
 					</xsl:otherwise>
 				</xsl:choose> -->
