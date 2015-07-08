@@ -1084,6 +1084,7 @@
 
 				<select id="{@name}" name="fields_filter[{@name}]">
 					<option class="first" value="">
+<!--					<xsl:sort select="expression" lang="language-code" data-type="text|number|qname" order="ascending|descending" case-order="upper-first|lower-first"/>-->
 						<xsl:value-of select="@title" />
 					</option>
 					<!--  <xsl:choose><xsl:when test="$typeid = '86'"> -->
@@ -1132,6 +1133,10 @@
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
+
+
+
+
 	<xsl:template match="item" mode="search_select">
 		<option value="{@id}">
 			<xsl:if test="@selected">

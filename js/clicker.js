@@ -114,12 +114,12 @@ priceSep(".price_word_usualy>span" );
 $('#opaopaopapa').bind('submit', function(){
 // alert ('1111');
 
-
+// console.table($(this).serialize());
 
     $.ajax({
                 type: 'POST',
                 url: '/webforms/send/',
-                data: $("#opaopaopapa").serialize(),
+                data: $(this).serialize(),
                 success: function (data) {
                     // alert ('спасибо')
                     $('#opaopaopapa').fadeOut(0).delay(3000).fadeIn(0);
