@@ -294,6 +294,8 @@
 
     <link rel="stylesheet" href="{$template-resources}css/jquery.fancybox.css" media="screen" />
 
+     <script src="{$template-resources}bower_components/jquery.form.validation/form-validator/jquery.form-validator.min.js"></script>
+
 
     <!--[if lt IE 9]>
     <script src="{$template-resources}js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
