@@ -3,7 +3,7 @@
 <xsl:stylesheet version="1.0" xmlns:umi="http://www.umi-cms.ru/TR/umi" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:template match="udata" mode="slider_banner">
-
+            
 
         <div id="slider" class="flexslider">
             <ul class="slides">
@@ -15,9 +15,9 @@
                 <xsl:apply-templates select="page" mode="slider_small" />
             </ul>
         </div>
-
+        
         <script>
-
+               
 <!--               скрипт для проверки мобильности-->
                 var myFlashCounter = (function(){
 
@@ -26,24 +26,24 @@
                        countd = num !== undefined ? num : countd;
                         return countd++;
                     }
-                  }());
-
-
+                  }()); 
+                  
+                  
                    var myFlashCounter2 = (function(){
 
                     var countd2 = 0;
                     return function(){
                         return countd2++;
                     }
-                  }());
+                  }()); 
 
 					$( ".myFlash" ).show(function() {
-
+						
 					  $(this).attr("id", "myFlash"+myFlashCounter2());
-
+						
 					});
-
-
+                  
+                  
               </script>
     </xsl:template>
 
@@ -61,11 +61,11 @@
                 </a>
                 </xsl:when>
                  <xsl:otherwise>
-
-
+                    
+                    
                         <!-- Здесь флэш (object/embed) -->
                         <script>
-
+  
 
 <!--                           вызов скрипта мобильности-->
 							$(document).ready(
@@ -78,7 +78,7 @@
                                     }
                             );
 
-
+                               
                         </script>
 
                         <div class="myFlash">
@@ -91,7 +91,7 @@
                             </xsl:call-template>
                             </a>
                         </div>
-
+                    
                  </xsl:otherwise>
             </xsl:choose>
         </li>

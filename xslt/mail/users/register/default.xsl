@@ -8,11 +8,11 @@
 	<xsl:template match="mail_registrated_subject">
 		Регистрация на сайте <xsl:value-of select="domain" />
 	</xsl:template>
-
+	
 	<xsl:template match="mail_registrated_subject_noactivation">
 		Регистрация на сайте <xsl:value-of select="domain" />
 	</xsl:template>
-
+	
 	<xsl:template match="mail_registrated_noactivation">
 		<p>
 			<xsl:text>Здравствуйте, </xsl:text>

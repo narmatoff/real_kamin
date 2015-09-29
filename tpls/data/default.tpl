@@ -120,7 +120,7 @@ $FORMS['symlink_item'] = <<<END
 END;
 
 $FORMS['symlink_quant'] = <<<END
-,
+, 
 END;
 
 

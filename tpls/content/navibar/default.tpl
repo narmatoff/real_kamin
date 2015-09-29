@@ -6,7 +6,7 @@ $FORMS['navibar'] = <<<NAVIBAR
 <div id="navibar">
 	%elements%
 </div>
-
+				
 NAVIBAR;
 
 $FORMS['navibar_empty'] = <<<NAVIBAR

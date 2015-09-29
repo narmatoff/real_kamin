@@ -365,7 +365,7 @@ $(document).ready(function() {
         $("img.plitka_view").removeClass('selected_type_view');
     });
 
-    //	увеличение-уменьшение колличества товаров в корзине
+    //  увеличение-уменьшение колличества товаров в корзине
     var picecountButt_plus = jQuery(".input_pice_count_plus");
     var picecountButt_minus = jQuery(".input_pice_count_minus");
 
@@ -396,58 +396,6 @@ $(document).ready(function() {
 
 
 
-    var validateLang = {
-        //        errorTitle: 'Form submission failed!',
-        //        requiredFields: 'You have not answered all required fields',
-        //        badTime: 'You have not given a correct time',
-        badEmail: 'Некорректный e-mail'
-            //        badTelephone: 'You have not given a correct phone number',
-            //        badSecurityAnswer: 'You have not given a correct answer to the security question',
-            //        badDate: 'You have not given a correct date',
-            //        lengthBadStart: 'The input value must be between ',
-            //        lengthBadEnd: ' characters',
-            //        lengthTooLongStart: 'The input value is longer than ',
-            //        lengthTooShortStart: 'The input value is shorter than ',
-            //        notConfirmed: 'Input values could not be confirmed',
-            //        badDomain: 'Incorrect domain value',
-            //        badUrl: 'The input value is not a correct URL',
-            //        badCustomVal: 'The input value is incorrect',
-            //        andSpaces: ' and spaces ',
-            //        badInt: 'The input value was not a correct number',
-            //        badSecurityNumber: 'Your social security number was incorrect',
-            //        badUKVatAnswer: 'Incorrect UK VAT Number',
-            //        badStrength: 'The password isn\'t strong enough',
-            //        badNumberOfSelectedOptionsStart: 'You have to choose at least ',
-            //        badNumberOfSelectedOptionsEnd: ' answers',
-            //        badAlphaNumeric: 'The input value can only contain alphanumeric characters ',
-            //        badAlphaNumericExtra: ' and ',
-            //        wrongFileSize: 'The file you are trying to upload is too large (max %s)',
-            //        wrongFileType: 'Only files of type %s is allowed',
-            //        groupCheckedRangeStart: 'Please choose between ',
-            //        groupCheckedTooFewStart: 'Please choose at least ',
-            //        groupCheckedTooManyStart: 'Please choose a maximum of ',
-            //        groupCheckedEnd: ' item(s)',
-            //        badCreditCard: 'The credit card number is not correct',
-            //        badCVV: 'The CVV number was not correct'
-    };
-
-
-
-    function showClickEvnt() {
-
-        $('input[name="submit"]').click(function() {
-            //	валидация формы заказа
-            $.validate({
-                language: validateLang,
-                onError: onSubmtClckFu()
-            });
-        });
-
-
-
-    }
-
-
     //    checkout radiobuttons
     $("label.emarket-delivery-784, label.emarket-delivery-808").click(function() {
 
@@ -461,19 +409,14 @@ $(document).ready(function() {
 
         $("#13304").trigger('click');
 
-        $('.commentinfo input').attr({
-            'data-validation': 'required'
-        });
 
 
 
 
-
-
-        $.validate({
-            language: validateLang,
-            onError: onSubmtClckFu()
-        });
+        // $.validate({
+        //     language: validateLang,
+        //     onError: onSubmtClckFu()
+        // });
 
 
 
@@ -483,7 +426,12 @@ $(document).ready(function() {
 
     });
 
+
+
+
     $("label.emarket-delivery-783").click(function() {
+
+        $(".address_samov input:first").prop("checked", true);
 
         $(".address_samov input[name='delivery-id']").click(function() {
             $(this).addClass("checkedbox")
@@ -504,57 +452,53 @@ $(document).ready(function() {
 
         $("#13303").trigger('click');
 
-        $('.commentinfo input').removeAttr('data-validation');
-
-
-
-        $.validate({
-            language: validateLang,
-            onError: onSubmtClckFu()
-        });
 
     });
 
+    if ($("input.emarket-delivery-784").prop("checked")) {
+        $("label.emarket-delivery-784, label.emarket-delivery-808").trigger('click');
+    };
+    $(".address_samov input:first").prop("checked", true);
 
 
     //    закладки в чекауте
-    $("article div.ch_formblock form > span").hide(); // Скрываем содержание
-    $("ul.tabsch li:first").attr("class", "active_chbtn"); // Активируем первую закладку
-    $("article div.ch_formblock form > span:first").fadeIn(); // Выводим содержание
-    //	console.log('11111122222');
-    $('article ul.tabsch li a').click(function(e) {
-        e.preventDefault();
-        $("article div.ch_formblock form > span").hide(); //Скрыть все сожержание
-        $("ul.tabsch li").attr("class", ""); //Сброс класса
-        $(this).parent().attr("class", "active_chbtn"); // Активируем закладку
-        $('#' + $(this).attr('name')).fadeIn(); // Выводим содержание текущей закладки
-        //        console.log("654654654");
-    });
+    // $("article div.ch_formblock form > span").hide(); // Скрываем содержание
+    // $("ul.tabsch li:first").attr("class", "active_chbtn"); // Активируем первую закладку
+    // $("article div.ch_formblock form > span:first").fadeIn(); // Выводим содержание
+    // //   console.log('11111122222');
+    // $('article ul.tabsch li a').click(function(e) {
+    //     e.preventDefault();
+    //     $("article div.ch_formblock form > span").hide(); //Скрыть все сожержание
+    //     $("ul.tabsch li").attr("class", ""); //Сброс класса
+    //     $(this).parent().attr("class", "active_chbtn"); // Активируем закладку
+    //     $('#' + $(this).attr('name')).fadeIn(); // Выводим содержание текущей закладки
+    //     //        console.log("654654654");
+    // });
 
 
 
 
 
-    //    обработка кнопки продолжить в чекауте
-    var tabIdForButton;
-    var counterLi = $('ul.tabsch li');
-    var countLi = $(counterLi).size();
-    //	console.log(countLi);
+    // //    обработка кнопки продолжить в чекауте
+    // var tabIdForButton;
+    // var counterLi = $('ul.tabsch li');
+    // var countLi = $(counterLi).size();
+    // //   console.log(countLi);
 
 
-    //условие, если вкладок в чекауте меньше чем три шт.(фикс от лишнего клика по кнопке "Продолжить")
-    if (countLi < 3) {
-        tabIdForButton = 3;
-    } else {
-        tabIdForButton = 2;
-    }
+    // //условие, если вкладок в чекауте меньше чем три шт.(фикс от лишнего клика по кнопке "Продолжить")
+    // if (countLi < 3) {
+    //     tabIdForButton = 3;
+    // } else {
+    //     tabIdForButton = 2;
+    // }
 
-    $('a.checkout_btnxt').click(function(e) {
-        e.preventDefault();
-        $("section.cartpage_sec article ul li a[name='tab" + tabIdForButton + "']").trigger('click');
+    // $('a.checkout_btnxt').click(function(e) {
+    //     e.preventDefault();
+    //     $("section.cartpage_sec article ul li a[name='tab" + tabIdForButton + "']").trigger('click');
 
 
-    });
+    // });
 
 
     $("a[name='tab1']").click(function() {
@@ -607,7 +551,7 @@ $(document).ready(function() {
     //    $("#customer_choose").fancybox();
 
     $(".fancybox").fancybox({
-        // 'overlayShow'	: false,
+        // 'overlayShow'    : false,
         'transitionIn': 'elastic',
         'transitionOut': 'elastic',
         'titlePosition': 'over',
@@ -659,11 +603,11 @@ $(document).ready(function() {
                     timer = null;
                 }
 
-                //				шевеление при движении
-                //				timer = setTimeout(function () {
-                //					$(".site-up").removeClass("onscroll");
-                //				}, 400);
-                //				$(".site-up").addClass("onscroll");
+                //              шевеление при движении
+                //              timer = setTimeout(function () {
+                //                  $(".site-up").removeClass("onscroll");
+                //              }, 400);
+                //              $(".site-up").addClass("onscroll");
             });
         })();
     }
@@ -673,13 +617,13 @@ $(document).ready(function() {
 
 
     //раскрытие текста на главной
-    //	проверка на наличие вложенных тегов в текстовом поле
+    //  проверка на наличие вложенных тегов в текстовом поле
     if ($(".text_description").children().length <= 7) {
         $(".text_description").css("height", "inherit");
         $('.sdhsfdh7_1').css("display", "none");
     } else {
         $(".text_description").after("<div class='sdhsfdh7_1'>Больше информации</div>");
-        //	раскрытие/скрытие
+        //  раскрытие/скрытие
         $(".sdhsfdh7_1").click(function(e) {
             if ($(".text_description").children().length > 0) {
                 $(".text_description").toggleClass("sdhsfdh7", 1500, "easeInOutExpo");
@@ -702,72 +646,6 @@ $(document).ready(function() {
 
 
 
-    ///////////////////////////////////////////////////////////////////////
-    //	Валидация формы///////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////
-
-
-    var onSubmtClckFu = function() {
-
-        //		Валидация по клику
-        showClickEvnt();
-
-        setTimeout(function() {
-
-
-            //			        $('input[name="submit"]').click(function () {
-            if ($(".personalinfo").children().hasClass("has-error")) {
-                $("section.cartpage_sec article ul li a[name='tab1']").trigger('click');
-                //				console.log("есть ошибки в первой форме");
-                //				alert("Заполните обязательные поля!");
-
-                //                alert('Пожалуйста, заполните обязательные поля');
-
-            } else if ($(".commentinfo ").children().hasClass("has-error")) {
-                $("section.cartpage_sec article ul li a[name='tab2']").trigger('click');
-                //				console.log("есть ошибки в третьей форме");
-                //				alert("Заполните обязательные поля!");
-
-                //                                                alert('Пожалуйста, заполните обязательные поля');
-
-            } else if ($("#new-legal-person").children().hasClass("has-error")) {
-                $("section.cartpage_sec article ul li a[name='tab2']").trigger('click');
-                //				console.log("есть ошибки во второй форме");
-                //				alert("Заполните обязательные поля!");
-
-                //                                alert('Пожалуйста, заполните обязательные поля');
-
-
-            } else {
-                //				console.log("все ок");
-            }
-            //			        });
-        }, 300);
-
-
-
-    }
-
-
-
-    ///////////////////////////////////////////////////////
-    //Обозначаем обязательные поля для первой части формы//
-    ///////////////////////////////////////////////////////
-
-    $('.personalinfo input').attr({
-        'data-validation': 'required'
-    });
-    $('.personalinfo input[id="50"]').attr({
-        'data-validation': 'email'
-    });
-
-    //	валидация формы заказа
-    $("label.emarket-delivery-783").trigger('click');
-
-
-
-
-
 
 
     //sorting otpions in filter
@@ -777,11 +655,11 @@ $(document).ready(function() {
             return $(a).text().toLowerCase().localeCompare($(b).text().toLowerCase());
         }
 
-        //		var sort_by_name = function (a, b) {
-        //			if (a.innerHTML.toLowerCase() < b.innerHTML.toLowerCase()) return -1;
-        //			if (a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase()) return 1;
-        //			return 0;
-        //		}
+        //      var sort_by_name = function (a, b) {
+        //          if (a.innerHTML.toLowerCase() < b.innerHTML.toLowerCase()) return -1;
+        //          if (a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase()) return 1;
+        //          return 0;
+        //      }
 
         var list = $(".select_filterbl > select > option").get();
         list.sort(sort_by_name);
@@ -791,6 +669,175 @@ $(document).ready(function() {
     });
 
 
+
+    // tooltips
+
+    // $('.instok').click(function() {
+    //     $(this).next('div.hiddenTooltip').show("fast");
+    //     $('.instok').not(this).next('div.hiddenTooltip').hide("fast");
+    // })
+
+    // $(document).click(function(event) {
+    //     if ($(event.target).closest(".instok, .hiddenTooltip").length) return;
+    //     $("div.hiddenTooltip").hide("fast");
+    //     event.stopPropagation();
+    // });
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    $("#51").mask("+7 (999) 999-9999");
+    // $("#recordClientPhoneAlt").mask("(999) 999-9999");
+    // $("#recordClientZip").mask("99999");
+    // $("#recordPropertyZip").mask("99999");
+    $("#74").mask("999999");
+
+
+    // Добавляем * к обязательным элементам label
+    $('label.required').append('&nbsp;<strong>*</strong>&nbsp;');
+
+    // accordion functions
+    var accordion = $("#stepForm").accordion({
+        collapsible: true,
+        animate: false
+    });
+    var current = 0;
+
+
+
+    $.validator.addMethod("pageRequired", function(value, element) {
+        var $element = $(element)
+
+        function match(index) {
+            return current == index && $(element).parents("#sf" + (index + 1)).length;
+        }
+        if (match(0) || match(1) || match(2)) {
+            return !this.optional(element);
+        }
+        return "dependency-mismatch";
+    }, $.validator.messages.required)
+
+
+
+
+
+    var v = $("#payment_choose").validate({
+        errorClass: "warning",
+        onkeyup: false,
+        onfocusout: false,
+        submitHandler: function() {
+            // alert("Submitted, thanks!");
+            form.submit();
+        }
+    });
+
+
+    // back buttons do not need validation
+    $("#sf2 .prevbutton").click(function() {
+        accordion.accordion("option", "active", 0);
+        current = 0;
+    });
+    $("#sf3 .prevbutton").click(function() {
+        accordion.accordion("option", "active", 1);
+        current = 1;
+    });
+
+
+
+
+    // run the validation
+    $(".open2").click(function() {
+        if (v.form()) {
+            accordion.accordion("option", "active", 2);
+            current = 2;
+            $("a[name='tab3']").trigger('click');
+            yaCounter7760038.reachGoal('purchasing_step_two_ok');
+            if (!($("#radio34011").prop("checked"))) {
+                $('#13303').css('display', 'none');
+                $('#13303').next().css('display', 'none');
+            }
+            if ($("#radio34011").prop("checked")) {
+                $('#13303').css('display', '');
+                $('#13303').next().css('display', '');
+            };
+
+        }
+        $("a[name='tab3']").trigger('click');
+    });
+    $(".open1").click(function() {
+        if (v.form()) {
+            $("a[name='tab2']").trigger('click');
+            accordion.accordion("option", "active", 1);
+            current = 1;
+            yaCounter7760038.reachGoal('purchasing_step_one_ok');
+            // alert('sdfsdfsdf');
+        }
+    });
+    $(".open0").click(function() {
+        if (v.form()) {
+            accordion.accordion("option", "active", 0);
+            current = 0;
+            $("a[name='tab1']").trigger('click');
+
+        }
+        $("a[name='tab1']").trigger('click');
+    });
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////// события по вкладкам//////////////////////////////////
+    /////////////////////////////////////////////////////////
+    $("a[name='tab1']").click(function() {
+
+        accordion.accordion("option", "active", 0);
+        current = 0;
+
+        $(this).parent().parent("ul.tabsch").find('li').removeClass('active_chbtn');
+        $(this).parent("li").addClass('active_chbtn');
+
+    });
+
+    $("a[name='tab2']").click(function() {
+
+        if (v.form()) {
+            accordion.accordion("option", "active", 1);
+            current = 1;
+            $(this).parent().parent("ul.tabsch").find('li').removeClass('active_chbtn');
+            $(this).parent("li").addClass('active_chbtn');
+            yaCounter7760038.reachGoal('purchasing_step_one_ok');
+
+        } else {
+
+
+        }
+
+    });
+
+    $("a[name='tab3']").click(function() {
+
+        if (v.form()) {
+            accordion.accordion("option", "active", 2);
+            current = 2;
+            $(this).parent().parent("ul.tabsch").find('li').removeClass('active_chbtn');
+            $(this).parent("li").addClass('active_chbtn');
+            yaCounter7760038.reachGoal('purchasing_step_two_ok');
+
+        }
+
+    });
+    //    КОНЕЦ обработка кнопки продолжить в чекауте
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

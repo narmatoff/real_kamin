@@ -14,7 +14,7 @@
   width: 30px;
   height: 50px;
   overflow: hidden;
-
+  
   position: absolute;
   top: 0;
   left: 0;
@@ -25,14 +25,14 @@
 
   width: 50px;
   height: 50px;
-
-
+  
+  
   border: 2px solid red;
    border-radius: 50%;
   position: absolute;
   top: 0;
   left: 0;
-
+  
   background: none;
   margin:0;
 }
@@ -42,26 +42,26 @@
 
   width: 50px;
   height: 50px;
-
-
+  
+  
   border: 2px solid #000;
    border-radius: 50%;
   border-left-color: transparent;
   border-bottom-color: transparent;
-
+  
     position: absolute;
   top: 0;
   left: 0;
-
-
-
+ 
+  
+  
   position: absolute;
   top: 0;
   left: 0;
-
+  
   background: none;
   margin:0;
-
+  
     -webkit-animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
   animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
 

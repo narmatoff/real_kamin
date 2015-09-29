@@ -32,7 +32,7 @@ END;
 $FORMS['subscriber_dispatch_row'] = <<<END
 	<tr>
 		<td>
-			<input type="checkbox" %checked% name="subscriber_dispatches[]" value="%disp_id%" />
+			<input type="checkbox" %checked% name="subscriber_dispatches[]" value="%disp_id%" /> 
 			<span umi:object-id="%block-object-id%" umi:field-name="name">%disp_name%</span>
 		</td>
 	</tr>

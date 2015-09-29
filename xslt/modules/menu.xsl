@@ -13,7 +13,7 @@
 			</select>
 		</div></div>
 	</xsl:template>
-
+	
 	<!-- Меню с сортировкой фирменных магазинов -->
 	<xsl:key name="city" match="page" use="@parentId"/>
 
@@ -21,25 +21,25 @@
 		<div class="catmenu_head">
 			Фирменные магазины
 		</div>
-
+		
 
 		<xsl:apply-templates select="page[generate-id(.)=generate-id(key('city',@parentId))]" mode="official_dlr_one" />
 
 
 	</xsl:template>
-
+	
 	<xsl:template match="page" mode="official_dlr_one">
 		<ul id="my-menu" class="sample-menu"><li class="bgdarked">
 			<a class="selected collapsible expanded" href="javascript://">
 				<xsl:value-of select=".//property[@name = 'region']/value/item/@name" disable-output-escaping="yes" />
 			</a>
 		<ul style="display: block;">
-            <xsl:apply-templates mode="next_official_dlr_one" select="key('city',@parentId)">        </xsl:apply-templates>
+            <xsl:apply-templates mode="next_official_dlr_one" select="key('city',@parentId)">        </xsl:apply-templates>       
         </ul>
 		</li></ul>
 	</xsl:template>
 
-	<xsl:template match="page" mode="next_official_dlr_one">
+	<xsl:template match="page" mode="next_official_dlr_one">       
         <li class="dealer">
         	<span class="one_dlr_line">
         		<xsl:value-of select="name"/>
@@ -47,11 +47,11 @@
 			<span class="one_dlr_line">
 				<xsl:value-of select=".//property[@name = 'phone']/value" disable-output-escaping="yes" />
 			</span>
-        </li>
+        </li>       
     </xsl:template>
 
 	<!-- Меню с сортировкой фирменных магазинов -->
-
+	
 	<xsl:template match="page" mode="left_menu_where_buy_one">
 		<xsl:choose>
 			<xsl:when test="document(concat('upage://', $page-id))/udata/page/@link = @link">
@@ -67,7 +67,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
+ 
 	<xsl:template match="udata[@module = 'content'][@method = 'menu']" mode="top_menu">
 		<nav>
 			<ul  id="menu">
@@ -93,7 +93,7 @@
 				</xsl:choose>
 			</xsl:when>
 		</xsl:choose>
-
+    
         <ul id="my-menu" class="sample-menu">
 			<xsl:choose>
 				<xsl:when test="$parents-page-id = 4852">
@@ -103,7 +103,7 @@
             		<xsl:apply-templates select="items/item" mode="level1left" />
 				</xsl:otherwise>
 			</xsl:choose>
-
+            
         </ul>
 
         <xsl:choose>
@@ -175,29 +175,29 @@
 	</xsl:template>
 
 	<xsl:template match="item" mode="level1catalog">
-
+		
 			<a href="{@link}"><xsl:value-of select="@name" disable-output-escaping="yes" /></a>
-
+			
 	</xsl:template>
 
 	<xsl:template match="item[@status = 'active']" mode="level1catalog">
-
+		
 			<a  href="{@link}" class="active_item_menu"><xsl:value-of select="@name" disable-output-escaping="yes" /></a>
-
+           
 	</xsl:template>
 
 
 
 
-
+    
 	<xsl:template match="items" mode="level2">
 		<ul>
 
   			<xsl:apply-templates select="item" mode="level2" />
-
+			
         </ul>
-
-
+        
+		
 	</xsl:template>
 
 	<xsl:template match="items" mode="level2active">
@@ -206,8 +206,8 @@
   			<xsl:apply-templates select="item" mode="level2" />
 
         </ul>
-
-
+        
+		
 	</xsl:template>
 	<xsl:template match="item" mode="level2">
 		<li>
@@ -215,7 +215,7 @@
 			<a href="{@link}">
 				<xsl:value-of select="@name" disable-output-escaping="yes" />
 			</a>
-
+			
 			<xsl:apply-templates select="document(concat('udata://content/menu///', @id))/udata/items" mode="level3"/>
 
 		</li>
@@ -253,24 +253,24 @@
   			<xsl:apply-templates select="item" mode="level2" />
 
         </ul>
-
-
+        
+		
 	</xsl:template>
 
 
 	<xsl:template match="item" mode="accio_main">
 		<xsl:variable name="page" select="document(concat('upage://', @id))/udata/page/properties//property[@name='header_pic']/value"/>
-
-	        <li>
+		    
+	        <li> 
 
 	        	<xsl:call-template name="thumbing">
                     <xsl:with-param name="source" select="$page" />
                     <xsl:with-param name="width" select="839" />
                     <xsl:with-param name="height">313</xsl:with-param>
                 </xsl:call-template>
-
+	        	
 	        </li>
-	</xsl:template>
+	</xsl:template> 
 
 
 
@@ -299,7 +299,7 @@
 
 	</xsl:template>
 
-
+					
 
 
 </xsl:stylesheet>

@@ -4,7 +4,7 @@
  <!ENTITY middot "·">
  <!ENTITY copy "©">
  <!ENTITY nbsp "&#160;">
- <!ENTITY br "<br/>">
+ <!ENTITY br "<br/>"> 
 ]>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:php="http://php.net/xsl"
@@ -54,8 +54,8 @@
 	<xsl:include href="modules/catalog.xsl" />
 	<xsl:include href="modules/search.xsl" />
 	<xsl:include href="modules/breadcrumbs.xsl" />
+	
 
 
 
-
-</xsl:stylesheet>
+</xsl:stylesheet> 

@@ -29,14 +29,14 @@
 	<xsl:variable name="user-id" select="/result/user/@id" />
 	<xsl:variable name="region-id" select="/result/user/geo/country" />
     <xsl:variable name="regionsystem" select="document(concat('upage://', $region-id))/udata/page"/>
-
+	
     <xsl:variable name="page" select="document(concat('upage://',@id))"/>
     <xsl:param name="doc-macroUData" select="document(concat('udata://news/lastlist/', $lent-id))"/>
     <xsl:param name="doc-numpages" select="document(concat('udata://system/numpages/', $doc-macroUData/udata/total, '/', $doc-macroUData/udata/per_page, '/notemplate/p/10'))" />
     <xsl:param name="good_page" select="document(concat('upage://',@id))/udata/page/properties/group/property"/>
 
-
-
+	
+	
     <!--Постраничный вывод для товаров 2-го уровня-->
     <xsl:variable name="lastlist" select="document(concat('udata://catalog/getObjectsList/notemplate/',page/properties/group/property[@name = 'katalog_brenda']/value/page/@id ,'/0/0/2'))/udata"/>
 
@@ -53,18 +53,18 @@
 	<xsl:variable name="user-info"
 		select="document(concat('uobject://', $user-id))" />
 
-
+		
 
 	<xsl:variable name="systempage" select="document(concat('udata://custom/contacts/',$region-id))/udata+1-1"/>
     <xsl:variable name="system" select="document(concat('upage://', $systempage))/udata/page"/>
-
+	
 
 	<xsl:variable name="errors" select="document(concat('udata://system/listErrorMessages/?_err=', $_err))/udata" />
 
     <!--Подключенные шаблоны-->
 	<xsl:include href="modules/fast.xsl" />
 
-	<xsl:include href="modules/cart.xsl"/>
+	<xsl:include href="modules/cart.xsl"/> 
 	<xsl:include href="modules/forms.xsl"/>
 	<xsl:include href="default.xsl" />
 	<xsl:include href="modules/news.xsl" />
@@ -76,7 +76,7 @@
 	<xsl:include href="modules/search.xsl" />
 	<xsl:include href="modules/photoalbum.xsl" />
 	<xsl:include href="modules/breadcrumbs.xsl" />
-	<xsl:include href="modules/users_auth.xsl"	/>
+	<xsl:include href="modules/users_auth.xsl"	/> 
 	<xsl:include href="modules/emarket.xsl"	/>
 	<xsl:include href="modules/comments.xsl" />
 	<xsl:include href="modules/slider.xsl" />
@@ -84,5 +84,6 @@
 	<xsl:include href="modules/meta.xsl" />
 	<xsl:include href="modules/ganalytics.xsl" />
 	<xsl:include href="modules/menu_draw.xsl" />
-
-</xsl:stylesheet>
+	<xsl:include href="modules/ajaxsearch.xsl" />
+	
+</xsl:stylesheet> 

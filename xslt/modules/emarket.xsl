@@ -13,7 +13,7 @@
             <section class="cartpage_sec">
                 <article>
                     <span class="help_checkout">
-                    Вы собираетесь купить <span><xsl:value-of select="$cart/summary/amount"  /> шт товара</span> на сумму
+                    Вы собираетесь купить <span><xsl:value-of select="$cart/summary/amount"  /> шт товара</span> на сумму 
                     <span>
                     	<xsl:value-of select="$cart/summary/price/actual"  /></span>рублей
                     </span>
@@ -45,12 +45,15 @@
                     <div class="ch_formblock">
                        <!--                            ошибки формы заказаз-->
  <xsl:apply-templates select="$errors" />
-                        <form id="payment_choose" style="text-align: left;" method="POST" action="/emarket/saveInfo">
+
+
+
+                        <form id="payment_choose" style="text-align: left;" method="POST" action="/emarket/saveInfo" autocomplete="off">
                         	<!-- <script>
 						<![CDATA[
 							window.paymentId = null;
 							jQuery('#payment_choose').submit(function(){
-
+							
 								if (window.paymentId) {
 									var checkPaymentReceipt = function(id) {
 										if (jQuery('.receipt').attr('checked') == 'checked') {
@@ -67,20 +70,30 @@
 							});
 						]]>
 					</script> -->
-
-
-
+                        	
+			<ul id="stepForm">
+			
 
 						<xsl:if test="$onestep/onestep/customer">
-                            <span id="tab1">
+                            <!-- <span id="tab1"> -->
+							<li id="sf1">
+								<a href='#'></a>
 
-                            <fieldset class="personalinfo">
+								<div>
+								<!-- <h2>ИНФОРМАЦИЯ О ПОКУПАТЕЛЕ</h2> -->
+									
+	                            <fieldset class="personalinfo">
 
-                            	<xsl:apply-templates select="$onestep/onestep/customer/group" mode="onestep_group" />
+	                            	<xsl:apply-templates select="$onestep/onestep/customer/group" mode="onestep_group" />
+	                                
+	                            </fieldset>	
 
-                            </fieldset>
-
-                           </span>
+	                            <div class="buttonWrapper">
+                                    <input name="formNext1" type="button" class="open1 nextbutton" value="Дальше" alt="Next" title="Next"/>
+                                </div>
+								</div>
+                           </li>
+                           <!-- </span> -->
                         </xsl:if>
 
 
@@ -89,75 +102,101 @@
 
 
 
-                            <span id="tab2">
-                            	<xsl:if test="$onestep/onestep/customer">
+                            <!-- <span id="tab2"> -->
+<!--                             	<xsl:if test="$onestep/onestep/customer">
                             		<xsl:attribute name="style">display:none;</xsl:attribute>
-	                            </xsl:if>
+	                            </xsl:if> -->
+                            <li id="sf2">
+	                            <a href="#"></a>
+	                            <div>
+	                            	<!-- <h2>СПОСОБ ДОСТАВКИ</h2> -->
+
 	                         <div class="chkbx_filt">
 
 
-
+								
 								<xsl:apply-templates select="$onestep/onestep/delivery_choose" mode="delivery_choose" />
-
-
+									
+                                
 
                             </div>
 
 
+	                            <fieldset class="commentinfo">
+	                            	
+	                            	<xsl:apply-templates select="$onestep/onestep/delivery/items"   mode="adress_choose"/>
+	                            
+	                            </fieldset>
 
-                            <fieldset class="commentinfo">
 
-                            	<xsl:apply-templates select="$onestep/onestep/delivery/items"   mode="adress_choose"/>
-
-                            </fieldset>
-
-                            <fieldset class="commentinfo">
-                                <label for="comments">Комментарии к заказу</label>
-                                <textarea id="comments" placeholder="Ваш комментарий"></textarea>
-                            </fieldset>
+	                            <fieldset class="commentinfo">
+	                                <label for="comments">Комментарии к заказу</label>
+	                                <textarea id="comments" placeholder="Ваш комментарий"></textarea>
+	                            </fieldset>
+	                       
 
                             <p class="address_samov">
 
 								<b>Укажите пункт самовывоза, где Вы хотели бы забрать товар</b>&br;
                             	<xsl:apply-templates select="$onestep/onestep/delivery_choose/items/item" mode="option_choose_options" />
-
-
+ 
+                                
 
                             </p>
+	                                		                                                            <div class="buttonWrapper">
+                                    <input name="formBack0" type="button" class="open0 prevbutton" value="Назад" alt="Back" title="Back"/>
+                                    <input name="formNext2" type="button" class="open2 nextbutton" value="Дальше" alt="Next" title="Next"/>
+                                </div>
+	                            </div>
 
-                            </span>
+                        	</li>
+                            <!-- </span> -->
 
-                             <span id="tab3" style="display:none;">
-
-
+							<li id="sf3">
+								<a href="#"></a>
+								<div>
+									<!-- <h2>СПОСОБ ОПЛАТЫ</h2> -->
+									
+                             <!-- <span id="tab3" style="display:none;"> -->
+                            
 
                                 <fieldset class="paymentvariable">
-
+                                   
 								<xsl:apply-templates select="$onestep/onestep/payment/items" mode="payment" />
-
-
-
-
-
-
-
+                                    
+                    
+                                
+                                
+                               
+                                
+                                
                                 </fieldset>
 
+							<div class="buttonWrapper">
+                                    <input name="formBack1" type="button" class="open1 prevbutton" value="Назад" alt="Back" title="Back"/>
+                                    <input name="submit" type="submit" id="submit" value="Отправить" class="submitbutton" alt="Submit" title="Submit"/>
+                                </div>
+								</div>
 
+							</li>
 
+                            
 
+                            
 
+                            <!-- </span> -->
 
-                            </span>
-
-                            <div class="clearfix"></div>
-                            <p class="nexting_btn">
-
+                            <!-- <div class="clearfix"></div> -->
+   <!--                          <p class="nexting_btn">
+                              
                                <input style="display:none;" class="checkout_btnxt ntSaveFormsSubmit" type="submit" name="submit" value="Продолжить" />
                                <a class="checkout_btnxt disabled" type="submit" href="javascript://">Продолжить</a>
                                <span></span>
-                           </p>
-                            <div class="clearfix"></div>
+                           </p> -->
+                            <!-- <div class="clearfix"></div> -->
+
+							</ul>
+
                         </form>
                     </div>
 
@@ -177,7 +216,7 @@
             </aside>
 
             <div class="clearfix"></div>
-
+      
 
 
 
@@ -213,7 +252,7 @@
 		<xsl:apply-templates select="item" mode="adress_choose" />
 
 		<div class="form_element">
-
+			
 			<input onclick="$('#new-legal-person').show(), $('div#new-legal-person div.box input').attr('required','required')" type="radio" class="css-checkbox2" name="delivery-address" id="18469846543222233548984" value="new" />
 			<label for="18469846543222233548984" class="css-label2">
 				<xsl:text>Новый адрес</xsl:text>
@@ -246,25 +285,31 @@
 		<xsl:value-of select="value" />
 		<xsl:text>, </xsl:text>
 	</xsl:template>
-
+	
 	<xsl:template match="property[@type = 'relation']" mode="delivery-address">
 		<xsl:value-of select="value/item/@name" />
 		<xsl:text>, </xsl:text>
 	</xsl:template>
-
+	
 	<xsl:template match="property[position() = last()]" mode="delivery-address">
 		<xsl:value-of select="value" />
 	</xsl:template>
+ 
 
+	
 
-
-
-	<xsl:template match="group" mode="onestep_group">
-
+	<xsl:template match="group" mode="onestep_group"> 
+		
 		<div class="line">
 			<strong><xsl:value-of select="@title"/></strong>
 		</div>
 		<xsl:apply-templates select="field"/>
+
+		<xsl:if test="@active = 'active'">
+			<xsl:attribute name="required">
+				<xsl:text>required</xsl:text>
+			</xsl:attribute>
+		</xsl:if>
 
 	</xsl:template>
 
@@ -274,21 +319,27 @@
 				<xsl:value-of select="@title" />
 			</span>
 			<input type="text" name="{@input_name}" value="" />
-
+			
 		</div>
 	</xsl:template> -->
 	<xsl:template match="delivery_choose" mode="delivery_choose">
 		<div class="line">
 			<strong>Способ доставки</strong>
 		</div>
-				<xsl:if test="items/item[@type-guid='emarket-delivery-783']">
-					<input checked="checked" type="radio" id="radio34011" class="css-checkbox2"/>
-					<label for="radio34011" class="css-label2 emarket-delivery-783 ">Самовывоз</label><br/>
+				<xsl:if test="($system/@object-id = '9804') or ($system/@object-id = '9791') or ($system/@object-id = '9792') or ($system/@object-id = '9805')">
+					<input type="radio" checked="checked" id="radio34011" class="css-checkbox2"/>
+					<label id="confirm_optn" for="radio34011" class="css-label2 emarket-delivery-783">Самовывоз</label><br/>
 				</xsl:if>
-				<xsl:apply-templates select="items/item" mode="option_choose" />
-
-
-
+				<xsl:apply-templates select="items/item" mode="option_choose">
+					<xsl:with-param name="is_home_reg">
+						<xsl:choose>
+							<xsl:when test="($system/@object-id = '9804') or ($system/@object-id = '9791') or ($system/@object-id = '9792') or ($system/@object-id = '9805')">0</xsl:when>
+							<xsl:otherwise>1</xsl:otherwise>
+						</xsl:choose>
+					</xsl:with-param>
+				</xsl:apply-templates>
+			
+		
 	</xsl:template>
 	<xsl:template match="items" mode="payment">
 		<div class="line">
@@ -296,10 +347,10 @@
 		</div>
 		<div class="box">
 			<!-- <span class="col">Выберите наиболее удобный способ оплаты заказа</span> -->
-
+			
 				<xsl:apply-templates select="item" mode="option_payment" />
-
-
+			
+			
 		</div>
 	</xsl:template>
 
@@ -310,42 +361,48 @@
 	</xsl:template>
 
 	<xsl:template match="item" mode="option_choose">
+        <xsl:param name="is_home_reg" />
+		
 		<xsl:variable name="delivertity" select="document(concat('uobject://', @id))/udata/object//property[@name='region']/value/item/@id"></xsl:variable>
 		<xsl:if test="$delivertity = $system/@object-id">
-
-		<input type="radio" value="{@id}" name="delivery-id" id="radio{@id}" class="css-checkbox2 {@type-guid} " />
+		<xsl:choose>
+			<xsl:when test="$is_home_reg=1">
+				<input type="radio" checked="checked" value="{@id}" name="delivery-id" id="radio{@id}" class="css-checkbox2 {@type-guid} " />
+			</xsl:when>
+			<xsl:otherwise>
+				<input type="radio" value="{@id}" name="delivery-id" id="radio{@id}" class="css-checkbox2 {@type-guid} " />
+			</xsl:otherwise>
+		</xsl:choose>
         <label for="radio{@id}" class="css-label2 {@type-guid} " ><xsl:value-of select="@name" /></label>
 		<br/>
 		</xsl:if>
-
+	
 	</xsl:template>
 
 
 	<xsl:template match="item[@type-guid='emarket-delivery-783']" mode="option_choose">
 	</xsl:template>
+		
+			<xsl:template match="item[@type-guid='emarket-delivery-783']" mode="option_choose_options">
 
-	<xsl:template match="item[@type-guid='emarket-delivery-783']" mode="option_choose_options">
-
-	<xsl:variable name="delivertity" select="document(concat('uobject://', @id))/udata/object//property[@name='region']/value/item/@id"></xsl:variable>
-		<xsl:if test="$delivertity = $system/@object-id">
-			<input type="radio" value="{@id}" name="delivery-id" id="radio{@id}" class="css-checkbox2">
+			<xsl:variable name="delivertity" select="document(concat('uobject://', @id))/udata/object//property[@name='region']/value/item/@id"></xsl:variable>
+			<xsl:if test="$delivertity = $system/@object-id">
+				<input type="radio" value="{@id}" name="delivery-id" id="radio{@id}" class="css-checkbox2">
 				<xsl:if test="position()=1">
 					<xsl:attribute name="checked">checked</xsl:attribute>
 					<xsl:attribute name="class">css-checkbox2 checkedbox</xsl:attribute>
 				</xsl:if>
-			</input>
+				</input>
 
 
 
-	        <label for="radio{@id}" class="css-label2 {@type-guid} " ><xsl:value-of select="@name" /></label>
-	       <br/>
-		</xsl:if>
+				<label for="radio{@id}" class="css-label2 {@type-guid} ">
+					<xsl:value-of select="@name" />
+				</label>
+				<br/>
+			</xsl:if>
 
-	</xsl:template>
-
-
-
-
+		</xsl:template>
 
 
 
@@ -354,13 +411,13 @@
 
 
 	<xsl:template match="item" mode="option_payment">
-
+        
 					<!-- <xsl:if test="(position() = 1) and (@type-name = 'receipt')">
 						<script>
 							window.paymentId = <xsl:value-of select="@id" />;
 						</script>
 					</xsl:if> -->
-				<input type="radio" name="payment-id" class="{@type-name} css-checkbox2" value="{@id}" id="{@id}" >
+				<input type="radio" name="payment-id" class="{@type-name} css-checkbox2" value="{@id}" id="{@id}" checked="checked">
 					<!-- <xsl:attribute name="onclick">
 						<xsl:text>this.form.target = </xsl:text>
 						<xsl:choose>
@@ -378,7 +435,7 @@
 				</input>
         <label for="{@id}" class="css-label2 radGroup2"><xsl:value-of select="@name" /></label>
 
-
+        
 	</xsl:template>
 
 
@@ -388,7 +445,7 @@
 
 
 
-
+	
 
 
 	<!-- Кабинет пользователя -->
@@ -410,7 +467,7 @@
 			</fieldset>
 		</form>
 	</xsl:template>
-
+	
 
 
 
@@ -421,9 +478,9 @@
 	</xsl:template>
 
 	<xsl:template match="udata" mode="purch">
-
+		
 			<xsl:apply-templates select="purchasing" mode="purch" />
-
+	
 	</xsl:template>
 	<xsl:template match="purchasing[@stage='required'][@step='personal']"
 		mode="purch">
@@ -437,7 +494,7 @@
 							<em>*</em>
 							:
 						</label>
-						<input id="l7" type="text" value="" class="input" />
+						<input id="l7" type="text" value="" class="input" required="required"/>
 						<span class="col">Чтобы мы могли персонально к вам обратиться</span>
 					</div>
 					<div class="box pos">
@@ -541,10 +598,10 @@
 		<script type="text/javascript">
 			var yaParams = {
 				order_id: "<xsl:value-of select="$order_id" />",
-				order_price: "<xsl:value-of select="$order_info/summary/price/actual" />",
+				order_price: "<xsl:value-of select="$order_info/summary/price/actual" />", 
 				currency: "RUR",
 				exchange_rate: 1,
-				goods:
+				goods: 
 				   [
 				   	<xsl:apply-templates select="$order_info/items/item" mode="order_info_metrika" />
 				   ]
@@ -553,17 +610,17 @@
 		<!-- Параметры для метрики -->
 
 		<h1>Спасибо за оформление заказа</h1>
-            <p>Уважаемый
+            <p>Уважаемый 
             	<b>
-            		<xsl:value-of select="$order_info/customer/object//property[@name='lname']/value" disable-output-escaping="no" />
+            		<xsl:value-of select="$order_info/customer/object//property[@name='lname']/value" disable-output-escaping="no" /> 
             		<xsl:value-of select="$order_info/customer/object//property[@name='fname']/value" disable-output-escaping="no" />
             	</b>!&br;
             	Спасибо за то, что воспользовались услугами нашего магазина!
-        		&br;Ваш заказоформлен под номером
+        		&br;Ваш заказоформлен под номером 
         		<b>
         			№ <xsl:value-of select="$order_info/number" disable-output-escaping="yes" />
         		</b>
-
+                
                 &br;В ближайшее время с Вами свяжутся наши менеджеры, что бы уточнить данные о вашем заказе.&br;Вы заказали:
             </p>
             <section class="cartpage_sec">
@@ -577,22 +634,22 @@
                             <th></th>
                         </tr>
                         <xsl:apply-templates select="$order_info/items/item" mode="order_info_del" />
-
+                        
                     </table>
                     <div class="cart_itogo">
-                        <div>Итого:
+                        <div>Итого: 
                         	<span>
                         		<xsl:value-of select="$order_info/summary/price/actual" disable-output-escaping="yes" /> руб.
-
+                        		
 <!--                        		<xsl:value-of select="$order_info/summary/price/@suffix" disable-output-escaping="yes" />-->
-
+                        		
                         	</span>
                         </div>
                     </div>
                 </article>
                 <p>
-
-                		<!-- Мы будем доставлять товар по адресу:
+                
+                		<!-- Мы будем доставлять товар по адресу: 
                 		<b>Санкт-Петербург, ул. ленинградская, д. 37/2, кв,17</b>
                     &br; -->
                     Для вашего удобства мы отправили Вам инфомацию о заказе на Ваш электронный адрес:&br;
@@ -603,15 +660,15 @@
             <div class="clearfix"></div>
 
 
-
+		
 	</xsl:template>
 
 <xsl:template match="item" mode="order_info_metrika">
 	<xsl:variable name="item_page" select="document(concat('upage://',page/@id))/udata" />
 	{
-		id: "<xsl:value-of select="@id" />",
-		name: "<xsl:value-of select="$item_page/page/properties/group/property[@name='h1']/value" />",
-		price: <xsl:value-of select="price/actual" />,
+		id: "<xsl:value-of select="@id" />", 
+		name: "<xsl:value-of select="$item_page/page/properties/group/property[@name='h1']/value" />", 
+		price: <xsl:value-of select="price/actual" />, 
 		quantity: <xsl:value-of select="amount" />
 	}
 	<xsl:if test="position() != last()">,</xsl:if>
@@ -632,32 +689,32 @@
 											</xsl:call-template>
                                 		</span>
                                 	</a>
-
+						
                                     <h4>
-                                    	<a href="{page/@link}">
-                                    		<xsl:value-of select="$item_page/page/properties/group/property[@name='h1']/value" />
+                                    	<a href="{page/@link}">  
+                                    		<xsl:value-of select="$item_page/page/properties/group/property[@name='h1']/value" />  
                                     	</a>
                                     </h4>
                                     <span class="articul_block">
-                                    	Артикул:
+                                    	Артикул:  
                                     	<a href="#">
                                     		<xsl:value-of select="$item_page/page/properties/group/property[@name='artikul']/value" />
                                     	</a>
                                     </span>
                 <!-- <xsl:choose>
 					<xsl:when test="$item_page/page/properties/group/property[@name='common_quantity']/value&gt;0">
-
+						
 							<span class="instok">в наличии</span>
-
+							
 					</xsl:when>
 
 					<xsl:otherwise>
-
-							<span class="not_instok">под заказ</span>
-
+						
+							<span class="not_instok">отсутствует</span>
+							
 					</xsl:otherwise>
 				</xsl:choose> -->
-
+                                    
                                     <div class="clearfix"></div>
                                 </div>
                             </td>
@@ -676,7 +733,7 @@
                             <div class="clearfix"></div>
                         </tr>
 
-
+		
 	</xsl:template>
 
 
@@ -1024,7 +1081,7 @@
 		<form id="invoice" method="post" action="do"  target="invoice" onSubmit="window.open('', 'invoice', 'width=670,height=600,status=yes,resizable=yes,scrollbars=yes')">
 
             <div class="line"><strong>Счет для юридических лиц</strong></div>
-
+			
 			 <span class="pers_kont_defaults">
 
 				<xsl:apply-templates select="items" mode="legal-person" />
@@ -1060,7 +1117,7 @@
 		<xsl:apply-templates select="item" mode="legal-person" />
 
 		<div class="form_element">
-
+			
 				<input onclick="$('#new-legal-person').show(), $('div#new-legal-person div.box input').attr('required','required')" type="radio" name="legal-person" id="1984165687148455544897789" value="new" />
 			<label for="1984165687148455544897789" class="css-label">
 				<xsl:text>&new-legal-person;</xsl:text>
@@ -1090,7 +1147,7 @@
 			</label>
 		</div>
 	</xsl:template>
-
+	
 	<xsl:template name="form-send">
 		<script>
 			jQuery('body').hide(0, function() {

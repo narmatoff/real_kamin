@@ -121,14 +121,14 @@ $FORMS['search_block_line_text'] = <<<END
 END;
 
 $FORMS['search_block_line_price'] = <<<END
-%title% от &nbsp;до
+%title% от &nbsp;до 
 <input type="text" name="fields_filter[%name%][0]" value="%value_from%" />
 <input type="text" name="fields_filter[%name%][1]" value="%value_to%" />
 
 END;
 
 $FORMS['search_block_line_boolean'] = <<<END
-%title% <input type="checkbox" name="fields_filter[%name%]" %checked% value="1" />
+%title% <input type="checkbox" name="fields_filter[%name%]" %checked% value="1" /> 
 
 END;
 

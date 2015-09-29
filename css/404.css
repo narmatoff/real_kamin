@@ -2,7 +2,7 @@
 .container {
 	width: 677px;
 	margin: 2% auto;
-
+	
 }
 
 .title {
@@ -51,27 +51,27 @@ ul li {
 	font-size: 14px;
 	color: #6d6d6d;
 	list-style-type: decimal;
-
-
+	
+	
 }
 ul li a{
-
+	
 	color: #F7961E;
-
-
-
+	
+	
+	
 }
 ul li a:hover{
-
+	
 	color: #F7961E;
 	text-decoration: none;
-
-
+	
+	
 }
 ol li {
 	font-size: 14px;
 	color: #6d6d6d;
-
+	
 }
 
 header {
@@ -96,5 +96,5 @@ article {
 }
 
 a {
-
+	
 }

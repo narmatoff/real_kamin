@@ -4,7 +4,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/TR/xlink">
 
 
-
+    
 <xsl:param name="show">0</xsl:param>
 
 	<xsl:template match="/">
@@ -17,7 +17,7 @@
         &lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class="no-js"&gt; &lt;!--&lt;![endif]--&gt;
 </xsl:text>
 
-<html class="no-js" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
+<html class="no-js" xmlns="http://www.w3.org/1999/html"> <!--<![endif]--> 
     <head>
         <meta charset="utf-8"/>
         <link rel="shortcut icon" href="/favicon.ico"/>
@@ -33,8 +33,8 @@
           <title><xsl:value-of select="result/@title" /></title>
          </xsl:otherwise>
         </xsl:choose>
-
-
+        
+        
         <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 
         <xsl:choose>
@@ -54,21 +54,21 @@
           <meta name="KEYWORDS" content="{result/meta/keywords}" />
          </xsl:otherwise>
         </xsl:choose>
-
+        
         <meta name="viewport" content="width=device-width"/>
 
         <link rel="stylesheet" href="{$template-resources}css/normalize.min.css"/>
         <link rel="stylesheet" href="{$template-resources}css/font/font.css"/>
         <link rel="stylesheet" href="{$template-resources}css/jquery.formstyler.css"/>
         <link rel="stylesheet" href="{$template-resources}css/main.css"/>
-
+        
         <script src="{$template-resources}js/vendor/modernizr-2.6.2.min.js"></script>
         <xsl:if test="$systempage=0">
         <script>
-
+           
                     var delay_popup = 500;
                     setTimeout("document.getElementById('parent_popup').style.display='block'", delay_popup);
-
+           
         </script>
         </xsl:if>
 		<script>
@@ -81,9 +81,9 @@
 		  ga('send', 'pageview');
 
 		</script>
-
+       
     </head>
-    <body>
+    <body> 
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -124,7 +124,7 @@
                 </xsl:attribute>
             </xsl:if>
             <img src="{$template-resources}img/logo.png" alt=""/>
-
+            
         </a>
         <div class="gorodophone">
                 <span class="gorodec" style="203px">Ваш город: <a href="javascript://" onclick="anichange('.townsandcyties'); return false"><xsl:value-of select="$system/properties/group/property[@name='h1']/value" /> <b>&#9660;</b></a></span>
@@ -132,13 +132,13 @@
                 <ul>
                     <xsl:apply-templates select="document('usel://cantacts')/udata/page" mode="contacts" />
                 </ul>
-            </div>
+            </div>  
             <!-- <xsl:value-of select="$systempage"/> -->
             <span class="phonec"><xsl:value-of select="$system/properties/group/property[@name='telefon']/value" /></span>
             </div>
     </div>
 </header>
-
+       
         <!--главное меню-->
 
         <div class="mainmenuback">
@@ -158,7 +158,7 @@
 
         </nav>
             </div>
-
+ 
         <!--слайдер-->
         <xsl:if test="result/page/@is-default=1">
             <div class="mediahead_main" style="overflow: hidden; width: 100%;">
@@ -175,17 +175,17 @@
                 <xsl:apply-templates select="document('udata://core/navibar')/udata"  mode="bread"/>
             </xsl:if>
 
-
+            
     <h1>
          <xsl:if test="result/page/@is-default=1">
-           <xsl:attribute name="class">h1_mainpage</xsl:attribute>
+           <xsl:attribute name="class">h1_mainpage</xsl:attribute> 
          </xsl:if>
         <xsl:value-of select="result/@header" />
     </h1>
             <xsl:if test="result/page/@is-default=1">
                 <div class="horline"></div>
             </xsl:if>
-
+            
             <xsl:choose>
                 <xsl:when test="not(result/page/@type-id='116')">
                     <section>
@@ -199,7 +199,7 @@
                         </xsl:if>
                         <article>
                         <xsl:apply-templates select="result" disable-output-escaping="yes" />
-
+                        
                         </article>
                     </section>
                 <xsl:if test="not(result[@module = 'catalog' and @method = 'object'])">
@@ -210,8 +210,8 @@
                                 <section>
 
                                       <xsl:apply-templates select="document('udata://system/getFilteredPages/82/(vyvodit_na_glavnoj)/1/')/udata/items/item" mode="brend_for_news" />
-
-
+                                   
+                                   
                                 </section>
                             </aside>
 
@@ -232,17 +232,17 @@
                                     <xsl:apply-templates select="document('udata://news/lastlist/6/notemplate/3')/udata/items"  mode="news.lents.main"/>
                                     <a href="/novosti" title="" class="allnews">все новости</a>
                             </section>
-                        </aside>
+                        </aside> 
                         </xsl:otherwise>
                     </xsl:choose>
-
+               
                 </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="result" disable-output-escaping="yes" />
                 </xsl:otherwise>
             </xsl:choose>
-
+            
 
             <div class="clearfix"></div>
             <!--<div class="footerfix"></div>-->
@@ -253,7 +253,7 @@
                 <span>© 2015 ООО «Выбор»</span>
                 <ul>
                      <xsl:apply-templates select="document('udata://content/menu///')/udata/items/item" mode="bottom_menu"/>
-
+                    
                     <li>
                         <a href="/stati">Статьи</a>
                     </li>
@@ -340,46 +340,46 @@
             //      alert (id);
                     $.post("/contacts.php", { contacts_id: id },
                       function(data){
-
+                      
                       location.reload();
-
+                      
                       } );
                     return false;
-
+                    
                 })
 
                 $('.townsandcyties2 li a').click(function () {
                     var id=$(this).attr('href')
                   //alert (id);
-
+                   
                     $.post("/contacts.php", { contacts_id: id },
                       function(data){
-
+                      
                       location.reload();
-
+                      
                       } );
                     return false;
-
+                    
                 })
                 $('.townok2').click(function () {
-
-
+                
+                  
                   //alert ('111111');
-
+                   
                     $.post("/contacts.php", { contacts_id: '135' },
                       function(data){
-
-
+                      
+                      
                       location.reload();
-
-
-
+                      
+                      
+                       
                       } );
                     return false;
                     })
                 });
         </script>
-
+       
 
 <!-- BEGIN JIVOSITE CODE {literal} -->
 <script type='text/javascript'>

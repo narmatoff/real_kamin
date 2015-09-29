@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE xsl:stylesheet SYSTEM "ulang://i18n/constants.dtd:file">
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.ru/TR/umi">
+
+	<!-- Склады -->
+	<xsl:template match="udata[@module='emarket' and @method='stores_info']">
+		<!-- <p><b>состояние на складе</b></p> -->
+		<p></p>
+			<table>
+				<xsl:apply-templates select="stores/store/item" mode="store_item" />
+			</table>
+	</xsl:template>
+
+	<xsl:template match="item" mode="store_item">
+		<tr>
+			<xsl:if test="@is-city">
+			<xsl:attribute name="class">
+				<xsl:value-of select="'isroot'"/>
+			</xsl:attribute>
+			</xsl:if>
+			<td>
+				<xsl:choose>
+					<xsl:when test="@shop">
+						<a href="{@shop}" target="_blank">
+							<xsl:value-of select="@name"/>
+						</a>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="@name"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</td>
+			<td>
+				<xsl:choose>
+					<xsl:when test="@amount = 0">
+						<xsl:attribute name="class">
+				<xsl:value-of select="'out_of_shop'"/>
+			</xsl:attribute>
+						под заказ
+					</xsl:when>
+					<xsl:when test="@amount &lt; 5">
+						<xsl:value-of select="@amount"/> шт.
+					</xsl:when>
+					<xsl:otherwise>
+						&gt; 5 шт.
+					</xsl:otherwise>
+				</xsl:choose></td>
+		</tr>
+
+	</xsl:template>
+	<!-- Склады -->
+
     <xsl:template match="page" mode="contacts">
         <li>
             <a href="{@id}">
@@ -116,7 +165,7 @@
             <xsl:apply-templates select="document(concat('udata://system/numpages/', $total, '/', $limit))/udata" mode="news-pager" /></xsl:if>
     </xsl:template>
     <xsl:template match="udata[@module = 'system' and @method = 'numpages']" mode="news-pager">
-
+       
         <div class="breadcrumbs2_wrapper">
             <ul class="breadcrumbs2">
                 <xsl:apply-templates select="toprev_link" mode="num-news" />
@@ -149,7 +198,23 @@
         <div>
             <label for="{@id}">
                 <xsl:value-of select="@title" disable-output-escaping="no" /><em>*</em>:</label>
-            <input id="{@id}" placeholder="{@tip}" name="{@input_name}" type="text" value="{.}" class="input ntSaveForms" />
+            <input id="{@id}" placeholder="{@tip}" name="{@input_name}" type="text" value="{.}" class="input" required="required" title="Обязательное поле"/>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="field[@name='email']">
+        <div>
+            <label for="{@id}">
+                <xsl:value-of select="@title" disable-output-escaping="no" /><em>*</em>:</label>
+            <input id="{@id}" placeholder="{@tip}" name="{@input_name}" type="text" value="{.}" class="input" required="required" data-rule-email="true" title="Обязательное поле"/>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="field[@name='region']">
+        <div>
+            <label for="{@id}">
+                <xsl:value-of select="@title" disable-output-escaping="no" /><em>*</em>:</label>
+            <input id="{@id}" placeholder="{@tip}" name="{@input_name}" type="text" value="{.}" class="input" required="required" title="Обязательное поле"/>
         </div>
     </xsl:template>
     <xsl:template match="field[@name='country']">
@@ -174,24 +239,24 @@
     <!-- капча!!!! -->
     <xsl:template match="udata[@method='captcha']"><u>Пожалуйста, введите&br;изображенный на рисунке код:</u><u><img src="{url}{@random_string}" border="0" alt="" title="" /></u><u><input type="text" name="captcha" id="captcha" /></u>
     </xsl:template>
-
-
-
-
+    
+    
+    
+    
     <xsl:template match="udata" mode="price">
         <xsl:param name="price_for" />
         <xsl:variable name="my_var2" select="price/actual" />
         <xsl:choose>
             <xsl:when test="discount">
-
+               
              <p class="price_word_usualy"><span><xsl:value-of select="price/original"/> </span><i class="icon-roub"></i></p>
-
-
+               
+                
                     <div class="goodsprice" >
 						<span><xsl:value-of select="format-number($my_var2,'#')" /></span> <i class="icon-roub"></i>
                     </div>
-
-
+                    
+                    
                     <span class="salepercent"> - <xsl:value-of select="discount/description" disable-output-escaping="yes" /></span>
             </xsl:when>
             <xsl:otherwise>
@@ -200,26 +265,26 @@
                 </div>
             </xsl:otherwise>
         </xsl:choose>
+           
 
+             
 
+        
+        
+        
+        
+		
+       
+		
+       
+		
+       
+		
+       
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        
+        
 <!--         цена со скидкой-->
 <!--
         <xsl:choose>
@@ -232,12 +297,12 @@
                     <span class="rub">
                         <span class="rur">p<span>уб.</span>
                     </span>
-
+                
                 </font><br/>
                 <span class="price_word">Cо скидкой: </span>
                 <font class="good_priceview">
                     <span class="good_priceview_separate" >
-                    <xsl:variable name = "my_var2" >
+                    <xsl:variable name = "my_var2" > 
                         <xsl:value-of select="price/actual"/>
                     </xsl:variable>
                     <xsl:value-of select = "format-number($my_var2,'#')" />
@@ -250,45 +315,45 @@
     </xsl:when>
     <xsl:otherwise>
 -->
-
+       
 <!--         обычная цена-->
-
+        
 <!--        <span class="price_word_usualy"> </span><font class="good_priceview_usualy"><span class="good_priceview_separate"></span><span class="rub"><span class="rur"></span></span></font><div class="clearfix"></div><xsl:choose><xsl:when test="$price_for"><span class="price_word">Обычная цена: </span><font class="good_priceview"><span class="good_priceview_separate" ><xsl:value-of select="$price_for"/></span><span class="rub"><span class="rur">p<span>уб.</span></span></span></font><br/><span class="price_word">Ваша цена: </span></xsl:when><xsl:otherwise><span class="price_word">Цена: </span></xsl:otherwise></xsl:choose><font class="good_priceview"><span class="good_priceview_separate" ><xsl:value-of select="price/actual"/></span><span class="rub"><span class="rur">p<span>уб.</span></span></span></font></xsl:otherwise>
-
+       
        </xsl:choose> -->
-
-
-
-
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         </xsl:template>
 
 
 
 
         <xsl:template match="property" mode="dop_goods_connected">
-
+          
             <li>
-
-                <xsl:apply-templates select="document(concat('usel://artikul/', value))/udata/page" mode="catalog_item" />
-
+                       
+                <xsl:apply-templates select="document(concat('usel://artikul/', value))/udata/page" mode="catalog_item" /> 
+               
             </li>
-
+            
         </xsl:template>
 
         <xsl:template match="page" mode="dop_goods_connected_tree">
-
+          
             <li>
-
-                <xsl:apply-templates select="." mode="catalog_item" />
-
+                       
+                <xsl:apply-templates select="." mode="catalog_item" /> 
+               
             </li>
-
+            
         </xsl:template>
 
         <xsl:template match="ip-answer" mode="ipget">
@@ -296,20 +361,20 @@
         </xsl:template>
 
         <xsl:template match="udata" mode="regions">
-
+            
 <!--
             <select name="" id="region" title="">
-               <xsl:apply-templates select="page" mode="regions" />
-            </select>
+               <xsl:apply-templates select="page" mode="regions" />             
+            </select>    
 -->
             <div id="fancyreg" style="display:none;">
                <h3>Выберите ваш регион</h3>
                 <ul name="" id="region" title="">
-                   <xsl:apply-templates select="page" mode="regions" />
-                </ul>
+                   <xsl:apply-templates select="page" mode="regions" />             
+                </ul>  
             </div>
-
-
+            
+                
         </xsl:template>
 
         <xsl:template match="page" mode="regions">
@@ -320,10 +385,10 @@
                      <xsl:attribute name="selected">selected</xsl:attribute>
                 </xsl:if>
                 <xsl:value-of select="name" />
-            </option>
+            </option>      
 -->
-
-
+               
+                
             <li id="{@id}" class="itemregion">
                 <xsl:choose>
                     <xsl:when test="$systempage = 0">
@@ -339,22 +404,31 @@
                         </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
-
+                   
                     <xsl:value-of select="name" />
             </li>
         </xsl:template>
 
+        <xsl:template match="udata[@module='usel' and @method='brends']">
+		<div id="customer_choose">
+			<h3>Выберите производителя</h3>
+				<ul>
+					<xsl:apply-templates select="page" mode="brends"/>
+				</ul>
+		</div>
+		</xsl:template>
+
         <xsl:template match="page" mode="brends">
 
-
+              
               <xsl:variable name="uobject_country" select="extended/properties/property[@name='strana_proizvoditelya']/value/item/@id" />
+                           
 
-
-
+                
             <li id="{@id}">
-               <a href="{@link}">
-
-
+               <a href="{@link}">  
+               
+               
 				   	<xsl:call-template name="thumbing">
 						<xsl:with-param name="source" select="document(concat('uobject://',$uobject_country))/udata/object/properties/group/property[@name='flag_strany']/value" />
 						<xsl:with-param name="width" select="17" />
@@ -366,7 +440,7 @@
                </a>
             </li>
         </xsl:template>
-
+        
 <!-- Вывод карты на всех страницах! -->
 
 <xsl:template name="contcat_map">
@@ -411,7 +485,7 @@
         cont_dlr = [<xsl:apply-templates select="document(concat('usel://dilers/', $listregionid,'/1/'))/udata/page/extended/groups/group/property[@name='e_mail']" mode="maps" />];
 
             geoObjects = [];
-
+            
 
             for(var i = 0, len = cord.length; i &lt; len; i++) {
             		if(cont[i]== undefined){cont[i]='';};
@@ -419,7 +493,7 @@
             }
 
             geoObjects_dlr = [];
-
+            
             for(var i = 0, len = cord_dlr.length; i &lt; len; i++) {
                     geoObjects_dlr[i] = new ymaps.Placemark(cord_dlr[i], {balloonContentHeader:head_dlr[i], balloonContentBody:adr_dlr[i]+cont_dlr[i], balloonContentFooter:footer_dlr[i]}, {iconLayout: 'default#image',iconImageHref:'<xsl:value-of select="$template-resources"/>img/map/map-icon-logo.png'});
             }
@@ -427,7 +501,7 @@
     myMap.geoObjects.add(clusterer_dlr);
             clusterer.add(geoObjects);
     myMap.geoObjects.add(clusterer);
-    pid = <xsl:value-of select="$page-id"/>;
+    pid = <xsl:value-of select="$page-id"/>; 
     if (pid == 9750){
         myMap.setCenter([60.28302266, 29.61007870], 8);
     }
@@ -443,5 +517,5 @@
 </xsl:template>
 
 <!-- Вывод карты на всех страницах! -->
-
+                            
 </xsl:stylesheet>

@@ -7,39 +7,39 @@
                 xmlns:udt="http://umi-cms.ru/2007/UData/templates"
                 xmlns:xlink="http://www.w3.org/TR/xlink"
                 exclude-result-prefixes="xsl date udt xlink">
-
+ 
     <xsl:output encoding="utf-8" method="html" indent="yes" />
-
-
+ 
+   
     <xsl:template match="udata">
     <div >
 
-                        <xsl:apply-templates select="lines"/>
+                        <xsl:apply-templates select="lines"/> 
 
     </div>
     </xsl:template>
 
     <xsl:template match="lines">
-
+        
                         <xsl:apply-templates select="item"/>
-
-
-
-
-
-
-
+                       
+                   
+                            
+                           
+                       
+             
+        
     </xsl:template>
-
+  
 
 <!-- Товар в списке -->
     <xsl:template match="item">
         <xsl:variable name="item" select="document(concat('upage://', @id))/udata" />
         <xsl:variable name="brand" select="$item/page/properties/group/property[@name='brend']/value/item/@id" />
         <xsl:variable name="brand_name" select="document(concat('uobject://', $brand))/udata/object" />
-
+        
          <!--список товаров-->
-        <div class="cat_item_plits">
+        <div class="cat_item_plits" name="{@id}">
             <!--cat_item_list-->
 
             <div class="maingoodinfo" name="{@id}">
@@ -49,24 +49,24 @@
                         <xsl:with-param name="width" select="201" />
                         <xsl:with-param name="height">201</xsl:with-param>
                     </xsl:call-template>
-
+                    
                     <!--закладка распродажи-->
                     <xsl:apply-templates select="$item/page/properties/group/property[@name='akcionnyj_tovar']/title" mode="akcii_sprite"/>
-
+                    
                     <!--закладка Акции-->
                     <xsl:apply-templates select="$item/page/properties/group/property[@name='rasprodazha']/title" mode="rasp_sprite"/>
-
+                    
                     <!--					плашечка скидки на картинке товара в каталоге-->
 					<xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id))/udata" mode="pricesalepercent" />
-
+                    
                 </a>
-                <h4><a href="{@link}" data-id="{@id}"><xsl:value-of select="$item/page/properties/group/property[@name='nazvanie']/value"/></a></h4>
-                <span class="manufacturer_block">Производитель:
+                <h4><a href="{@link}" data-id="{@id}"><xsl:value-of select="$item/page/properties/group/property[@name='nazvanie']/value"/></a></h4> 
+                <span class="manufacturer_block">Производитель: 
                         <a href="{$brand_name/properties/group/property[@name='linkthis']/value}">
                             <xsl:value-of select="$item/page/properties/group/property[@name='brend']/value/item/@name" disable-output-escaping="yes"/>
                         </a>
                     </span>
-                <span class="articul_block">Артикул:
+                <span class="articul_block">Артикул:  
                         <a href="{@link}">
                             <xsl:value-of select="$item/page/properties/group/property[@name='artikul']/value" disable-output-escaping="yes"/>
                         </a>
@@ -80,19 +80,50 @@
 
             <xsl:choose>
                 <xsl:when test="$item/page/properties/group/property[@name='price']/value = 5000000">
-                    <div class="pricenbuttons">
+                    <div class="pricenbuttons">                        
                         <input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
-                        <span class="not_instok">под заказ</span>
+                        <span class="not_instok">
+							<xsl:choose>
+								<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+									<xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="'под заказ'"/>
+								</xsl:otherwise>
+							</xsl:choose>
+						</span>
                         <!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
                     </div>
                     <div class="clearfix"></div>
                 </xsl:when>
-
+                
                 <xsl:when test="$item/page/properties/group/property[@name='common_quantity']/value&gt;0">
                     <div class="pricenbuttons">
                         <xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id))/udata" mode="price" />
                         <input class="buybutton" onclick="site.basket.add({@id})" id="add_basket_{@id}" type="button" value="Купить" />
-                        <span class="instok">в наличии</span>
+                        <span class="instok" data-id="{$item/page/@id}" data-show="{$item/page/properties/group/property[@name='rasprodazha']/value}">в наличии
+							<xsl:choose>
+								<xsl:when test="$item/page/properties/group/property[@name='rasprodazha']/value">
+									&lt; 5
+								</xsl:when>
+								<xsl:when test="$item/page/properties/group/property[@name='common_quantity']/value &lt; 5"> &lt; 5
+								</xsl:when>
+								<xsl:otherwise>
+									<!-- <xsl:value-of select="$item/page/properties/group/property[@name='common_quantity']/value"/> -->
+										&gt; 5
+								</xsl:otherwise>
+							</xsl:choose>
+                        </span>
+							<div class="hiddenTooltip"> <!-- for tooltip -->
+    							<p><b><xsl:value-of select="$item/page/properties/group/property[@name='stores_state']/title"/></b></p>
+        						<table>
+        							<xsl:apply-templates select="$item/page/properties/group/property[@name='stores_state']/value"  mode="sklads"/>
+        						</table>
+     <!--                        <p>Внимание! При наличии товара в г. Новосибирск и г. Екатеринбург его доставка в г. Москва и г. Санкт-Петербург невозможна! Приобрести данный товар можно только под заказ.</p> -->
+						</div>
+							<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+								<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
+							</xsl:if>
                         <!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
                     </div>
                     <div class="clearfix"></div>
@@ -100,15 +131,31 @@
 
                 <xsl:otherwise>
                     <div class="pricenbuttons">
-                        <xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
+                    	<xsl:choose>
+                    		<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+                    			товар снят с производства
+                    		</xsl:when>
+                    		<xsl:otherwise>
+		                        <xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
+		                        
 
-
-                        <!-- <a id="{$item/page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
-                        <input id="{page/@id}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
-
-                        <!-- <input class="buybutton outnstock" type="button" value="Под заказ" /> -->
-                        <span class="not_instok">под заказ</span>
-                        <!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
+		                        <!-- <a id="{$item/page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
+		                        <input id="{page/@id}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
+		                        
+		                        <!-- <input class="buybutton outnstock" type="button" value="Под заказ" /> -->
+		                        <!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
+                    		</xsl:otherwise>
+                    	</xsl:choose>
+		                        <span class="not_instok">
+									<xsl:choose>
+										<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+											<xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:value-of select="'под заказ'"/>
+										</xsl:otherwise>
+									</xsl:choose>
+								</span>
                     </div>
                     <div class="clearfix"></div>
 
@@ -121,8 +168,8 @@
         </div>
     </xsl:template>
 
-
-
+     
+     
      <xsl:template match="udata" mode="pricesalepercent">
 
 
@@ -136,37 +183,37 @@
 
 						</xsl:when>
 						<xsl:otherwise>
-
+							
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:template>
-
-
-
+     
+     
+     
      <!--    шаблоны для ации и распродаж-->
-
+   
     <xsl:template match="title" mode="akcii_sprite">
-        <span class="akcii_sprite">
+        <span class="akcii_sprite"> 
             <xsl:value-of select="." disable-output-escaping="yes" />
         </span>
-    </xsl:template>
-
-
-
+    </xsl:template>   
+    
+    
+    
     <xsl:template match="title" mode="rasp_sprite">
-        <span class="rasp_sprite">
+        <span class="rasp_sprite"> 
             <xsl:value-of select="." disable-output-escaping="yes" />
         </span>
     </xsl:template>
-
+    
 <!--    шаблоны для ации и распродаж-->
-
-
-
-
-
-
-
+    
+    
+     
+     
+     
+     
+     
       <!-- Шаблон создания миниатюры -->
     <xsl:template name="thumbing">
         <xsl:param name="source" />
@@ -188,7 +235,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
+    
 
 
     <xsl:template match="udata" mode="temp">
@@ -202,17 +249,17 @@
         <xsl:variable name="my_var2" select="price/actual" />
         <xsl:choose>
             <xsl:when test="discount">
-
+               
              <p class="price_word_usualy"><span><xsl:value-of select="price/original"/> </span><i class="icon-roub"></i></p>
-
-
+               
+                
                     <div class="goodsprice" >
-                         <span><xsl:value-of select="format-number($my_var2,'#')" /></span>
-
+                         <span><xsl:value-of select="format-number($my_var2,'#')" /></span> 
+                         
 						<i class="icon-roub"></i>
                     </div>
-
-
+                    
+                    
                     <span class="salepercent">-17%</span>
             </xsl:when>
             <xsl:otherwise>
@@ -232,12 +279,12 @@
                     <span class="rub">
                         <span class="rur">p<span>уб.</span>
                     </span>
-
+                
                 </font><br/>
                 <span class="price_word">Cо скидкой: </span>
                 <font class="good_priceview">
                     <span class="good_priceview_separate" >
-                    <xsl:variable name = "my_var2" >
+                    <xsl:variable name = "my_var2" > 
                         <xsl:value-of select="price/actual"/>
                     </xsl:variable>
                     <xsl:value-of select = "format-number($my_var2,'#')" />

@@ -18,7 +18,7 @@ $FORMS['blogs_list_line'] = <<<END
 	<div style="padding-bottom: 10px;">
 		%description%
 	</div>
-	%blogs20 viewBlogAuthors(%bid%)%
+	%blogs20 viewBlogAuthors(%bid%)%	
 </div>
 END;
 
@@ -34,18 +34,18 @@ END;
 
 $FORMS['posts_list_block_empty'] = <<<END
 <h3 style="text-align:center;">Здесь пока пусто</h3>
-<p style="text-align:right;">
+<p style="text-align:right;">		
 	<br />
 	<a href="javascript:history.back();">назад</a>
 </p>
-<br /><br />
+<br /><br />	
 %blogs20 postAdd(%bid%)%
 END;
 
 $FORMS['posts_list_block'] = <<<END
 
 <span style="display:block;text-align:right;padding-bottom:10px;">
-<a href="#" onclick="var block=document.getElementById('range_container');
+<a href="#" onclick="var block=document.getElementById('range_container'); 
 		    if(block.style.display=='block'){block.style.display='none';this.innerHTML='Показать выбор даты';}
 		    else{block.style.display='block';this.innerHTML='Скрыть выбор даты';}">Показать выбор даты</a>
 </span>
@@ -54,34 +54,34 @@ $FORMS['posts_list_block'] = <<<END
 	<script type="text/javascript" src="/js/client/calendar/calendar.js"></script>
 	<script type="text/javascript" src="/js/client/calendar/lang/calendar-en.js"></script>
 	<script type="text/javascript" src="/js/client/calendar/calendar-setup.js"></script>
-
+	
 	<div id="calendar_from"  style="float:left;padding-bottom:10px;">
 		<span style="display:block;text-align:center;font-weight:bold">От</span><br />
 	</div>
 	<div id="calendar_to"  style="float:left;padding-bottom:10px;">
 		<span style="display:block;text-align:center;font-weight:bold">До</span><br />
 	</div>
-
+	
 	<script type="text/javascript">
-	function getArgs() {
-		var args = new Object();
-		var query = location.search.substring(1);
-		var pairs = query.split("&");
-		for(var i = 0; i < pairs.length; i++) {
-			var pos = pairs[i].indexOf('=');
-			if (pos == -1) continue;
-			var argname = pairs[i].substring(0,pos);
-			var value = pairs[i].substring(pos+1);
-			args[argname] = unescape(value);
-		}
-		return args;
-	}
+	function getArgs() { 
+		var args = new Object(); 
+		var query = location.search.substring(1); 
+		var pairs = query.split("&"); 
+		for(var i = 0; i < pairs.length; i++) { 
+			var pos = pairs[i].indexOf('='); 
+			if (pos == -1) continue; 
+			var argname = pairs[i].substring(0,pos); 
+			var value = pairs[i].substring(pos+1); 
+			args[argname] = unescape(value); 
+		} 
+		return args; 
+	} 
 	var args 	 = getArgs();
-	if(args['from_date']) {
+	if(args['from_date']) {         
 		var d 		 = args['from_date'].split("-");
 		var dateFrom = new Date(parseInt(d[0]), parseInt(d[1])-1, parseInt(d[2]));
 	} else {
-		var dateFrom = new Date();
+		var dateFrom = new Date(); 
 	}
 	if(args['to_date']) {
 		var d 		 = args['to_date'].split("-");
@@ -90,41 +90,41 @@ $FORMS['posts_list_block'] = <<<END
 		var dateTo   = new Date();
 	}
 	function dateChangedFrom(calendar) {
-		if (calendar.dateClicked) {
+		if (calendar.dateClicked) {      
       		var y = calendar.date.getFullYear();
-      		var m = calendar.date.getMonth() + 1;
-      		var d = calendar.date.getDate();
+      		var m = calendar.date.getMonth() + 1;     
+      		var d = calendar.date.getDate(); 
       		document.getElementById('date_from').value = y + "-" + m + "-" + d;
     	}
 	}
 	function dateChangedTo(calendar) {
-		if (calendar.dateClicked) {
+		if (calendar.dateClicked) {      
       		var y = calendar.date.getFullYear();
-      		var m = calendar.date.getMonth() + 1;
-      		var d = calendar.date.getDate();
+      		var m = calendar.date.getMonth() + 1;     
+      		var d = calendar.date.getDate(); 
       		document.getElementById('date_to').value = y + "-" + m + "-" + d;
     	}
 	}
 	var cfrom = Calendar.setup(
 	    {
 	      flat         : "calendar_from", // ID of the parent element
-	      flatCallback : dateChangedFrom, // our callback function
+	      flatCallback : dateChangedFrom, // our callback function	      
 	      date		   : dateFrom//args['from_date']
 	    }
-	);
+	);	
 	var cto   = Calendar.setup(
 	    {
 	      flat         : "calendar_to", // ID of the parent element
-	      flatCallback : dateChangedTo, // our callback function
+	      flatCallback : dateChangedTo, // our callback function	     
 	      date		   : dateTo//args['to_date']
 	    }
-	);
-	</script>
-
-	<span style="display:block;text-align:right;" >
+	);		
+	</script>	
+	
+	<span style="display:block;text-align:right;" >		
 		<form method="get">
 			<input type="hidden" id="date_from" name="from_date" />
-			<input type="hidden" id="date_to"   name="to_date"   />
+			<input type="hidden" id="date_to"   name="to_date"   />		
 			<input type="submit" value="Показать" />
 		</form>
 	</span>
@@ -134,18 +134,18 @@ $FORMS['posts_list_block'] = <<<END
 	%lines%
 	<br /><br />
 	%system numpages(%total%, %per_page%, 'standart')%
-	<br /><br />
+	<br /><br />	
 	%blogs20 postAdd(%bid%)%
 </div>
 END;
 
 $FORMS['posts_list_line'] = <<<END
 <div style="padding-bottom: 40px;">
-	<div style="font-size:12pt;">
-		<a href="%blog_link%" style="color:#777;text-decoration:none;">%blog_title% &gt;</a>
+	<div style="font-size:12pt;">	
+		<a href="%blog_link%" style="color:#777;text-decoration:none;">%blog_title% &gt;</a> 
 		<a href="%post_link%" style="text-decoration:none;">%title%</a>
 	</div>
-	<div style="padding-left:10px;">
+	<div style="padding-left:10px;">	
 		<div style="padding: 10px 0 10px 0;">
 			%cut%
 		</div>
@@ -161,9 +161,9 @@ $FORMS['posts_list_line'] = <<<END
 				<a href="%post_link%#comments" title="Читать комментарии" style="text-decoration:none;">
 					<img src="/images/cms/blogs20/comments.png" align="middle" alt="Теги" style="border:0;" />
 					%comments_count%
-				</a>
+				</a>				
 			</span>
-		</div>
+		</div>				
 	</div>
 </div>
 END;
@@ -174,7 +174,7 @@ END;
 
 $FORMS['post_view'] = <<<END
 <span style="font-size:12pt;">
-	<a href="%blog_link%" style="color:#777;text-decoration:none;">%blog_title% &gt;</a>
+	<a href="%blog_link%" style="color:#777;text-decoration:none;">%blog_title% &gt;</a> 
 	<a href="%post_link%" style="text-decoration:none;">%title%</a>
 </span>
 <br /><br />
@@ -226,12 +226,12 @@ $FORMS['comments_list_line'] = <<<END
 </div>
 <div style="clear:both;">
 	<p  umi:element-id="%id%" umi:field-name="content">
-		%content%
+		%content%	
 	</p>
 	<p style="padding-bottom:20px;">
 		(<a href="#comment_add" onclick="javascript:setCommentParent(%cid%);">Ответить</a>)
 	</p>
-
+	
 	<div style="padding-left:30px;">
 		%subcomments%
 	</div>
@@ -245,7 +245,7 @@ $FORMS['post_add_form'] = <<<END
 
 %blog_select%
 
-<input type="checkbox" id="visible_for_friends" name="visible_for_friends" style="border:1px solid #ccc;" %visible_for_friends% />
+<input type="checkbox" id="visible_for_friends" name="visible_for_friends" style="border:1px solid #ccc;" %visible_for_friends% /> 
 <label for="visible_for_friends">Будет видно только друзьям</label><br /><br />
 
 <label for="title">Заголовок</label><br />
@@ -263,7 +263,7 @@ $FORMS['post_add_form'] = <<<END
 <input type="hidden" id="post_%id%_draught" name="draught" value="0" />
 <br />
 <p align="right">
-	<input type="button" value="В черновики" onclick="javascript:document.getElementById('post_%id%_draught').value=1;this.form.submit();" />
+	<input type="button" value="В черновики" onclick="javascript:document.getElementById('post_%id%_draught').value=1;this.form.submit();" /> 
 	<input type="submit" value="Опубликовать" />
 </p>
 </form>
@@ -274,7 +274,7 @@ $FORMS['post_edit_form'] = <<<END
 
 %blog_select%
 
-<input type="checkbox" id="visible_for_friends" name="visible_for_friends" style="border:1px solid #ccc;" %visible_for_friends% />
+<input type="checkbox" id="visible_for_friends" name="visible_for_friends" style="border:1px solid #ccc;" %visible_for_friends% /> 
 <label for="visible_for_friends">Будет видно только друзьям</label><br /><br />
 
 <label for="title">Заголовок</label><br />
@@ -292,7 +292,7 @@ $FORMS['post_edit_form'] = <<<END
 <input type="hidden" id="post_%id%_draught" name="draught" value="0" />
 <br />
 <p align="right">
-	<input type="button" value="В черновики" onclick="javascript:document.getElementById('post_%id%_draught').value=1;this.form.submit();" />
+	<input type="button" value="В черновики" onclick="javascript:document.getElementById('post_%id%_draught').value=1;this.form.submit();" /> 
 	<input type="submit" value="Опубликовать" />
 </p>
 </form>
@@ -360,8 +360,8 @@ $FORMS['comment_add_form'] = <<<END
 	<form id="comment_add_form" method="post" action="/blogs20/commentAdd/%parent_id%/">
 		<textarea id="comment_editor" name="content" style="width:100%; height:100px;"></textarea><br />
 		%comments smilePanel('comment_editor')%
-		<span style="color:#777">Для оформления можно использовать bb-коды</span><br />
-		<p align="right"><input type="submit" value="Отправить" /></p>
+		<span style="color:#777">Для оформления можно использовать bb-коды</span><br />					
+		<p align="right"><input type="submit" value="Отправить" /></p>	
 	</form>
 </a>
 END;
@@ -377,9 +377,9 @@ $FORMS['comment_add_form_guest'] = <<<END
 		<label for="comment_editor">Текст комментария</label><br />
 		<textarea id="comment_editor" name="content" style="width:100%; height:100px;"></textarea><br />
 		%comments smilePanel('comment_editor')%
-		<span style="color:#777">Для оформления можно использовать bb-коды</span><br />
+		<span style="color:#777">Для оформления можно использовать bb-коды</span><br />	
 		%system captcha()%
-		<p align="right"><input type="submit" value="Отправить" /></p>
+		<p align="right"><input type="submit" value="Отправить" /></p>	
 	</form>
 
 END;
@@ -392,7 +392,7 @@ $FORMS['blod_edit_block'] = <<<END
 			<img src="/images/cms/blogs20/draught.png" alt="Черновики" title="Черновики" style="border:0;vertical-align:middle;" />
 			&#8594;
 		</a>
-		<a href="/blogs20/draughtsList/" style="color:#777;vertical-align:middle;" title="Черновики">Черновики публикаций</a>
+		<a href="/blogs20/draughtsList/" style="color:#777;vertical-align:middle;" title="Черновики">Черновики публикаций</a>		
 	</span>
 	%lines%
 </div>
@@ -408,12 +408,12 @@ $FORMS['blog_edit_line'] = <<<END
 		<form id="form_%bid%_edit" method="post" action="/blogs20/editUserBlogs/%bid%/">
 			<input type="hidden" name="redirect" value="%current_page%" />
 			<label for="blog_%bid%_title">Название</label><br />
-			<input type="text" id="blog_%bid%_title" name="blog[%bid%][title]" style="width:99%;border:1px solid #ccc;" value="%title%" /><br /><br />
+			<input type="text" id="blog_%bid%_title" name="blog[%bid%][title]" style="width:99%;border:1px solid #ccc;" value="%title%" /><br /><br />			
 			<label for="blog_%bid%_description">Описание</label><br />
 			<input type="text" id="blog_%bid%_description" name="blog[%bid%][description]" style="width:99%;border:1px solid #ccc;" value="%description%" /><br /><br />
 			<label for="blog_%bid%_friendlist">Друзья</label><br />
-			<select id="blog_%bid%_friendlist" name="blog[%bid%][friendlist][]" multiple="multiple" style="width:99%;height:100px;border:1px solid #ccc;">%friends%</select><br /><br />
-
+			<select id="blog_%bid%_friendlist" name="blog[%bid%][friendlist][]" multiple="multiple" style="width:99%;height:100px;border:1px solid #ccc;">%friends%</select><br /><br />	
+			
 			<span style="display:block;text-align:right;"><input type="submit" value="Сохранить" /></span>
 		</form>
 	</div>
@@ -427,12 +427,12 @@ $FORMS['blog_new_line'] = <<<END
 		<form id="form_%bid%_edit" method="post" action="/blogs20/editUserBlogs/%bid%/">
 			<input type="hidden" name="redirect" value="%current_page%" />
 			<label for="blog_%bid%_title">Название</label><br />
-			<input type="text" id="blog_%bid%_title" name="blog[%bid%][title]" style="width:99%;border:1px solid #ccc;" value="%title%" /><br /><br />
+			<input type="text" id="blog_%bid%_title" name="blog[%bid%][title]" style="width:99%;border:1px solid #ccc;" value="%title%" /><br /><br />			
 			<label for="blog_%bid%_description">Описание</label><br />
 			<input type="text" id="blog_%bid%_description" name="blog[%bid%][description]" style="width:99%;border:1px solid #ccc;" value="%description%" /><br /><br />
 			<label for="blog_%bid%_friendlist">Друзья</label><br />
-			<select id="blog_%bid%_friendlist" name="blog[%bid%][friendlist][]" multiple="multiple" style="width:99%;height:100px;border:1px solid #ccc;">%friends%</select><br /><br />
-
+			<select id="blog_%bid%_friendlist" name="blog[%bid%][friendlist][]" multiple="multiple" style="width:99%;height:100px;border:1px solid #ccc;">%friends%</select><br /><br />	
+			
 			<span style="display:block;text-align:right;"><input type="submit" value="Сохранить" /></span>
 		</form>
 	</div>

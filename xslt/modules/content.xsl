@@ -4,54 +4,59 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.ru/TR/umi">
 
+
+
+
+
+		
 	<xsl:template match="result[@module = 'content' and @method = 'content']">
 
 
 
 
-
+	 	
 
 
             <article>
             	<h1 class="dialog_par"><xsl:value-of select="@header"/></h1>
                 <xsl:apply-templates select="$errors" />
-
-
+                
+                
                 <xsl:choose>
                                         <xsl:when test="page/@parentId=4820">
-
-
+            								
+											
                                        <xsl:variable name="brendusel" select="document('usel://brends')" />
-
+                                       
                                        <xsl:variable name="brendpageID" select="document(concat('upage://',@pageId))/udata/page/@id" />
-
-
+                                       
+                                       
                                        <xsl:apply-templates select="document('usel://brends')/udata/page[@id=$brendpageID]" mode="brends45" />
-
-
-
-
+                                       
+                                       
+                                       
+                                       
 <!--                                       <xsl:value-of select="$brendpageID"/>-->
+                                       
+                                       
 
-
-
-
-
-
-
-
-
-
-
-
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
                                         </xsl:when>
                                         <xsl:otherwise>
-
-
+           
+											
                                         </xsl:otherwise>
                                     </xsl:choose>
-
-
+                
+                
 						<div>
 
 							<!--					свернуть/развернуть-->
@@ -63,7 +68,7 @@
 
 							<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes" />
 
-						</div>
+						</div>          
 <!--                	<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>-->
 
 				<xsl:if test="page/@type-id='281'">
@@ -81,7 +86,7 @@
 						<ul>
 							<xsl:apply-templates select="page/properties/group/property[@name='instrukcii']/value/page" mode="files" />
 						</ul>
-					</div>
+					</div> 
 						<h2>Посмотреть товары бренда <xsl:value-of select="@header"/></h2>
 					<section class="mainpage_section" style="width: auto; margin: 0;">
 						<!-- <xsl:apply-templates select="document('udata://catalog/getCategoryList/notemplate/(katalog)')/udata/items/item" mode="categorylist_main">
@@ -96,16 +101,16 @@
 					</section>
 					<div class="clearfix"></div>
 				</xsl:if>
-
+				
 				<xsl:if test="page/properties/group/property[@name='fotogalereya']/value/page">
-
+					
 						<xsl:apply-templates select="document(concat('udata://photoalbum/album_sort/',page/properties/group/property[@name='fotogalereya']/value/page/@id ))/udata/items" mode="photos"/>
 
 				</xsl:if>
 
 				<xsl:if test="page/properties/group/property[@name='forma_obratnoj_svyazi']/value/page">
-					<div style="display:none;">
-						<div id="form_for" style="padding: 0 30px 0 25px;">
+					<div style="display:none;">	
+						<div id="form_for" style="padding: 0 30px 0 25px;">	
 						<xsl:apply-templates select="document(concat('upage://', page/properties/group/property[@name='forma_obratnoj_svyazi']/value/page/@id ))/udata" mode="form_in_page"/>
 						</div>
 					</div>
@@ -117,14 +122,14 @@
 				</xsl:if>
 
                 <xsl:if test="page/properties/group[@name='svyazannye_tovary'] or page/properties/group/property[@name='tovary']/value">
-
+				
                    <div class="clearfix"></div>
                     <h3>Обратите внимание на товары, которые описаны выше</h3>
                         <div id="catalog_list" class="cat_item_list">
                             <div id="towars" class="flexslider">
                                 <ul class="slides">
-                                    <xsl:apply-templates select="page/properties/group[@name='svyazannye_tovary']/property" mode="dop_goods_connected" />
-                                    <xsl:apply-templates select="page/properties/group/property[@name='tovary']/value/page" mode="dop_goods_connected_tree" />
+                                    <xsl:apply-templates select="page/properties/group[@name='svyazannye_tovary']/property" mode="dop_goods_connected" /> 
+                                    <xsl:apply-templates select="page/properties/group/property[@name='tovary']/value/page" mode="dop_goods_connected_tree" /> 
                                 </ul>
                             </div>
                         </div>
@@ -134,19 +139,21 @@
                     <xsl:value-of select="page//property[@name='karta']/value" disable-output-escaping="yes" />
                 </xsl:if>
 
+				
 
-
-                <xsl:apply-templates select="$errors" />
+                <xsl:apply-templates select="$errors" />            
             </article>
-
+					
 
 
 
 	</xsl:template>
 
+	
+
 
 	<xsl:template match="page" mode="brends45">
-
+		
 		<xsl:choose>
 			 <xsl:when test="not(.//property[@name='logotip_brenda_str_br']/value)">
 	            <!--когда логотип отсутствует выводим ничего -->
@@ -160,37 +167,37 @@
 					<xsl:with-param name="width" select="150" />
 					<xsl:with-param name="height">77</xsl:with-param>
 				</xsl:call-template>
-
+				
 				<xsl:choose>
 				<xsl:when test="not(.//property[@name='oficialnyj_sajt']/value)">
 	            <!--когда ссылка отсутствует выводим ничего -->
 	        </xsl:when>
-
+	        
 	        <xsl:otherwise>
 				<a class="learn_more" href="{.//property[@name='oficialnyj_sajt']/value}" rel="nofollow" target="_blank" style="display:block;margin:30px 0 20px 0;">Официальный сайт</a>
 				</xsl:otherwise>
-
+				
 				</xsl:choose>
-			</span>
-
-	        </xsl:otherwise>
+			</span>	
+        	
+	        </xsl:otherwise>	
 		</xsl:choose>
 
-
-
+		
+		
 	</xsl:template>
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
 	<xsl:template match="result[@module = 'content' and @method = 'content'][page/@type-id='122']">
-
-
+				
+					
 		        <div class="inside_productions_items">
             <div class="productions">
-				<xsl:apply-templates select="document('udata://catalog/getCategoryList/notemplate/(/katalog)')/udata/items/item" mode="categorylistimage" />
+				<xsl:apply-templates select="document('udata://catalog/getCategoryList/notemplate/(/katalog)')/udata/items/item" mode="categorylistimage" /> 
             </div>
         </div>
         <div class="widthtxtcont">
@@ -198,7 +205,7 @@
 
                 <!-- хлебокрохи -->
                 <xsl:apply-templates select="document('udata://core/navibar/')/udata" mode="bread"/>
-
+										
 
 
                 <div class="inside_goodcontent">
@@ -206,7 +213,7 @@
 
                     <div class="contacts_block">
                         <table>
-
+                        
                             <tr>
                                 <td>Адрес:</td>
                                 <td>Россия, город Санкт петербург, ул. Дорожная, дом 6 , строение 6</td>
@@ -220,10 +227,10 @@
                                 <td>пн-пт 9.00 - 18.00 <br/>сб-вс Выходной</td>
                             </tr>
                             <tr>
-                                <td>Почта:</td>
+                                <td>E-mail:</td>
                                 <td>info@welgen.ru</td>
                             </tr>
-
+                            
                         </table>
                         <div class="contscts_form">
                             <form action="">
@@ -242,32 +249,32 @@
                         </div>
 
 
-
+                       
                     </div>
-
+                
             </div>
-
+            
         </div>
 
     </div>
      <div class="clearfix"></div>
-
+				
 
 	</xsl:template>
 
 	<xsl:template match="result[@module = 'content' and @method = 'content'][@pageId='5']">
-
+				
 		<xsl:value-of select="document(concat('udata://content/redirect/', $systempage))" />
 
-
+				
 
 	</xsl:template>
 
-
+	
 
 		<xsl:template match="result[@module = 'content' and @method = 'getRecentPages']">
-
-
+				
+					
 						<xsl:apply-templates select="$errors" />
 			            	<xsl:value-of select=".//property[@name = 'content']/value"	disable-output-escaping="yes" />
 	 					<xsl:apply-templates select="$errors" />
@@ -276,13 +283,13 @@
 					</ul>
 
 	</xsl:template>
+	
 
-
-
+	
 
 <!--
 	<xsl:template match="result[@module = 'content' and @method = 'notfound']">
-
+	 	
 
 
             <article>
@@ -290,27 +297,27 @@
 				<xsl:apply-templates select="document('udata://content/sitemap')/udata" />
 			</article>
 	</xsl:template>
-
+	
 -->
-
+	
 	<xsl:template match="result[@module = 'content' and @method = 'sitemap']">
 		<xsl:apply-templates select="document('udata://content/sitemap//500')/udata/items" />
 	</xsl:template>
-
-
-
+	
+	
+	
 	<xsl:template match="udata[@method = 'sitemap']//items">
 		<ul class="menu" umi:module='content' umi:method='menu' umi:element-id="0" umi:button-position="bottom left" umi:region="list" umi:sortable="sortable">
 			<xsl:apply-templates select="item" />
 		</ul>
 	</xsl:template>
-
+	
 	<xsl:template match="udata[@method = 'sitemap']//item">
 		<li umi:region="row">
 			<a href="{@link}" umi:element-id="{@id}" umi:field-name="name" umi:delete="delete" umi:empty="Название страницы">
 				<xsl:value-of select="@name" />
 			</a>
-
+			
 			<xsl:apply-templates select="items" />
 		</li>
 	</xsl:template>
@@ -339,7 +346,7 @@
 	</xsl:template>
 
 	<xsl:template match="udata[@module = 'filemanager'][@method = 'shared_file']">
-
+		
 			<p>
 				<xsl:text>Имя файла: </xsl:text>
 				<xsl:value-of select="file_name" />
@@ -349,7 +356,7 @@
 				<xsl:value-of select="file_size" />
 				<xsl:text> Kb</xsl:text>
 			</p>
-
+			
 			<p>
 				<xsl:text>Если закачивание файла не начнется через 3 сек, кликните </xsl:text>
 				<a href="{download_link}">
@@ -364,14 +371,14 @@
 			<script languge="text/javascript">
 				<xsl:text>window.setTimeout('javascript:history.back()', 4000);</xsl:text>
 			</script>
-
+		
 	</xsl:template>
 
 	<xsl:template match="result[@module = 'content' and @method = 'content'][page/@object-id='6707']">
 		<article>
 			<h1 class="dialog_par"><xsl:value-of select="page/name" disable-output-escaping="yes" /></h1>
-			<h3><a href="http://market.yandex.ru/shop/98576/reviews/" target="_blank">Все отзывы на Яндекс.Маркете</a></h3>
-			<h3><a href="http://market.yandex.ru/shop/98576/reviews/add" target="_blank">Добавить отзыв на Яндекс.Маркете</a></h3>
+			<h3><a href="http://market.yandex.ru/shop/98576/reviews/" onclick="yaCounter7760038.reachGoal('all_rev_to_yamarket'); return true;" target="_blank">Все отзывы на Яндекс.Маркете</a></h3>
+			<h3><a href="http://market.yandex.ru/shop/98576/reviews/add" onclick="yaCounter7760038.reachGoal('add_rev_to_yamarket'); return true;" target="_blank">Добавить отзыв на Яндекс.Маркете</a></h3>
 			<xsl:apply-templates select="document('http://kamin.ru/otz.php')/opinion-list/opinion" mode="opinion" />
 		</article>
 	</xsl:template>
@@ -385,7 +392,7 @@
 						<xsl:if test="author-info/avatar">
 							<img src="{author-info/avatar}"/>
 						</xsl:if>
-					</div>
+					</div>		
 						<xsl:choose>
 							<xsl:when test="anonymous = 'true'"><span class="yandexreview-username_anonymous">Пользователь скрыл свои данные</span></xsl:when>
 							<xsl:when test="anonymous = 'false'"><span class="yandexreview-username">
@@ -412,7 +419,7 @@
 					</xsl:choose>
 				</div>
 
-				<div class="yandexreview__delivery">Способ покупки:
+				<div class="yandexreview__delivery">Способ покупки: 
 				<xsl:choose>
 					<xsl:when test="delivery = 'DELIVERY'">доставка</xsl:when>
 					<xsl:when test="delivery = 'PICKUP'">самовывоз</xsl:when>
@@ -446,11 +453,11 @@
 			</xsl:if>
 			<div class="yandexreview__footer">
 				<div class="yandexreview-usergrade yandexreview-usergrade_active_yes">
-					Отзыв полезен?
+					Отзыв полезен? 
 					<span class="yandexreview-usergrade__votes">
-						<span class="yandexreview__pro">Да </span>
+						<span class="yandexreview__pro">Да </span> 
 						<span class="yandexreview__pro-num"><xsl:value-of select="@agree" disable-output-escaping="yes" /></span> /
-						<span class="yandexreview__contra">Нет </span>
+						<span class="yandexreview__contra">Нет </span> 
 						<span class="yandexreview__contra-num"><xsl:value-of select="@reject" disable-output-escaping="yes" /></span>
 					</span>
 				</div>
@@ -484,7 +491,7 @@
 				footer = [<xsl:apply-templates select="document('usel://contacts/')/udata/page/extended/groups/group/property[@name='phone']" mode="maps" />];
 				cont = [<xsl:apply-templates select="document('usel://contacts/')/udata/page/extended/groups/group/property[@name='e_mail']" mode="maps" />];
 				geoObjects = [];
-
+				
 				for(var i = 0, len = cord.length; i &lt; len; i++) {
 		        		geoObjects[i] = new ymaps.Placemark(cord[i], {balloonContentHeader:head[i], balloonContentBody:adr[i]+cont[i], balloonContentFooter:footer[i]}, {
 	     						iconLayout: 'default#image',
@@ -494,7 +501,7 @@
 		    	clusterer.add(geoObjects);
 	    		myMap.geoObjects.add(clusterer);
 	    		myMap.setBounds(clusterer.getBounds());
-
+			    
 			    if (cord.length == 1){
 			   		myMap.setZoom(9);
 			    }
@@ -503,7 +510,7 @@
 
 	 	<article>
            	<h1 class="dialog_par"><xsl:value-of select="@header"/></h1>
-
+        
         <div id="yamapsdlr">
 		</div>
 		<table border="0">
@@ -512,7 +519,7 @@
 	            <td><strong>Название</strong></td>
 	            <td><strong>Адрес</strong></td>
 	            <td><strong>Телефон</strong></td>
-	            <td><strong>Сайт</strong></td>
+	            <td><strong>E-mail</strong></td>
 	        </tr>
 	       	<xsl:apply-templates select="document('usel://contacts/')/udata/page/extended/groups" mode="concat_node" />
 		    </tbody>
@@ -547,7 +554,7 @@
 				footer = [<xsl:apply-templates select="document('usel://dilers/')/udata/page/extended/groups/group/property[@name='phone']" mode="maps" />];
 				cont = [<xsl:apply-templates select="document('usel://dilers/')/udata/page/extended/groups/group/property[@name='e_mail']" mode="maps" />];
 				geoObjects = [];
-
+				
 				for(var i = 0, len = cord.length; i &lt; len; i++) {
 		        		geoObjects[i] = new ymaps.Placemark(cord[i], {balloonContentHeader:head[i], balloonContentBody:adr[i]+cont[i], balloonContentFooter:footer[i]}, {
 	     						iconLayout: 'default#image',
@@ -557,7 +564,7 @@
 		    	clusterer.add(geoObjects);
 	    		myMap.geoObjects.add(clusterer);
 	    		myMap.setBounds(clusterer.getBounds());
-
+			    
 			    if (cord.length == 1){
 			   		myMap.setZoom(9);
 			    }
@@ -566,10 +573,10 @@
 
 	 	<article>
            	<h1 class="dialog_par"><xsl:value-of select="@header"/></h1>
-
+        
         <div id="yamapsdlr">
 		</div>
-
+		
 		<div class="clearfix"></div>
 			<h2>8-800-555-444-0 - бесплатные звонки из регионов РФ</h2>
 			<h2><a href="/gde_kupit/">Где купить</a></h2>
@@ -580,7 +587,7 @@
 		<div class="clearfix"></div>
 
         <div class="answeronquestionbl">
-			<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>
+			<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>	
 		</div>
 		</article>
 	</xsl:template>
@@ -611,7 +618,7 @@
 				footer = [<xsl:apply-templates select="document(concat('upage://', page/properties/group/property[@name='region_id']/value/page/@id))/udata/page/properties/group/property[@name='phone']" mode="maps" />];
 				cont = [<xsl:apply-templates select="document(concat('upage://', page/properties/group/property[@name='region_id']/value/page/@id))/udata/page/properties/group/property[@name='e_mail']" mode="maps" />];
 				geoObjects = [];
-
+				
 				for(var i = 0, len = cord.length; i &lt; len; i++) {
 		        		geoObjects[i] = new ymaps.Placemark(cord[i], {balloonContentHeader:head[i], balloonContentBody:adr[i]+cont[i], balloonContentFooter:footer[i]}, {
 	     						iconLayout: 'default#image',
@@ -621,7 +628,7 @@
 		    	clusterer.add(geoObjects);
 	    		myMap.geoObjects.add(clusterer);
 	    		myMap.setBounds(clusterer.getBounds());
-
+			    
 			    if (cord.length == 1){
 			   		myMap.setZoom(9);
 			    }
@@ -641,10 +648,10 @@
                 	</xsl:if>
                     <li>
                         <a name="tab3" href="javascript://">Сотрудники</a>
-                    </li>
+                    </li>                    
                     <li>
                         <a name="tab4" href="javascript://">Новости и акции</a>
-                    </li>
+                    </li>                    
                     <li>
                         <a name="tab5" href="javascript://">Отзывы</a>
                     </li>
@@ -677,18 +684,18 @@
 				<div id="tab4" style="display:none;">
 					<xsl:apply-templates select="document(concat('usel://salon_news/', @pageId))/udata/page" mode="news_salon" />
 
-				</div>
+				</div>	
 				<div id="tab5" style="display:none;">
                     <xsl:apply-templates select="document('udata://comments/insert/')/udata" />
                     <xsl:apply-templates select="user" mode="addcomment" />
-				</div>
+				</div>	
 				<div id="tab6" style="display:none;">
 					<xsl:apply-templates select="document(concat('udata://catalog/salonObject/', @pageId))" mode="catalogus_current">
 						<xsl:with-param name="in-salon" select="1" />
 					</xsl:apply-templates>
 				</div>
 			</div>
-			</article>
+			</article>	
 	</xsl:template>
 	<xsl:template match="result[@module = 'content' and @method = 'content'][page/@type-id='283'][page/@id='6497']">
 		<article>
@@ -700,10 +707,10 @@
                     </li>
                     <li>
                         <a name="tab2" href="javascript://">Сотрудники</a>
-                    </li>
+                    </li>                    
                     <li style="width: 200px;">
                         <a name="tab3" href="javascript://">Отправить сообщение</a>
-                    </li>
+                    </li>                    
                     <li>
                         <a name="tab4" href="javascript://">Отзывы</a>
                     </li>
@@ -718,13 +725,13 @@
 				</div>
 				<div id="tab3" style="display:none;">
 					<xsl:apply-templates select="document('udata://webforms/add/308')/udata"  mode="form" />
-				</div>
+				</div>	
 				<div id="tab4" style="display:none;">
                     <xsl:apply-templates select="document('udata://comments/insert/')/udata" />
                     <xsl:apply-templates select="user" mode="addcomment" />
-				</div>
+				</div>	
 			</div>
-		</article>
+		</article>	
 	</xsl:template>
 
 <!-- Где купить в выбранном регионе -->
@@ -736,9 +743,9 @@
 <xsl:variable name="listregionid" select="parents/page[@id = $pageParent]/@object-id" />
 
 	<article>
-
+	
 	<h1 class="dialog_par"><xsl:value-of select="@header"/></h1>
-
+	
 	<xsl:apply-templates select="$errors" />
 	<xsl:choose>
 		<xsl:when test="document(concat('usel://dilers/', $listregionid))/udata/total &gt; 0">
@@ -757,7 +764,7 @@
 			</table>
 		</xsl:when>
 	</xsl:choose>
-
+	
 	<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>
 	</article>
 
@@ -775,7 +782,7 @@
 	<div id="yamapsdlr">
 	</div>
 
-
+	
 	<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>
 	</article>
 </xsl:template>
@@ -789,7 +796,7 @@
 			<xsl:value-of select="property[@name = 'adres']/value" disable-output-escaping="yes"/>
 		</td>
 		<td>
-			<xsl:value-of select="property[@name = 'phone']/value"/>
+			<xsl:value-of select="property[@name = 'phone']/value" disable-output-escaping="yes"/>
 		</td>
 		<td>
 			<xsl:value-of select="property[@name = 'e_mail']/value" disable-output-escaping="yes"/>
@@ -816,7 +823,6 @@
 <xsl:template match="property[@name='e_mail']" mode="maps">
 	['<xsl:value-of select="value" disable-output-escaping="yes" />']<xsl:if test="position() != last()">,</xsl:if>
 </xsl:template>
-
 
 
 </xsl:stylesheet>

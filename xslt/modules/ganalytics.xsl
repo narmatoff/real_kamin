@@ -6,7 +6,7 @@
 	xmlns:umi="http://www.umi-cms.ru/TR/umi">
 
 <xsl:template name="ec">
-
+	
 </xsl:template>
 
 <xsl:template name="checkout_cart">

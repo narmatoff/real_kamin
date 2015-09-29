@@ -91,7 +91,7 @@
 				<html class="no-js"> <!--<![endif]-->
 <head>
 
- <link type="text/plain" rel="author" href="{$template-resources}humans.txt" />
+ <link type="text/plain" rel="author" href="humans.txt" />
 
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -235,7 +235,7 @@
         </xsl:choose>
 
     <!-- <meta name="viewport" content="ya-title=fade,ya-dock=#00CCCC" /> -->
-    <link rel="stylesheet" href="{$template-resources}css/normalize.css"/>
+    <link rel="stylesheet" href="{$template-resources}css/normalize-dist.css"/>
     <link rel="stylesheet" href="{$template-resources}css/main-dist.css"/>
 <!--    <link rel="stylesheet" href="{$template-resources}css/test.css"/>-->
 
@@ -294,7 +294,11 @@
 
     <link rel="stylesheet" href="{$template-resources}css/jquery.fancybox.css" media="screen" />
 
-     <script src="{$template-resources}bower_components/jquery.form.validation/form-validator/jquery.form-validator.min.js"></script>
+     <!-- <script src="{$template-resources}bower_components/jquery.form.validation/form-validator/jquery.form-validator.min.js"></script> -->
+
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="http://jqueryvalidation.org/files/demo/marketo/jquery.maskedinput.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 
 
     <!--[if lt IE 9]>
@@ -302,6 +306,18 @@
     <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="{$template-resources}js/fancybox/jquery.fancybox.css" media="screen" />
+
+
+    <!-- плогин для импута телефона -->
+    <!-- <link rel="stylesheet" type="text/css" href="{$template-resources}css/jqx.base.css" media="screen" />
+    <script src="{$template-resources}js/jqxcore.js"></script>
+    <script src="{$template-resources}js/jqxmaskedinput.js"></script> -->
+    <script src="{$template-resources}js/inputmask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="{$template-resources}js/inputmask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+    <script src="{$template-resources}js/inputmask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="{$template-resources}js/inputmask/jquery.inputmask.numeric.extensions.js" type="text/javascript"></script>
+    <script src="{$template-resources}js/inputmask/jquery.inputmask.custom.extensions.js" type="text/javascript"></script>
+    <!-- плогин для импута телефона -->
 
 
     <script>
@@ -331,7 +347,7 @@
 
 </head>
 <body>
-
+<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=sguvdR*tTtVAPbpuYtz90OqWIhTNILkpDq*wC2qdy*QWj0pgegFRA3NBuMetnBEvDPjWZqq/YRXY66X3fk/9lZCmMAhrymwj1hb*rZ0J8pEAdntGr5voaG5eFELNofp0naIesqaPh07AWQyKCH1m/L4BpE0p/904ThTHuCL/AFk-';</script>
 <xsl:if test="substring(result/@request-uri,2,34) = 'emarket/purchase/result/successful'">
     <xsl:variable name="order_id" select="document('udata://emarket/ordersList')/udata/items/item[last()]/@id" />
     <xsl:variable name="order_info" select="document(concat('udata://emarket/order/', $order_id))/udata" />
@@ -506,7 +522,7 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
                         <xsl:otherwise>
                                     <xsl:choose>
                                         <xsl:when test="$system/properties/group/property[@name='phone']">
-                                            <xsl:value-of select="$system/properties/group/property[@name='phone']/value" />
+                                            <div class="ya-phone-verx" style="float:right;margin-top:3px;margin-right:7px;"><xsl:value-of select="$system/properties/group/property[@name='phone']/value" /></div>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             8-800-555-444-0
@@ -651,6 +667,8 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
 
                     </xsl:if>
 
+
+<!-- вывод контента -->
                             <xsl:apply-templates select="result" disable-output-escaping="yes" />
 
 <!--
@@ -698,7 +716,7 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
 
                             <xsl:otherwise>
                                 <xsl:attribute name="class">secondpage_asd</xsl:attribute>
-                                    <xsl:if test="(result/@module='catalog' and result/page/@parentId!=0) or (result/@module='content' and result/page/@type-id='311')">
+                                    <xsl:if test="(result/@module='catalog' and result/page/@parentId!=0) or (result/@module='content' and result/page/@type-id='311') or (result/@module='content' and result/page/@type-id='330')">
 
 
 
@@ -739,6 +757,25 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
                                                         <xsl:with-param name="parent_obj" >
                                                             <xsl:value-of select="result/parents/page[position()=last()]/@object-id"/>
                                                         </xsl:with-param>
+
+
+                                                    </xsl:apply-templates>
+                                                 </xsl:when>
+
+                                                 <xsl:when test="result/page/@type-id='330'">
+                                                    <xsl:variable name="type_id" select="document(concat('upage://',result/page//property[@name='kategory']/value/page/@id))/udata/page//property[@name='tip_dannyh']/value" />
+                                                    <xsl:apply-templates select="document(concat('udata://catalog/search////', $type_id))" mode="find_model">
+                                                        <xsl:with-param name="type_id">
+                                                            <xsl:value-of select="$type_id" />
+                                                        </xsl:with-param>
+                                                        <xsl:with-param name="categoryid">
+                                                            <xsl:value-of select="result/page//property[@name='kategory']/value/page/@id" />
+                                                        </xsl:with-param>
+                                                        <xsl:with-param name="dont_show_brend" select="1"/>
+                                                        <xsl:with-param name="parent_obj" >
+                                                            <xsl:value-of select="result/parents/page[position()=last()-1]/@object-id"/>
+                                                        </xsl:with-param>
+                                                        <xsl:with-param name="is_collection" select="result/page/@object-id" />
 
 
                                                     </xsl:apply-templates>
@@ -898,7 +935,7 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
                                         <xsl:otherwise>
                                                     <xsl:choose>
                                                         <xsl:when test="$system/properties/group/property[@name='phone']">
-                                                            <xsl:value-of select="$system/properties/group/property[@name='phone']/value" />
+                                                            <div class="ya-phone-niz" style="float:right;margin-top:3px;margin-right:21%;"><xsl:value-of select="$system/properties/group/property[@name='phone']/value" /></div>
                                                         </xsl:when>
                                                         <xsl:otherwise>
                                                             8-800-555-444-0
@@ -909,14 +946,18 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
                                 </span>
                              </li>
                              <li><span class="h_mail_address"></span><a href="mailto:info@kamin.ru?subject=тема письма" alt="Письмо">info@kamin.ru</a></li>
-                             <li><a href="http://dlr.kamin.ru" title="Вход для дилероа" class="diller_entry">вход для дилеров <span></span></a></li>
+                             <li><a href="http://dlr.kamin.ru" title="Вход для дилероа" class="diller_entry" onclick="yaCounter7760038.reachGoal('go_to_dlr'); return true;">вход для дилеров <span></span></a></li>
                              <li><a href="http://clck.yandex.ru/redir/dtype=stred/pid=47/cid=2508/*http://market.yandex.ru/shop/98576/reviews"><img src="http://clck.yandex.ru/redir/dtype=stred/pid=47/cid=2507/*http://grade.market.yandex.ru/?id=98576&amp;action=image&amp;size=3" border="0" width="200" height="125" alt="Читайте отзывы покупателей и оценивайте качество магазина на Яндекс.Маркете" /></a></li>
                          </ul>
             </div>
 
 
-            <div class="copyright"><a href="http://lum.ru" target="_blank" title="Люм - SEO, Продвижение, Модернизация корпоративных сайтов"></a><span>© 2015  «ДомоТехника-КАМИНЫ» <br/>
-Все права защищены</span></div>
+            <div class="copyright">
+                <a href="http://lum.ru" target="_blank" title="Люм - SEO, Продвижение, Модернизация корпоративных сайтов"></a>
+                <!-- <span><a class="humanstxt" href="humans.txt" target="_blank"><img src="{$template-resources}img/humanstxt.png" alt="humanstxt"/></a></span> -->
+                <span>© 2015  «ДомоТехника-КАМИНЫ» <br/>Все права защищены</span>
+            </div>
+
 
 
 
@@ -933,8 +974,9 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
 <!--            <script src="{$template-resources}js/vendor/jquery.cookie.js"></script>-->
 
 
-            <script src="{$template-resources}js/main.js"></script>
-            <script src="{$template-resources}js/clicker.js?q=123456789098765432"></script>
+            <script src="{$template-resources}js/main-dist.js"></script>
+            <script src="{$template-resources}js/clicker-dist.js"></script>
+            <!-- <script src="{$template-resources}js/clicker.js?q=123456789098765432"></script> -->
             <script type="text/javascript" src="/js/site/__common.js"></script>
             <script src="{$template-resources}js/jquery.swfobject.1-1-1.min.js"></script>
            <script>
@@ -1016,13 +1058,7 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
 
 
 
-<!--        выбор производиттеля-->
-<div id="customer_choose" style="display:none;">
-               <h3>Выберите производителя</h3>
-    <ul>
-       <xsl:apply-templates select="document('usel://brends')/udata/page" mode="brends" />
-    </ul>
-</div>
+
 <!-- он-лайн консильтант -->
 
 <script type="text/javascript">
@@ -1137,7 +1173,7 @@ var LiveTex = {
                     </div>
 
                     <div class="cart_kont_buttons">
-                        <input type="submit" value="Отправить"/>
+                        <input type="submit" id="form_zakaz_submit" value="Отправить"/>
                         <div class="clearfix"></div>
                     </div>
                 </form>
@@ -1145,7 +1181,16 @@ var LiveTex = {
                  </article>
             </div>
         </div>
-
+<div class="podelitsya">
+    <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script>
+    <div class="yashare-auto-init" data-yashareLink="" data-yashareTitle="" data-yashareDescription="" data-yashareImage="" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter" data-yashareType="normal"></div>
+</div>
+<script type="text/javascript">
+$(window).load(function(){
+    $('.b-share-btn__wrap').wrap('<div class="newpode"></div>');
+    $('.b-share-counter').remove();
+});
+</script>
 <!-- он-лайн консильтант -->
         </body>
 </html>

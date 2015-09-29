@@ -39,8 +39,8 @@
                 </div>
             </article>
         </section>
-
-
+                
+        
     </xsl:template>
     <xsl:template match="user[@type = 'guest']"  mode="login_button">
         <!--  <li><a id="inline" href="#data">Личный кабинет</a></li>
@@ -53,7 +53,7 @@
             </div>
 
         </div> -->
-
+        
         <section>
             <article>
                 <div class="lk_popup_block">
@@ -84,14 +84,14 @@
                 </div>
             </article>
         </section>
-
+        
     </xsl:template>
  <xsl:template match="result[@module = 'users' and @method = 'login']">
-
+        
         <h1  class="bordered"><xsl:value-of select="@header" /></h1>
         <!-- форма авторизации -->
         <xsl:apply-templates select="document('udata://users/auth/')/udata" />
-
+        
         </xsl:template>
 
         <xsl:template match="result[@module = 'users' and @method = 'auth']">
@@ -100,21 +100,21 @@
                 <xsl:value-of select="document('udata://content/redirect/(/users/profile/)')" />
             </xsl:when>
             <xsl:otherwise>
-
+            
                 <h1  class="bordered"><xsl:value-of select="@header" /></h1>
             <!-- форма авторизации -->
                 <xsl:apply-templates select="document('udata://users/auth/')/udata" />
-
+           
             </xsl:otherwise>
         </xsl:choose>
         <!-- форма авторизации -->
-
+       
 </xsl:template>
 
         <!-- форма авторизации -->
 <xsl:template match="udata[@module = 'users' and @method = 'auth']">
-
-
+    
+        
         <form method="post"   action="/users/login_do/">
 
             <h4>Email</h4>
@@ -125,26 +125,26 @@
             <div class="cart_kont_buttons">
                 <input type="submit" value="Войти"/>
                 <div class="clearfix"></div>
-            </div>
-
+            </div>  
+       
         </form>
 
-
+    
 
  </xsl:template>
-
+ 
  <xsl:template match="result[@method = 'registrate']" >
     <xsl:value-of select="udata/errors" disable-output-escaping="no"/>
     <xsl:apply-templates select="$errors" />
 
 
 <xsl:apply-templates select="document('udata://users/registrate')/udata" />
-
+  
 </xsl:template>
 
 <xsl:template match="udata[@method = 'registrate']">
     <div class="lk_pers_subsc active_lk_pers_subsc">
-
+        
     <form enctype="multipart/form-data" method="post" action="/users/registrate_do/">
         <div class="cartform">
         <h4>E-mail</h4>
@@ -155,10 +155,10 @@
         <h4>Пароль еще раз</h4>
         <input placeholder="Пароль еще раз" required="required" name="password_confirm" type="password" class="pers_kont_default"/>
         <xsl:apply-templates select="document(concat('udata://data/getCreateForm/', type_id))/udata/group[@name='short_info']/field" mode="form_registrate" />
-
-
-
-
+       
+        
+        
+        
         <hr class="wave" />
         <!-- <div class="captcha">
             <xsl:apply-templates select="document('udata://system/captcha')/udata" />
@@ -171,10 +171,10 @@
          </form>
    </div>
             <!-- запрос подключения полей для ввода дополнительных данных пользователя -->
-
+           
             <!-- запрос подключения captcha -->
             <!-- <xsl:apply-templates select="document('udata://system/captcha')/udata" /> -->
-
+            
 
 </xsl:template>
 
@@ -182,52 +182,52 @@
 
 
 <xsl:template match="result[@module = 'users'][@method = 'registrate_done']">
-
-
+     
+      
         <p>
             <xsl:text> Регистрация прошла успешно! </xsl:text>
-        </p>
-
-
+        </p> 
+    
+       
 
 </xsl:template>
 
 <xsl:template match="result[@module = 'users'][@method = 'activate']">
-
-
-
+     
+       
+        
         <!-- подключение обработчика активации пользователя -->
         <xsl:apply-templates select="document(concat('udata://users/activate/',$param0,'/'))/udata" />
-
+    
 </xsl:template>
 
 <xsl:template match="udata[@module = 'users'][@method = 'activate']">
-
-
+     
+ 
         <!-- если активация успешна, то происходит перенаправление на стартовую страницу -->
         <xsl:apply-templates select="document('udata://content/redirect/(/users/settings/)/')/udata" />
-
+    
 </xsl:template>
-
+    
 <xsl:template match="udata[@module = 'users'][@method = 'activate'][error]">
 <!-- выведение ошибок, если они произошли -->
-
-
+ 
+       
     <xsl:value-of select="error" />
 </xsl:template>
 
 <xsl:template match="result[@method = 'forget']">
     <xsl:value-of select="udata/errors" disable-output-escaping="no"/>
-
+    
          <xsl:apply-templates select="$errors" />
  <div class="lk_pers_subsc active_lk_pers_subsc">
         <form id="forget" method="post" action="/users/forget_do/">
             <div class="cartform">
                 <fieldset class="forma" id="tab1">
                 <div class="box">
-                    <label>
-                            Введите e-mail:
-
+                    <label>                   
+                            Введите e-mail: 
+                    
                     </label>
                     <input type="text"  name="forget_email" />
                 </div>
@@ -237,32 +237,32 @@
                 </fieldset>
             </div>
         </form>
-    </div>
-
+    </div> 
+   
 </xsl:template>
 
 <xsl:template match="result[@method = 'forget_do']">
        <xsl:value-of select="udata/errors" disable-output-escaping="no"/>
-
-
+    
+     
             <xsl:text>Вам на почту выслана ссылка для получения нового пароля</xsl:text>
-
+        
     </xsl:template>
 
 
     <xsl:template match="result[@method = 'restore']">
-
-
+      
+        
             <xsl:text>На e-mail адрес, указанный Вами при регистрации, был выслан пароль.</xsl:text>
-
+       
     </xsl:template>
 
 
 
 <!-- Результат авторизации -->
 <xsl:template match="result[@method = 'login_do']">
-
-
+     
+        
         <xsl:if test="@not-permitted = 1">
             <p><xsl:text>Ваших прав недостаточно для просмотра данной страницы</xsl:text></p>
         </xsl:if>
@@ -270,11 +270,11 @@
             <p><xsl:text>Вы ввели неверный логин или пароль. Проверьте раскладку клавиатуры, не нажата ли клавиша «Caps Lock» и попробуйте ввести логин и пароль ещё раз</xsl:text></p>
             <p><a href="/users/forget/">Забыли пароль?</a></p>
               <xsl:apply-templates select="document('udata://users/auth/')/udata" />
-        </xsl:if>
+        </xsl:if>     
         <xsl:if test="user/@status='auth'">
             <xsl:apply-templates select="document('udata://content/redirect/(/users/settings/)/')/udata" />
         </xsl:if>
-
+      
 </xsl:template>
 
 
@@ -285,7 +285,7 @@
             <xsl:apply-templates select="document('udata://users/auth/')/udata" />
     </xsl:if>
 
-
+             
 
 
         <div class="lk_bookmarks_items">
@@ -305,10 +305,10 @@
                 <h4>Пароль еще раз</h4>
                 <input placeholder="Пароль еще раз"  name="password_confirm" type="password" class="pers_kont_default"/>
                 <xsl:apply-templates select="document(concat('udata://data/getEditForm/', user/@id ))/udata/group[@name='short_info']/field" mode="form_registrate" />
-
-
-
-
+               
+                
+                
+                
                 <hr class="wave" />
                 <!-- <div class="captcha">
                     <xsl:apply-templates select="document('udata://system/captcha')/udata" />
@@ -365,7 +365,7 @@
         <table class="leveluser_catalog">
 
             <xsl:apply-templates select="item" mode="leveluser_catalog" />
-
+            
         </table>
 </xsl:template>
 
@@ -391,7 +391,7 @@
         </tr>
     </xsl:template>
 
-<!-- Страница пользователя -->
+<!-- Страница пользователя -->   
 <xsl:template match="result[@method = 'settings']">
      <xsl:if test="user[@type = 'guest']">
         <p><xsl:text>Авторизуйтесь в системе, чтобы войти в личный кабинет</xsl:text></p>
@@ -399,7 +399,7 @@
             <xsl:apply-templates select="document('udata://users/auth/')/udata" />
     </xsl:if>
 
-
+             
 
 
         <div class="lk_bookmarks_items">
@@ -419,10 +419,10 @@
                 <h4>Пароль еще раз</h4>
                 <input placeholder="Пароль еще раз"  name="password_confirm" type="password" class="pers_kont_default"/>
                 <xsl:apply-templates select="document(concat('udata://data/getEditForm/', user/@id ))/udata/group[@name='short_info']/field" mode="form_registrate" />
-
-
-
-
+               
+                
+                
+                
                 <hr class="wave" />
                 <!-- <div class="captcha">
                     <xsl:apply-templates select="document('udata://system/captcha')/udata" />
@@ -443,7 +443,7 @@
         <div class="lk_pers_subsc unactive_lk_pers_subsc">
 
                  <xsl:apply-templates select="document('udata://menu/draw/410')/udata" mode="leveluser" />
-
+            
            <!--  <form>
                 <div class="cartform">
     <span class="pers_kont_defaults">
@@ -465,7 +465,7 @@
         </div>
 
 
-
+     
 
 </xsl:template>
 
@@ -477,16 +477,16 @@
 
     <xsl:template match="group" mode="dop_field">
             <fieldset class="forma" id="tab{@name}">
-
+            
             <xsl:apply-templates select="field" />
             <div>
                 <input type="submit"  class="submit" value="Сохранить" />
             </div>
         </fieldset>
-
+        
     </xsl:template>
      <xsl:template match="group" mode="groups">
-        <li><a href="#tab{@name}"><xsl:value-of select="@title" disable-output-escaping="no"/></a></li>
+        <li><a href="#tab{@name}"><xsl:value-of select="@title" disable-output-escaping="no"/></a></li>   
     </xsl:template>
 
     <xsl:template match="field[@type='int' or @type='string']" mode="form_registrate">
@@ -499,7 +499,7 @@
                 </xsl:attribute>
             </xsl:if>
         </input>
-
+        
     </xsl:template>
     <xsl:template match="field[@type='relation']" mode="form_registrate">
 
@@ -509,8 +509,8 @@
                 <xsl:with-param name="name" select="@input_name"/>
             </xsl:apply-templates>
         </span>
-
-
+        
+        
     </xsl:template>
 
     <xsl:template match="item" mode="form_registrate">
@@ -527,7 +527,7 @@
 
     <xsl:template match="field[@type='boolean']" mode="form_registrate">
 
-
+      
         <span class="perskont_defaults">
             <input  name="{@input_name}" type="checkbox" class="css-checkbox" id="chkbx{@id}">
                 <xsl:if test="@checked">
@@ -538,7 +538,7 @@
             </input>
             <label for="chkbx{@id}" class="css-label2"><xsl:value-of select="@title"/></label>
         </span>
-
+        
     </xsl:template>
 
      <xsl:template match="field[@type='date']" mode="form_registrate">
@@ -546,13 +546,13 @@
         <h4><xsl:value-of select="@title"/></h4>
         <input type="text" name="{@input_name}" value="{.}" id="pers_date"/>
 
-
-
+       
+        
     </xsl:template>
 
 
    <!--  <xsl:template match="Pattern" mode="QName" priority="Number">
-
+        
     </xsl:template> -->
-
+     
 </xsl:stylesheet>

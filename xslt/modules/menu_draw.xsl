@@ -4,8 +4,8 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/TR/xlink">
 	<xsl:output encoding="utf-8" method="html" indent="yes" />
 
-
-
+     
+ 
 	<xsl:template match="udata[@module = 'menu'][@method = 'draw']" mode="top_menu">
 		<nav>
 			<ul  id="menu">
@@ -34,10 +34,10 @@
 		<ul>
 
   			<xsl:apply-templates select="item" mode="level2draw" />
-
+			
         </ul>
-
-
+        
+		
 	</xsl:template>
 
 	<xsl:template match="items" mode="level2drawactive">
@@ -46,8 +46,8 @@
   			<xsl:apply-templates select="item" mode="level2draw" />
 
         </ul>
-
-
+        
+		
 	</xsl:template>
 	<xsl:template match="item" mode="level2draw">
 		<li>
@@ -55,7 +55,7 @@
 			<a href="{@link}">
 				<xsl:value-of select="@name" disable-output-escaping="yes" />
 			</a>
-
+			
 			<xsl:apply-templates select="items" mode="level3draw"/>
 
 		</li>
@@ -83,15 +83,15 @@
   			<xsl:apply-templates select="item" mode="level2draw" />
 
         </ul>
-
-
+        
+		
 	</xsl:template>
+    
+        
 
+	
 
-
-
-
-
+					
 
 
 </xsl:stylesheet>

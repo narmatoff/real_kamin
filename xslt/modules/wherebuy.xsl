@@ -38,14 +38,14 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.r
             geoObjectHideIconOnBalloonOpen: true
         });
 
-
+       		
        		cord = [<xsl:apply-templates select="document(concat('usel://dilers/', $listregionid))/udata/page/extended/groups/group/property[@name='koordinaty']" mode="maps" />];
 			head = [<xsl:apply-templates select="document(concat('usel://dilers/', $listregionid))/udata/page/extended/groups/group/property[@name='nazvanie']" mode="maps" />];
 			adr = [<xsl:apply-templates select="document(concat('usel://dilers/', $listregionid))/udata/page/extended/groups/group/property[@name='adres']" mode="maps" />];
 			footer = [<xsl:apply-templates select="document(concat('usel://dilers/', $listregionid))/udata/page/extended/groups/group/property[@name='phone']" mode="maps" />];
 			cont = [<xsl:apply-templates select="document(concat('usel://dilers/', $listregionid))/udata/page/extended/groups/group/property[@name='e_mail']" mode="maps" />];
 			geoObjects = [];
-
+			
 
 			for(var i = 0, len = cord.length; i &lt; len; i++) {
 	        		geoObjects[i] = new ymaps.Placemark(cord[i], {balloonContentHeader:head[i], balloonContentBody:adr[i]+cont[i], balloonContentFooter:footer[i]}, {
@@ -64,9 +64,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.r
 	</script>
 
 	<article>
-
+	
 	<h1 class="dialog_par"><xsl:value-of select="@header"/></h1>
-
+	
 	<xsl:apply-templates select="$errors" />
 
 	<div id="yamapsdlr">
@@ -77,12 +77,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.r
 	            <td><strong>Название</strong></td>
 	            <td><strong>Адрес</strong></td>
 	            <td><strong>Телефон</strong></td>
-	            <td><strong>Сайт</strong></td>
+	            <td><strong>E-mail</strong></td>
 	        </tr>
 	       	<xsl:apply-templates select="document(concat('usel://dilers/', $listregionid))/udata/page/extended/groups" mode="concat_node" />
 	    </tbody>
 	</table>
-
+	
 	<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>
 	</article>
 
@@ -120,14 +120,14 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.r
             geoObjectHideIconOnBalloonOpen: true
         });
 
-
+       		
        		cord = [<xsl:apply-templates select="document('usel://dilers/')/udata/page/extended/groups/group/property[@name='koordinaty']" mode="maps" />];
 			head = [<xsl:apply-templates select="document('usel://dilers/')/udata/page/extended/groups/group/property[@name='nazvanie']" mode="maps" />];
 			adr = [<xsl:apply-templates select="document('usel://dilers/')/udata/page/extended/groups/group/property[@name='adres']" mode="maps" />];
 			footer = [<xsl:apply-templates select="document('usel://dilers/')/udata/page/extended/groups/group/property[@name='phone']" mode="maps" />];
 			cont = [<xsl:apply-templates select="document('usel://dilers/')/udata/page/extended/groups/group/property[@name='e_mail']" mode="maps" />];
 			geoObjects = [];
-
+			
 
 			for(var i = 0, len = cord.length; i &lt; len; i++) {
 	        		geoObjects[i] = new ymaps.Placemark(cord[i], {balloonContentHeader:head[i], balloonContentBody:adr[i]+cont[i], balloonContentFooter:footer[i]}, {
@@ -150,7 +150,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.r
 	<div id="yamapsdlr">
 	</div>
 
-
+	
 	<xsl:value-of select="page/properties/group/property[@name='content']/value" disable-output-escaping="yes"/>
 	</article>
 </xsl:template>

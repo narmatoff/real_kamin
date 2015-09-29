@@ -78,7 +78,7 @@ if (options.onReady) {
 	if (/!watch/.test(window.location.hash)) {
 		less.watch();
 	}
-
+	
 	less.pageLoadFinished = less.registerStylesheets().then(
 		function () {
 			return less.refresh(less.env === 'development');
@@ -2376,7 +2376,7 @@ ParseTree.prototype.toCSS = function(options) {
 	    if (compress) {
 		    logger.warn("The compress option has been deprecated. We recommend you use a dedicated css minifier, for instance see less-plugin-clean-css.");
 	    }
-
+	    
         var toCSSOptions = {
             compress: compress,
             dumpLineNumbers: options.dumpLineNumbers,
@@ -9360,13 +9360,13 @@ Promise.all = function (arr) {
 }
 
 Promise.reject = function (value) {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolve, reject) { 
     reject(value);
   });
 }
 
 Promise.race = function (values) {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolve, reject) { 
     values.forEach(function(value){
       Promise.resolve(value).then(resolve, reject);
     })

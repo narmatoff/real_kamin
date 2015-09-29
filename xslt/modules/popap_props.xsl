@@ -7,9 +7,9 @@
                 xmlns:udt="http://umi-cms.ru/2007/UData/templates"
                 xmlns:xlink="http://www.w3.org/TR/xlink"
                 exclude-result-prefixes="xsl date udt xlink">
-
+ 
     <xsl:output encoding="utf-8" method="html" indent="yes" />
-
+ 
     <xsl:template match="/">
     <div class="kabinet-block">
         <form class="options" action="/emarket/basket/put/element/{udata/page/@id}/" onsubmit="site.basket.add('{udata/page/@id}', this, true); return false;">

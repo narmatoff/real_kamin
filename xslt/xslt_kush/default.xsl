@@ -2,11 +2,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output encoding="utf-8" method="html" indent="yes"/>
     <xsl:template match="/">
-
+      
         <html>
-            <head
-
-
+            <head 
+			
+			
 				<xsl:choose>
 					<xsl:when test="result[@module='catalog'][@method='object']">
 						<title><xsl:value-of select="result/page/properties/group/property[@name='h1']/value"/>:  цена, купить, харатеристики, отзывы.</title>
@@ -44,8 +44,8 @@
                 <script type="text/javascript"
                         src="{$template-resources}js/scripts.js"></script>
                 <script type="text/javascript" src="{$template-resources}js/jquery.autocomplete.js"></script>
-
-               <script type="text/javascript" src="/js/site/__common.js"></script>
+                
+               <script type="text/javascript" src="/js/site/__common.js"></script> 
 
 
                 <script type="text/javascript">
@@ -80,11 +80,11 @@
                  <link href="{$template-resources}css/ie.css" rel="stylesheet" type="text/css"/>
                  <![endif]-->
                 <!--Для слайдера-->
-
+               
 
             </head>
             <body id="container">
-
+                
                 <div id="wrap">
                     <div class="content">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -141,14 +141,14 @@
                                             </tbody>
                                         </table>
                                         <!--/Шапка-->
-
+                                        
                                         <!--Table-->
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tbody>
                                                 <tr>
                                                     <!--Левая колонка-->
                                                     <td class="center_left" valign="top">
-
+                                                        
 
                                                                                 <!--Кнопка АКЦИИ!-->
                                                                                 <table class="akcii" cellpadding="0"
@@ -172,38 +172,38 @@
                                                         <div class="main_left_block_top"></div>
                                                         <xsl:apply-templates select="document('udata://content/menu/0/0/3')/udata" mode = "left_menu"/>
                                                         <div class="main_left_block_bottom"></div>
-
+                                                        
                                                         <div class="main_left_block_top"></div>
                                                         <xsl:apply-templates select="document('udata://menu/draw/1255')/udata" mode = "left_menu_content_page"/>
                                                         <div class="main_left_block_bottom"></div>
-
+                                                        
                                                         <div class="main_left_block_top"></div>
                                                         <xsl:apply-templates select="document('udata://menu/draw/1256')/udata" mode = "left_menu_content_page"/>
                                                         <div class="main_left_block_bottom"></div>
-
+                                                        
                                                         <div class="main_left_block_top"></div>
                                                         <xsl:apply-templates select="document('udata://menu/draw/1257')/udata" mode = "left_menu_content_page"/>
                                                         <div class="main_left_block_bottom"></div>
 
-
-
+                                                        
+                                                        
                                                         <!--vkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvk-->
                                                             <script type="text/javascript" src="//vk.com/js/api/openapi.js?95"></script>
                                                             <!-- VK Widget -->
                                                             <div id="vk_groups"></div>
                                                             <script type="text/javascript">
-
+                                                                
                                                                 VK.Widgets.Group("vk_groups", {mode: 1, width: "244", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 51942193);
-
+                                                                
                                                             </script>
                                                         <!--vkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvkvk-->
-
+                                                        
                                                     </td>
                                                     <!--//Левая колонка-->
 
                                                     <!--Средняя колонка-->
                                                     <td class="center_middle" align="center" valign="top">
-
+                                                        
                                                             <table border="0" cellpadding="0" cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
@@ -219,7 +219,7 @@
                                                                                             <xsl:apply-templates select="document('udata://core/navibar')/udata"/>
                                                                                     </xsl:otherwise>
                                                                                 </xsl:choose>
-
+                                                                                
                                                                             </xsl:if>
                                                                             </table>
 
@@ -232,10 +232,10 @@
                                                                         </tr>
                                                                 </tbody>
                                                             </table>
-
+                                                        
                                                     </td>
                                                     <td valign="top">
-
+                                                        
                                                             <table border="0" cellpadding="0" cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
@@ -251,10 +251,10 @@
                                                                                     <br/>
                                                                                     <br/>
                                                                                 </div>
-
+                                                                                
                                                                                 <xsl:apply-templates select="document('udata://emarket/cart')/udata" mode="basket_sticker" />
-
-
+                                                                                
+                                                                                
                                                                             </div>
                                                                             <div class="searchblock">
 
@@ -313,12 +313,12 @@
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
-
+                                                        
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">
-
+                                                            
                                                             <!--&lt;!&ndash;//Table #1&ndash;&gt;-->
                                                           <!--<br/><br/><br/><br/>-->
                                                         <!---->
@@ -374,7 +374,7 @@
                 </div>
             </div>
             <script src="{$template-resources}js/svrazv.js" type="text/javascript"></script>
-
+            
                 <script type="text/javascript"
                         src="{$template-resources}js/modernizr-1.7.min.js"></script>
                 <script type="text/javascript" src="http://tokanet.ru/share24/share42.js"></script>
@@ -388,7 +388,7 @@
                   ga('send', 'pageview');
 
                 </script>
-
+                
                 <!-- Yandex.Metrika counter -->
                 <script type="text/javascript">
                     (function (d, w, c) {
@@ -424,6 +424,6 @@
 
         </body>
     </html>
-
+   
 </xsl:template>
         </xsl:stylesheet>

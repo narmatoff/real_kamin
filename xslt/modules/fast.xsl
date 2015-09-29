@@ -8,40 +8,40 @@
 			mode="basket_full" />
 
 	</xsl:template>
-
+ 
 	<!-- Render order/basket state -->
 	<xsl:template match="udata" mode="basket_full">
 
 			<form class="registration"  enctype="multipart/form-data" method="post"	action="/emarket/saveinfo/">
-				   <input type="hidden" name="payment-id" value="{payment/items/item/@id}" />
-
+				   <input type="hidden" name="payment-id" value="{payment/items/item/@id}" /> 
+					
                     <ul>
 				    	<xsl:apply-templates select="document(concat('udata://data/getEditForm/', customer/object/@id))/udata/group/field" mode="form-fields"/>
 					</ul>
 					<xsl:choose>
-
-					<xsl:when test="document('udata://emarket/fast_purchase')/udata/delivery/items/item">
+					
+					<xsl:when test="document('udata://emarket/fast_purchase')/udata/delivery/items/item"> 
 					Выберете адрес доставки
 					<ul>
 					<xsl:apply-templates select="document('udata://emarket/fast_purchase')/udata/delivery/items/item" mode="delivery-item"></xsl:apply-templates>
 
 					<li>
-
+                                    
                                     <ol>
-
+                                        
                                         <li class="heading"> Или введите новый адрес доставки</li>
                                         <li class="field">
                                         	<input type="radio" class="plain" name="delivery-address" value="new" id="new-adress-radio"/>
                                     	</li>
-
+                                        
                                     </ol>
-
+                                
                     </li>
-					</ul>
+					</ul>	
 					<ul>
 						<xsl:apply-templates select="document('udata://data/getCreateForm/5')/udata/group/field" mode="form-fields" />
-
-					</ul>
+                
+					</ul>		
 					</xsl:when>
 					<xsl:otherwise>
 					<ul>
@@ -51,11 +51,11 @@
 					</ul>
 					</xsl:otherwise>
 					</xsl:choose>
-
-
+					
+				
 
 					<button class="button button_arrow button_red">Готово</button>
-
+				
 			</form>
 
 
@@ -188,7 +188,7 @@
 			</p>
 
 
-<!--
+<!-- 
 			<strong>
 				Вы заказали:
 			</strong>
@@ -222,7 +222,7 @@
 			</div> -->
 
 
-		</div>
+		</div> 
 
 	</xsl:template>
 	<xsl:template match="item" mode="order_info_del">
@@ -251,7 +251,7 @@
 						кг
 					</p>
 				</a>
-			</td>
+			</td> 
 			<td class="cart_table_price">
 				<p class="cart_p_price">
 					<span>
@@ -271,13 +271,13 @@
 					<span>
 						<xsl:value-of select="total-price/actual" />
 					</span>
-					р.
+					р. 
 				</p>
 			</td>
 
 		</tr>
 	</xsl:template>
-	<!-- заказы пользователя -->
+	<!-- заказы пользователя --> 
 	<xsl:template match="udata[@module='emarket' and @method = 'ordersList']"
 		mode="orderlist">
 		<xsl:choose>
@@ -424,14 +424,14 @@
 						<xsl:choose>
 							<xsl:when test="@type-name != 'receipt'"><xsl:text>'do/';</xsl:text></xsl:when>
 							<xsl:otherwise>
-
+							
 							<xsl:text>'/emarket/ordersList/'; window.paymentId = '</xsl:text>
-
+							
 							<xsl:value-of
 						select="@id" />
-
+						
 						<xsl:text>';</xsl:text>
-
+						
 						</xsl:otherwise>
 						</xsl:choose>
 					</xsl:attribute>
@@ -668,19 +668,19 @@
 			</label>
 		</div>
 	</xsl:template>
-
+  
 	<xsl:template match="item" mode="delivery-item">
 		<li>
-
+                                    
                                     <ol>
-
+                                        
                                         <li class="heading"><xsl:value-of select="document(concat('uobject://', @id))/udata/object/properties/group/property[@name='city']/value" />, <xsl:value-of select="document(concat('uobject://', @id))/udata/object/properties/group/property[@name='street']/value" /> <xsl:value-of select="document(concat('uobject://', @id))/udata/object/properties/group/property[@name='house']/value" /> кв.<xsl:value-of select="document(concat('uobject://', @id))/udata/object/properties/group/property[@name='flat']/value" /></li>
                                         <li class="field"><input  class="plain" type="radio" name="delivery-address" value="{@id}" />    <input type="text" value="{$user-info/udata/object/properties/group/property[@name='login']/value}"  name="login" /></li>
-
+                                        
                                     </ol>
-
+                                
                                 </li>
-
-
+        
+    
 	</xsl:template>
 </xsl:stylesheet>

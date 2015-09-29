@@ -4,7 +4,7 @@ $FORMS = Array();
 $FORMS['blogs_list_block'] = <<<END
 <div id="blog" class="block">
 	<h2>Блоги</h2>
-	%lines%
+	%lines%	
 </div>
 END;
 
@@ -15,7 +15,7 @@ $FORMS['blogs_list_line'] = <<<END
 	<div style="padding-bottom: 10px;">
 		%description%
 	</div>
-	%blogs20 viewBlogAuthors(%bid%)%
+	%blogs20 viewBlogAuthors(%bid%)%		
 </div>
 END;
 

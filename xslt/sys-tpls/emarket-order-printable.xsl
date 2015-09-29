@@ -7,21 +7,21 @@
 	<xsl:template match="/">
 		<xsl:apply-templates />
 	</xsl:template>
-
+	
 	<xsl:template match="/udata/object">
 		<xsl:variable name="order-info" select="document(concat('udata://emarket/order/',@id))/udata" />
 		<xsl:variable name="order" select="properties/group[@name='order_props']" />
 		<xsl:variable name="payment" select="properties/group[@name='order_payment_props']" />
 		<xsl:variable name="delivery" select="properties/group[@name='order_delivery_props']" />
 		<xsl:variable name="delivery-address" select="document(concat('uobject://', $delivery/property[@name='delivery_address']/value/item[1]/@id))/udata/object/properties/group" />
-
+	
 		<html>
 			<head>
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 				<title><xsl:value-of select="@name" /></title>
-				<style>
+				<style>					
 					body {
-						font-family : Trebuchet MS, Tahoma;
+						font-family : Trebuchet MS, Tahoma;						
 					}
 					table#content {
 						width : 190mm;
@@ -31,11 +31,11 @@
 						padding : 5mm 0 5mm 0;
 					}
 					td.title {
-
+						
 					}
 					td.value, span.value {
-						font-weight : bold;
-					}
+						font-weight : bold;					
+					}					
 					table#items, table#items tr {
 						padding : 0;
 						margin : 0;
@@ -48,7 +48,7 @@
 					table#items td {
 						border-right : 1px solid black;
 						border-bottom : 1px solid black;
-						padding : 2mm;
+						padding : 2mm;						
 					}
 				</style>
 			</head>
@@ -115,7 +115,7 @@
 						<td class="title">
 							Статус доставки:
 						</td>
-						<td class="value">
+						<td class="value">							
 							<xsl:value-of select="$delivery/property[@name='delivery_status_id']/value/item[1]/@name" />
 						</td>
 					</tr>
@@ -128,7 +128,7 @@
 						</td>
 						<td class="title">
 							Дата разрешения доставки:
-						</td>
+						</td>						
 						<td class="value">
 							<xsl:value-of select="document(concat('udata://system/convertDate/',$delivery/property[@name='delivery_allow_date']/value/@unix-timestamp,'/Y-m-d'))/udata" />
 						</td>
@@ -156,7 +156,7 @@
 						</td>
 						<td class="value">
 							<xsl:value-of select="$delivery-address/property[@name='city']/value" />
-						</td>
+						</td>						
 					</tr>
 					<tr>
 						<td class="title">
@@ -164,7 +164,7 @@
 						</td>
 						<td class="value">
 							<xsl:value-of select="$delivery-address/property[@name='street']/value" />
-						</td>
+						</td>						
 					</tr>
 					<tr>
 						<td class="title">
@@ -172,7 +172,7 @@
 						</td>
 						<td class="value">
 							<xsl:value-of select="$delivery-address/property[@name='house']/value" />
-						</td>
+						</td>						
 					</tr>
 					<tr>
 						<td class="title">
@@ -180,7 +180,7 @@
 						</td>
 						<td class="value">
 							<xsl:value-of select="$delivery-address/property[@name='flat']/value" />
-						</td>
+						</td>						
 					</tr>
 					<xsl:apply-templates select="$order/property[@name='customer_id']/value/item[1]" mode="customer" />
 					<xsl:apply-templates select="." mode="items">
@@ -190,23 +190,23 @@
 			</body>
 		</html>
 	</xsl:template>
-
-	<xsl:template match="item" mode="manager">
+	
+	<xsl:template match="item" mode="manager">	
 		<xsl:variable name="info" select="document(concat('uobject://', @id))/udata/object/properties/group[@name='short_info']" />
-
+		
 		<xsl:value-of select="$info/property[@name='fname']/value" />
 		<xsl:text> </xsl:text>
 		<xsl:value-of select="$info/property[@name='lname']/value" />
 	</xsl:template>
-
+	
 	<xsl:template match="item" mode="customer">
 		<tr class="add-space">
 			<td colspan="4"><xsl:text>Информация о покупателе:</xsl:text></td>
 		</tr>
-		<xsl:apply-templates select="document(concat('uobject://', @id))/udata" mode="customer" />
+		<xsl:apply-templates select="document(concat('uobject://', @id))/udata" mode="customer" />	
 	</xsl:template>
-
-	<xsl:template match="object" mode="customer">
+	
+	<xsl:template match="object" mode="customer">				
 		<tr>
 			<td class="title">
 				Логин:
@@ -219,7 +219,7 @@
 			</td>
 			<td class="value">
 				<xsl:value-of select="//property[@name='lname']/value" />
-			</td>
+			</td>			
 		</tr>
 		<tr>
 			<td class="title">
@@ -240,12 +240,12 @@
 			</td>
 		</tr>
 	</xsl:template>
-
+	
 	<xsl:template match="object" mode="items">
 		<xsl:param name="order-info" select="document(concat('udata://emarket/order/',@id))/udata" />
 		<xsl:variable name="suffix" select="$order-info/summary/price/@suffix" />
 		<xsl:variable name="prefix" select="$order-info/summary/price/@prefix" />
-
+		
 		<tr class="add-space">
 			<td colspan="4"><xsl:text>Состав заказа:</xsl:text></td>
 		</tr>
@@ -293,17 +293,17 @@
 			</td>
 		</tr>
 	</xsl:template>
-
+	
 	<xsl:template match="item" mode="order-item">
 		<xsl:variable name="item_page"
 			select="document(concat('upage://',page/@id))/udata" />
 		<tr>
 			<td>
-				<xsl:value-of select="$item_page/page/properties/group/property[@name='h1']/value" />
+				<xsl:value-of select="$item_page/page/properties/group/property[@name='h1']/value" /> 
 			</td>
 			<td>
 				<xsl:value-of select="$item_page/page/properties/group/property[@name='1c_product_id']/value" />
-			</td>
+			</td>			
 			<td>
 				<xsl:choose>
 					<xsl:when test="price/original &gt; 0">
@@ -313,7 +313,7 @@
 						<xsl:apply-templates select="price/actual" mode="price" />
 					</xsl:otherwise>
 				</xsl:choose>
-			</td>
+			</td>			
 			<td>
 				<xsl:choose>
 					<xsl:when test="discount">
@@ -322,35 +322,35 @@
 					<xsl:otherwise>
 						<xsl:text>&#160;&#8212;</xsl:text>
 					</xsl:otherwise>
-				</xsl:choose>
-			</td>
+				</xsl:choose>				
+			</td>			
 			<td>
 				<xsl:apply-templates select="price/actual" mode="price" />
 			</td>
 			<td>
 				<xsl:apply-templates select="amount" />
-			</td>
+			</td>			
 			<td>
 				<xsl:apply-templates select="total-price/actual" mode="price" />
 			</td>
-		</tr>
-	</xsl:template>
-
-
-	<xsl:template match="discount">
+		</tr>		
+	</xsl:template>	
+		
+	
+	<xsl:template match="discount">		
 		<xsl:apply-templates select="document(concat('uobject://', @id, '.discount_modificator_id'))//item" mode="discount-size" />
 	</xsl:template>
-
+	
 	<xsl:template match="*" mode="price">
 		<xsl:value-of select="." />
 	</xsl:template>
-
+	
 	<xsl:template match="*[../@prefix]" mode="price">
 		<xsl:value-of select="concat(../@prefix, '&#160;', .)" />
 	</xsl:template>
-
+	
 	<xsl:template match="*[../@suffix]" mode="price">
 		<xsl:value-of select="concat(., '&#160;', ../@suffix)" />
 	</xsl:template>
-
+	
 </xsl:stylesheet>

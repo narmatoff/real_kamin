@@ -20,9 +20,9 @@
     </xsl:template>
 
     <xsl:template match="item" mode="faq_project">
-
+    	
                 <li><a href="{@link}"><xsl:value-of select="@name" /></a></li>
-
+         	
     </xsl:template>
 
     <xsl:template match="result[@module = 'faq'][@method = 'category']">
@@ -36,7 +36,7 @@
 
     <xsl:template match="udata[@module = 'faq'][@method = 'category']">
         <!--		<h1 class="dialog_par"><xsl:value-of select="@header"/></h1>-->
-
+        
                 <ul class="question_answer">
                     <xsl:apply-templates select="items/item" mode="question" />
                 </ul>
@@ -46,8 +46,8 @@
 	                <xsl:with-param name="total" select="total" />
 	                <xsl:with-param name="limit" select="per_page" />
 	            </xsl:call-template>
-
-
+	            
+           
     </xsl:template>
 
     <xsl:template match="item" mode="question">
@@ -60,11 +60,15 @@
             </p>
             <p>
                 <xsl:if test="extended/properties/property[@name='file']/value">
-                    <a class="faq_attach" href="{extended/properties/property[@name='file']/value}" target="_blank">Прикрепленный файл</a><br/>
+                    <span class="attach_ico">
+                        
+                    <a class="faq_attach" href="{extended/properties/property[@name='file']/value}" target="_blank">Прикрепленный файл</a>
+                    </span>
+                    <br/>
                 </xsl:if>
                 <a href="javascript://" class="answer_showhide" title="Кликните, чтобы раскрыть ответ">Ответ ></a>
                 <span>
-
+                
                     <xsl:choose>
                         <xsl:when test="$faq_page/properties/group/property[@name='author_id']/value/item/@name != ''">
                             <xsl:value-of select="substring-before($faq_page/properties/group/property[@name='author_id']/value/item/@name, ' ')" />
@@ -81,10 +85,10 @@
                 <xsl:value-of select="answer" disable-output-escaping="yes" />
                 <!-- <p><a href="#faq_ask" class="scroll">Задать уточняющий вопрос</a>
                 </p> -->
-
+            
             </div>
 <div class="clearfix"></div>
-
+            
 
 
 
@@ -113,7 +117,7 @@
 
         <div id="faq_ask" name="faq_ask">
             <h2>Задать вопрос</h2>
-
+        
             <form method="post" class="kabinet-block" enctype="multipart/form-data" action="{action}" onsubmit="site.forms.data.save(this); return site.forms.data.check(this);">
                 <input type="text" class="textbox" id="faq_name" name="nick" placeholder="Ваше имя" />
                 <input type="text" class="textbox" id="faq_email" name="email" placeholder="E-mail" />
@@ -124,8 +128,8 @@
             </form>
         </div>
         <!-- <button>Задать вопрос</button> -->
-
-
+        
+        
     </xsl:template>
 
     <xsl:template match="result[@module = 'faq'][@method = 'post_question']">
@@ -170,7 +174,7 @@
                         <h1><xsl:value-of select="page//property[@name='question']/value" disable-output-escaping="yes" /></h1>
 			            <p>
                         <xsl:if test=".//property[@name='file']/value">
-                            <a class="faq_attach" href="{.//property[@name='file']/value}" target="_blank">Прикрепленный файл</a><br/>
+                            <span class="attach_ico"><a class="faq_attach" href="{.//property[@name='file']/value}" target="_blank">Прикрепленный файл</a></span><br/>
                         </xsl:if>
 			               <a style="float:left;" href="javascript://" class="answer_showhide" title="Кликните, чтобы раскрыть ответ">Ответ ></a>
 			                <span>
@@ -191,7 +195,7 @@
 			                <!-- <xsl:value-of select="answer" disable-output-escaping="yes" /> -->
 			                <p>
 			            </p>
-
+			            
 			            </div>
 						<div class="clearfix"></div>
 			        </li>

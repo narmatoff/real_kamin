@@ -17,11 +17,11 @@ END;
 $FORMS['currency_block'] = <<<END
 <form method="post" action="%pre_lang%/emarket/selectCurrency/">
 	<p>Выберите предпочитаемую валюту:</p>
-
+	
 	<ul>
 		%items%
 	</ul>
-
+	
 	<p>
 		<input type="submit" value="Выбрать" />
 	</p>

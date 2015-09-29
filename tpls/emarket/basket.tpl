@@ -7,9 +7,9 @@ $FORMS['order_block'] = <<<END
 		<ul>
 			%items%
 		</ul>
-
+		
 		<br />
-
+		
 		<p>
 			<strong>
 				Всего товаров: %total-amount%<br />

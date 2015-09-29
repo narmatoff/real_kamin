@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126License: none (public domain)*/html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;}
+ http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126License: none (public domain)*/html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;}
 /* HTML5 display-role reset for older browsers */
 
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display: block;}
@@ -91,7 +91,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
     src: url('fonts/rub.svg?90548812#rub') format('svg');
   }
 }
-
+ 
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "rub";
   font-style: normal;
@@ -103,26 +103,26 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
-
+ 
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-
+     
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
-
+ 
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
   margin-left: .2em;
-
+ 
   /* you can be more comfortable with increased icons size */
 
   font-size: 0.9em;
-
+ 
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
-
+ 
 .icon-roub:before { content: '\e864'; } /* 'î¡¤' */
 /*end rub*/
 
@@ -156,7 +156,7 @@ html {
     -ms-text-size-adjust:100%;
     /* 2 */
     -webkit-text-size-adjust:100%;
-
+    
     /* 2 */
 }
 /*** Address `font-family` inconsistency between `textarea` and other form* elements.*/
@@ -164,10 +164,10 @@ html {
 html,button,input,select,textarea {font-family:'Ubuntu',sans-serif;}
 /*** Address margins handled incorrectly in IE 6/7.*/
 
-body {
+body {            
     line-height: 1;
-    margin: 0;
-
+    margin: 0;      
+    
     padding: 0;
 }
 /* ==========================================================================Links========================================================================== */
@@ -197,7 +197,7 @@ a:active,
 a:hover {
     outline:0;
     text-decoration:none;
-
+    
 }
 /* ==========================================================================Typography========================================================================== */
 
@@ -384,10 +384,10 @@ counter-reset: licounter;
 
 article ol li{
     list-style:inherit;
-    margin: 0 0 0 15px;
-    padding: 0;
-    list-style-position: inside;
-    font-size: 0.95em;
+    margin: 0 0 0 15px;  
+    padding: 0;  
+    list-style-position: inside;  
+    font-size: 0.95em;  
     line-height: 1.75em;
     position: relative;
 }
@@ -397,8 +397,8 @@ article ol li{
 /*counter-increment: licounter;  Увеличиваем значение счетчика на 1 */
       /* Позиционируем и оформляем цифры */
 /*
-width: 1em;
-color: #F7961E;
+width: 1em;     
+color: #F7961E; 
 text-align: right;
 font-weight: bold;
 font-size: 0.9em;
@@ -416,8 +416,8 @@ article ol li:before{
 content:counter(licounter) "."; /* Увеличиваем значение счетчика на 1 */
 counter-increment: licounter; /* В качестве данных используем счетчик */
       /* Позиционируем и оформляем цифры */
-width: 1em;
-color: #F7961E;
+width: 1em;     
+color: #F7961E; 
 text-align:center;
 font-weight: bold;
 font-size: 1em;
@@ -427,7 +427,7 @@ margin: 0 5px 0 0;
 
 article ol li:after:after{
 content:".";
-
+    
 }
 
 
@@ -440,9 +440,9 @@ font-size: 0.95em;
 line-height: 1.75em;
 }
 article ul li{
-margin: 0 0 5px 15px;
-padding: 0;
-list-style-position: outside;
+margin: 0 0 5px 15px;  
+padding: 0;  
+list-style-position: outside;    
 line-height: 1.75em;
 }
 
@@ -526,9 +526,9 @@ input {
 
 /*если placeholder не вмещается*/
 input[placeholder]          {text-overflow:ellipsis;}
-input::-moz-placeholder     {text-overflow:ellipsis;}
-input:-moz-placeholder      {text-overflow:ellipsis;}
-input:-ms-input-placeholder {text-overflow:ellipsis;}
+input::-moz-placeholder     {text-overflow:ellipsis;} 
+input:-moz-placeholder      {text-overflow:ellipsis;} 
+input:-ms-input-placeholder {text-overflow:ellipsis;}   
 
 
 /* плавное изменение прозрачности  placeholder-а при фокусе */
@@ -570,11 +570,11 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     -webkit-appearance:button;
     cursor:pointer;
     overflow:visible;
-    background-color: #F7961E;
-    color: #fff !important;
+    background-color: #F7961E;    
+    color: #fff !important;  
     font-size: 0.85em;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: uppercase;  
     font-family: 'a_avantebs';
     border: none;
     -webkit-border-radius: 5px;
@@ -692,3 +692,98 @@ table tr td {
     /* display: inline-block; */
     width: auto;
 }
+img.item_in_object {
+  margin: 0 10px 10px 0;
+}
+.sem{
+    font-size:16px;display:block;font-weight:bold;position:absolute;left:4px;bottom:123px;
+}
+
+span.attach_ico {
+    background: url(../img/attach.png) no-repeat;
+        background-position: 5px 0px;
+    background-size: contain;
+    padding: 0px 10px 0px 25px;
+    background-color: #F7961F;
+    border-radius: 15px;
+    height: 18px;
+    opacity: 0.9;
+    line-height: 1.5em
+    }
+.out_of_stok{
+	    font-size: .9em;
+    position: absolute;
+    bottom: 16px;
+    left: 15%;
+    width: 70px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 25px;
+    color: #999;
+    background-image: url(../img/not_instock.png);
+    background-repeat: no-repeat;
+}
+
+.out_of_stok_list{
+	    font-size: .9em;
+    position: absolute;
+    bottom: 0px;
+    left: 15%;
+    width: 70px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 25px;
+    color: #999;
+    background-image: url(../img/not_instock.png);
+    background-repeat: no-repeat;	
+}
+.pribor{display:inline;margin:0px;}
+.material{display:inline;margin:0px;}
+.spoiler label{display:inline;}
+.toplivo{display:inline;margin:0px;}
+#sp4 input.konfig{float:left;margin: 43px -14px 0 30px}
+#sp4 label{float:left;}
+#sp4 label:last-child{float:none;}
+#sp5{clear: both;}
+#sp5 h2{padding: 40px 0px 0px 0px;clear: b}
+#sp5 label{display:block;}
+#sp5 select{width:100px;margin: 0px 0px 10px 0px;opacity:1;border:1px #000000 solid; color:#000000;}
+.zakazaat{-webkit-appearance:button;
+    cursor:pointer;
+    overflow:visible;
+    background-color: #F7961E;    
+    color: #fff !important;  
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;  
+    font-family: 'a_avantebs';
+    border: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -ms-transition: all .1s linear;
+    transition: all .1s linear;
+    padding: 6px 20px 5px 20px;}
+#order_send{-webkit-appearance:button;
+    cursor:pointer;
+    overflow:visible;
+    background-color: #F7961E;    
+    color: #fff !important;  
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;  
+    font-family: 'a_avantebs';
+    border: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -ms-transition: all .1s linear;
+    transition: all .1s linear;
+    padding: 6px 20px 5px 20px;}
+.main_form_wrapper{padding:20px}

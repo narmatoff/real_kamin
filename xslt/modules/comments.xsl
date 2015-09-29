@@ -15,6 +15,14 @@
 
 
 
+<xsl:template match="result[@module='comments'][@method='comment']">
+    <article>
+        <h1 class="dialog_par"><xsl:value-of select="@header"/></h1>
+        <p>
+            <xsl:value-of select=".//property[@name='message']/value"/>
+        </p>
+    </article>
+</xsl:template>
 
 
 
@@ -86,14 +94,14 @@
     </xsl:template>
     <xsl:template match="user[@type = 'guest']" mode="addcomment">
         <!-- <form class="std-block firm-send" method="post" action="/comments/postnew/{/result/@pageId}" name="form_addcomment" id="form_addcomment"> -->
-        <form class="std-block firm-send" method="post" action="/comments/post/{/result/@pageId}/" name="form_addcomment" id="form_addcomment">
+        <form class="std-block firm-send" method="post" action="/comments/post/{/result/@pageId}/" onclick="yaCounter7760038.reachGoal('comment_may_be_send'); return true;" name="form_addcomment" id="form_addcomment">
             <div class="std-row">
                 <label for="comment_name" class="td-label">Имя</label>
-                <input class="std-input" type="text" id="comment_name" name="author_nick" placeholder="Представьтесь пожалуйста" />
+                <input required="required" class="std-input" type="text" id="comment_name" name="author_nick" placeholder="Представьтесь пожалуйста" />
             </div>
             <div class="std-row">
                 <label for="comment_email" class="td-label">e-mail</label>
-                <input class="std-input" type="text" id="comment_email" name="author_email" placeholder="Введите ваш e-mail" />
+                <input required="required" class="std-input" type="email" id="comment_email" name="author_email" placeholder="Введите ваш e-mail" />
             </div>
             <div class="std-row">
                 <label for="comment_text" class="td-label">Отзыв</label>

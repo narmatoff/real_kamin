@@ -34,7 +34,7 @@
 
 	<xsl:template match="udata" mode="form">
     <xsl:param name="obj"/>
-
+    
 		<form method="post" action="/webforms/send/" id="webform"
 			onsubmit="saveFormData(this); return true;">
 			<input type="hidden" name="system_form_id" value="{@form_id}" />
@@ -43,8 +43,8 @@
 				mode="adress" />
 			<xsl:apply-templates select="groups/group [@name= 'dannye_formy']/field"
 				mode="form-fields">
-			<xsl:with-param name="object" select="$obj"/>
-			</xsl:apply-templates>
+			<xsl:with-param name="object" select="$obj"/>	
+			</xsl:apply-templates>	
 			<xsl:apply-templates select="document('udata://system/captcha/')/udata" />
 			<p>
 				<input type="submit" value="Отправить" />
@@ -54,8 +54,8 @@
 			restoreFormData(document.getElementById('webform'));
     </script>
 	</xsl:template>
-
-
+	
+	
 	<xsl:template match="udata" mode="usl">
 		<b>Форма заявки:</b>
 		<br />
@@ -72,7 +72,7 @@
 
 
 
-
+			
 			$('input[name=forma]').click(function() {
 			var v = parseInt($(this).attr('value'));
 			if (v==0) $('div.norequired').hide();
@@ -99,7 +99,7 @@
             </b>
             <span style="color:red">*</span>
             <br />
-            <input maxlength="100" size="30" type="text" name="{@input_name}" value="{$object}" />
+            <input maxlength="100" size="30" type="text" name="{@input_name}" value="{$object}" /> 
             <br />
             <br />
         </div>
@@ -215,7 +215,7 @@
 	<xsl:template match="items " mode="errors">
 <div class="errors">
 		<xsl:value-of select="item" disable-output-escaping="yes" />
-</div>
+</div>		
 	</xsl:template>
 
 

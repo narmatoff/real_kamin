@@ -5,8 +5,8 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umi="http://www.umi-cms.ru/TR/umi">
 
 	<xsl:template match="result[@module = 'webforms'][@method = 'page']">
-
-
+		
+		
 			<xsl:variable name="form_id" select="page/properties/group/property[@name='form_id']/value" />
 
 		<article>
@@ -17,12 +17,12 @@
 			<xsl:apply-templates select="document('udata://system/listErrorMessages/udata/items')"	mode="errors" />
 			<xsl:apply-templates select="document(concat('udata://webforms/add/',$form_id))/udata"	mode="form" />
 		</article>
-
+				
 	</xsl:template>
 
 	<xsl:template match="udata" mode="form_in_page">
-
-
+		
+		
 			<xsl:variable name="form_id" select="page/properties/group/property[@name='form_id']/value" />
 			<article>
 			<h2 class="dialog_par"><xsl:value-of select="page/name"/></h2>
@@ -31,7 +31,7 @@
 			<xsl:apply-templates select="document('udata://system/listErrorMessages/udata/items')"	mode="errors" />
 			<xsl:apply-templates select="document(concat('udata://webforms/add/',$form_id))/udata"	mode="form" />
 			</article>
-
+				
 	</xsl:template>
 
 	<!-- Шаблон вывода формы -->
@@ -39,12 +39,12 @@
 	<xsl:template match="udata" mode="form">
     <xsl:param name="obj"/>
 
-
+    
     <form action="/webforms/send/" method="post">
 	    <input type="hidden" name="system_form_id" value="{@form_id}" />
 		<input type="hidden" name="ref_onsuccess" value="/webforms/posted/" />
 		<xsl:apply-templates select="items/item[@selected= 'selected']"	mode="adress" />
-
+		
 	    <div class="cartform">
 			<span class="pers_kont_defaults">
 				<xsl:apply-templates select="groups/group[@name= 'dannye_formy']/field" mode="form-fields"/>
@@ -56,11 +56,11 @@
 		</div>
 		<div class="clearfix"></div>
 	</form>
-
+	
 	</xsl:template>
-
-
-
+	
+	
+	
 	<!-- Адресс, куда отправляется сообщение -->
 
 	<xsl:template match="item" mode="adress">
@@ -71,15 +71,15 @@
 
 	<xsl:template match="field[@name = 'link']"
 		mode="form-fields">
-
-
+		
+		
 
 	</xsl:template>
 
 	<xsl:template match="field[@type = 'string' or @type = 'int'][@required='required']" mode="form-fields">
 		<input placeholder="{@title}*" name="{@input_name}" id="n{@id}" required="required" type="text" value="{.}" class="pers_kont_default"/>
-
-
+		
+		
 
 	</xsl:template>
 	<xsl:template match="field[@type = 'string' or @type = 'int'][not(@required)]"
@@ -89,12 +89,12 @@
 	</xsl:template>
 	<xsl:template match="field[@type = 'text' and @required='required']"
 		mode="form-fields">
-
+		
 		<textarea name="{@input_name}" placeholder="{@title}" required="required" type="text" class="pers_kont_textarea">
 			<xsl:value-of select="." disable-output-escaping="no"/>
 		</textarea>
-
-
+		
+		
 
 
 	</xsl:template>
@@ -105,16 +105,16 @@
 		</textarea>
 	</xsl:template>
 	<xsl:template match="field[@type = 'relation' and @required='required']" mode="form-fields">
-
-
-
+		
+					
+				
 		<div class="chul_towns">
             <p></p>
-            <select id="{@id}" name="{@input_name}">
+            <select id="{@id}" name="{@input_name}" required="required">
 						<option value=""><xsl:value-of select="@title" />*</option>
 						<xsl:apply-templates select="values/item" mode="form-fields-option" />
 					</select>
-		</div>
+		</div>	
 	</xsl:template>
 
 	<xsl:template match="field[@type = 'relation'][not(@required)]" mode="form-fields">
@@ -133,23 +133,23 @@
 
 	</xsl:template>
 
-
-
+	
+	  
 	<!-- Каптча  -->
 	<!-- Ошибки  -->
 	<xsl:template match="items " mode="errors">
 <div class="errors">
 		<xsl:value-of select="item" disable-output-escaping="yes" />
-</div>
+</div>		
 	</xsl:template>
 
 
 
 	<xsl:template match="result[@module = 'webforms'][@method = 'posted']">
-	<div class="contact-box" style="text-align:center">
+	<div class="contact-box" style="text-align:center">	
 
 		Отправка сообщения прошла успешно!
-	</div>
+	</div>	
 	</xsl:template>
 
 </xsl:stylesheet>

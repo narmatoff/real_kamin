@@ -6,7 +6,7 @@ $FORMS['compare_list_block'] = <<<END
 
 <div id="rubricator" class="block">
     <h2>Сравнение товаров</h2>
-
+    
     <ul>
 	%items%
     </ul>

@@ -11,31 +11,31 @@
     omit-xml-declaration="yes"
     doctype-system = "string"
 />
+    
+  
+   <xsl:template match="udata"> 
 
 
-   <xsl:template match="udata">
-
-
-
-
-
+   
+    
+       
             <input type="hidden" name="system_form_id" value="{@form_id}" />
             <input type="hidden" name="ref_onsuccess" value="/webforms/posted/" />
             <xsl:apply-templates select="items/item[@selected= 'selected']" mode="adress" />
             <xsl:choose>
                 <xsl:when test="@form_id = 318">
-                    <xsl:apply-templates select="groups/group[@name= 'uznat_cenu']/field" mode="form-fields"/>
+                    <xsl:apply-templates select="groups/group[@name= 'uznat_cenu']/field" mode="form-fields"/>  
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:apply-templates select="groups/group[@name= 'dannye_formy']/field" mode="form-fields"/>
+                    <xsl:apply-templates select="groups/group[@name= 'dannye_formy']/field" mode="form-fields"/>  
                 </xsl:otherwise>
             </xsl:choose>
-
+            
     </xsl:template>
 
-
-
-
+    
+    
+    
     <!-- Адресс, куда отправляется сообщение -->
 
     <xsl:template match="item" mode="adress">
@@ -46,15 +46,37 @@
 
     <xsl:template match="field[@name = 'link']"
         mode="form-fields">
-
-
+          
+        
 
     </xsl:template>
 
     <xsl:template match="field[@type = 'string' and @required='required']" mode="form-fields">
-        <input placeholder="{@title}" name="{@input_name}" id="n{@id}" required="required" type="text" value="{.}" class="pers_kont_default"/>
+        <xsl:choose>
+            <xsl:when test="@title = 'email'">
+                <input placeholder="{@title}" name="{@input_name}" id="n{@id}" required="required" pattern="\S+@[a-z]+.[a-z]+" type="text" value="{.}" class="pers_kont_default"/>
+            </xsl:when>
+            <xsl:when test="@title = 'Телефон'">
+                <span class="sem">+7</span>
+                <input placeholder="{@title} (XXX)XXX-XX-XX" name="{@input_name}" id="n{@id}" required="required"  type="text" value="{.}" class="pers_kont_default" style="font-size:16px;">
+                    <xsl:attribute name="pattern">
+                        <xsl:value-of select="'\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}'" />
+                    </xsl:attribute>
+                    </input>
 
-
+                <script>
+                    $(function(){
+                        
+                         $("#n750").inputmask("(999)999-99-99");
+                    });
+                </script>
+            </xsl:when>
+            <xsl:otherwise>
+                <input placeholder="{@title}" name="{@input_name}" id="n{@id}" required="required" type="text" value="{.}" class="pers_kont_default"/>
+            </xsl:otherwise>
+        </xsl:choose>
+        
+        
 
     </xsl:template>
     <xsl:template match="field[@type = 'string'][not(@required)][@name!='tovar'][@name!='cena'][@name!='artikul'][@name!='tovarname']"
@@ -64,12 +86,12 @@
     </xsl:template>
     <xsl:template match="field[@type = 'text' and @required='required'][@name!='tovar'][@name!='cena'][@name!='artikul'][@name!='tovarname']"
         mode="form-fields">
-
+        
         <textarea name="{@input_name}" placeholder="{@title}" required="required" type="text" class="pers_kont_textarea">
             <xsl:value-of select="." disable-output-escaping="no"/>
         </textarea>
-
-
+        
+        
 
 
     </xsl:template>
@@ -81,7 +103,7 @@
     </xsl:template>
     <xsl:template match="field[@type = 'relation' and @required='required']" mode="form-fields">
         <li>
-
+                                    
             <ol>
                 <li class="heading">
                     <xsl:value-of select="@title" />
@@ -92,13 +114,13 @@
                     </select>
                 </li>
             </ol>
-
+                                
         </li>
     </xsl:template>
 
     <xsl:template match="field[@type = 'relation'][not(@required)]" mode="form-fields">
         <li>
-
+                                    
             <ol>
                 <li class="heading">
                     <xsl:value-of select="@title" />
@@ -109,7 +131,7 @@
                     </select>
                 </li>
             </ol>
-
+                                
         </li>
     </xsl:template>
     <xsl:template match="item" mode="form-fields-option">
@@ -119,14 +141,14 @@
 
     </xsl:template>
 
-
-
+    
+      
     <!-- Каптча  -->
     <!-- Ошибки  -->
     <xsl:template match="items " mode="errors">
 <div class="errors">
         <xsl:value-of select="item" disable-output-escaping="yes" />
-</div>
+</div>      
     </xsl:template>
 
 
@@ -135,24 +157,24 @@
          <div class="widthtxtcont">
                             <article class="main_txtcontent">
                                 <section>
-
+                    
                             <h1>
 
                             <xsl:value-of select="result/@header"/></h1>
                             <xsl:apply-templates select="$errors" />
-                                    <div class="contact-box" style="text-align:center">
+                                    <div class="contact-box" style="text-align:center"> 
                                         Отправка сообщения прошла успешно!
-                                    </div>
+                                    </div>  
                             <xsl:apply-templates select="$errors" />
-
+                            
                                 </section>
                             </article>
         </div>
-
+                    
 
     </xsl:template>
 
-
+   
 
 
 </xsl:stylesheet>
