@@ -41,4 +41,4 @@ Dev. Helper: Budovlya Maxim
 Last update: 2015/02/01
 Language: Russian
 Doctype: HTML5
-IDE: Sublime Text, Brackets, Notepad ++, FileZilla, Photoshop
+IDE: Sublime Text, Brackets, Notepad++, FileZilla, Photoshop

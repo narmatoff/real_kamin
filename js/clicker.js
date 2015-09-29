@@ -120,8 +120,7 @@ $(document).ready(function() {
                 }
             });
         } else {
-            $('.ajax_hint').parent().children
-            ('ul').hide();
+            $('.ajax_hint').parent().children('ul').hide();
         }
 
         //  if ($('.searchin').val().length >= 3) {
