@@ -89,7 +89,6 @@ $(document).ready(function() {
         } else
         if (e.keyCode == 13) { //enter
             return false;
-            
             if ($(this).parent().children('ul').find('li').filter('.hover').length) {
                 window.location.href = $(this).parent().children('ul').find('li').filter('.hover').children('a').attr('href');
             }
