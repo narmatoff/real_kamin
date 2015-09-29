@@ -89,7 +89,7 @@ $(document).ready(function() {
         } else
         if (e.keyCode == 13) { //enter
             return false;
-
+            
             if ($(this).parent().children('ul').find('li').filter('.hover').length) {
                 window.location.href = $(this).parent().children('ul').find('li').filter('.hover').children('a').attr('href');
             }
@@ -121,7 +121,8 @@ $(document).ready(function() {
                 }
             });
         } else {
-            $('.ajax_hint').parent().children('ul').hide();
+            $('.ajax_hint').parent().children
+            ('ul').hide();
         }
 
         //  if ($('.searchin').val().length >= 3) {
