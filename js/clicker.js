@@ -103,19 +103,21 @@ $(document).ready(function() {
         } else
 
         if ($('.searchin').val().length >= 3) {
-            console.log('111111');
+            // console.log('111111');
             loadingSpinn.css('visibility', 'visible');
-
-
             $.ajax({
                 // url: '/search.php?s_st=' + $('.searchin').val(),
                 url: '/udata://search/ajaxSearch/(' + $('.searchin').val() + ')//20/40/40/80?transform=/modules/ajaxsearch.xsl',
                 dataType: 'html',
                 success: function(data) {
-
-                    console.log('2222222');
+                    // console.log('2222222');
                     loadingSpinn.css('visibility', 'hidden');
                     $('.ajax_hint').html(data).show();
+                    var searchinVal = $('.searchin').val();
+                    // console.log(searchinVal);
+                    $('.ajax_hint').append('<li><a href="/search/ajaxsearch_do/?search_string=' + searchinVal + '">Показать все</a></li>');
+
+                    // разделение цены по сотым/тыс
                     priceSep(".seppr");
                 }
             });

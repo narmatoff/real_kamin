@@ -8,6 +8,7 @@
 	
 	
 		<xsl:param name="filter" />
+		<!-- <xsl:variable name="filter" select="udata/numpages/tonext_link/@page-num"/> -->
 		<xsl:variable name="tonext" select="udata/numpages/tonext_link/@page-num" />
 		<xsl:variable name="total" select="udata/total" />
 		<xsl:variable name="per_page" select="udata/per_page" />
@@ -41,7 +42,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<!-- end_sort_catalog -->
-		<div id="catalog_list" class="">
+		<div id="catalog_list" class="cat_item_list">
 			<!--cat_item_list-->
 			<!-- <xsl:apply-templates select="document('udata://catalog/getCategoryList/notemplate/')/udata/items/item" mode="categorylist" />  -->
 			<xsl:apply-templates select="udata/lines/item" mode="catalog_item" />
@@ -56,7 +57,8 @@
 							<xsl:attribute name="href">?p=
 								<xsl:value-of select="$tonext" />}&amp;
 								<xsl:value-of select="$filter" /></xsl:attribute>
-						</xsl:if>показать еще</a>
+						</xsl:if>
+						показать еще</a>
 				</xsl:when>
 				<xsl:otherwise>
 					<a class="more_goods" id="{@pageId}" title="{$per_page}" rel="{$total}" alt="{$tonext}" parent="0" filter="{$filter}" href="?p={$tonext}">
@@ -64,7 +66,8 @@
 							<xsl:attribute name="href">?p=
 								<xsl:value-of select="$tonext" />}&amp;
 								<xsl:value-of select="$filter" /></xsl:attribute>
-						</xsl:if>показать еще</a>
+						</xsl:if>
+						показать еще</a>
 				</xsl:otherwise>
 			</xsl:choose>
 
@@ -76,8 +79,7 @@
 				<xsl:with-param name="limit" select="udata/per_page" /></xsl:call-template>
 		</div>
 		<div id="clickerator">
-			<div class="loader"><span></span><span></span><span></span>
-			</div>
+			<div class="loader"><span></span><span></span><span></span></div>
 		</div>
 		</article>
 

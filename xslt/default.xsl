@@ -597,7 +597,8 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
         <xsl:apply-templates select="document('udata://menu/draw/14010?expire=3600')/udata" mode="top_menu"/>
 
 
-
+<!--        скидка на все 10%-->
+            <div class="saleall"></div>
 
 
         <div class="search_block">
