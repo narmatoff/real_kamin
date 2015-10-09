@@ -598,7 +598,8 @@ try { var yaCounter27431942 = new Ya.Metrika({id:27431942,
 
 
 <!--        скидка на все 10%-->
-            <div class="saleall"></div>
+    <!-- saleall7per - 7%, saleall10per - 10% -->
+            <div class="saleall7per"></div>
 
 
         <div class="search_block">

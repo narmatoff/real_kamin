@@ -558,39 +558,18 @@ div.search_block form.search_hform {
     margin: 10px 0 0
 }
 
-
-div.search_block form.search_hform #clickerator{
-position: absolute;
+div.search_block form.search_hform #clickerator {
+    position: absolute;
     left: 79.3%;
     bottom: 3px;
     height: 100%;
     width: 45px;
-    visibility: hidden;
+    visibility: hidden
 }
 
-div.search_block form.search_hform #clickerator .loaderz{
-/*    position: absolute;
-    right: 40px;*/
-/*    display: inline-block;
-    float: left;
-    width: auto;
-    height: 27px;
-    margin: 10px 0 0 0;*/
-
+div.search_block form.search_hform #clickerator .loaderz span {
+    margin: 19px 0
 }
-div.search_block form.search_hform #clickerator .loaderz span{
-/*    position: absolute;
-    right: 40px;*/
-/*    display: inline-block;
-    float: left;
-    width: auto;
-    height: 27px;
-    margin: 10px 0 0 0;*/
-        margin: 19px 0;
-
-
-}
-
 
 div.search_block form.search_hform input {
     font-size: .9em;
@@ -1394,7 +1373,7 @@ section.secondpage_section div.cat_item {
     position: relative;
     display: inline-table;
     width: 171px;
-    margin: 0 63px 60px 0;
+    margin: 0 63px 60px 0
 }
 
 section.secondpage_section div.cat_item.colleCtion {
@@ -1402,8 +1381,8 @@ section.secondpage_section div.cat_item.colleCtion {
     display: inline-table;
     width: 145px;
     margin: 0 40px 60px 0;
-    font-size: 0.8em;
-    text-align: center;
+    font-size: .8em;
+    text-align: center
 }
 
 section.mainpage_section div.cat_item:nth-child(3n) {
@@ -1415,7 +1394,7 @@ section.secondpage_section div.cat_item:nth-child(3n) {
 }
 
 section.secondpage_section div.cat_item.colleCtion:nth-child(3n) {
-    margin: 0 40px 60px 0;
+    margin: 0 40px 60px 0
 }
 
 section.secondpage_section div.cat_item.colleCtion:nth-child(4n) {
@@ -1429,7 +1408,7 @@ section.mainpage_section div.cat_item div.image_radius {
     width: 167px;
     height: 167px;
     border-radius: 90px;
-    background-color: #494744;
+    background-color: #494744
 }
 
 section.secondpage_section div.cat_item.colleCtion div.image_radius {
@@ -1440,7 +1419,7 @@ section.secondpage_section div.cat_item.colleCtion div.image_radius {
     height: 130px;
     border-radius: 90px;
     background-color: #494744;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 section.mainpage_section div.cat_item div.image_radius a img {
@@ -1642,13 +1621,13 @@ section.catalog_section article {
     display: inline-block;
     float: left;
     margin: 0;
-    text-decoration: none;
+    text-decoration: none
 }
 
 #faq_question ul.question_answer li p span {
     display: inline-block;
     float: right;
-    color: #898989;
+    color: #898989
 }
 
 div.answeronquestionbl {
@@ -1748,61 +1727,61 @@ div.newsblock span.end_dateofnews {
     padding: 0 7px 0 0;
     text-align: right;
     color: #777;
-    border-right: 3px solid #ef2c2c;
+    border-right: 3px solid #ef2c2c
 }
 
 div.newsblock div.newsfromdatemarg {
     float: right;
-    width: 610px;
+    width: 610px
 }
 
 div.newsblock a.newsaimg {
     float: left;
-    margin: 0 15px 10px 0;
+    margin: 0 15px 10px 0
 }
 
 div.newsblock a.newsmorelink {
     font-size: .9em;
     display: inline-block;
     float: right;
-    margin: 0;
+    margin: 0
 }
 
 section.cartpage_sec article span.help_checkout span {
     font-weight: 700;
     padding: 0 5px;
     text-transform: uppercase;
-    color: #000;
+    color: #000
 }
 
 section.cartpage_sec article {
     width: 638px;
     padding: 0 20px 30px;
     background-image: url(../img/light_back.png);
-    background-repeat: repeat;
+    background-repeat: repeat
 }
 
 section.cartpage_sec p {
     font-size: 1em;
-    color: #777;
+    color: #777
 }
 
 section.cartpage_sec p b {
     font-size: 1em;
     font-weight: 700;
     text-transform: uppercase;
-    color: #000;
+    color: #000
 }
 
 section.cartpage_sec article table {
-    border: none;
+    border: none
 }
 
 section.cartpage_sec article table tr {
     display: inline-block;
     width: 100%;
     margin: 0 0 15px;
-    border: none;
+    border: none
 }
 
 section.cartpage_sec article table tr td {
@@ -1812,7 +1791,7 @@ section.cartpage_sec article table tr td {
     height: 87px;
     margin: 0;
     padding: 10px;
-    background-color: #fff;
+    background-color: #fff
 }
 
 section.cartpage_sec article table tr td.price_td {
@@ -1821,14 +1800,14 @@ section.cartpage_sec article table tr td.price_td {
     font-weight: 700;
     width: 115px;
     margin: 0;
-    text-align: center;
+    text-align: center
 }
 
 section.cartpage_sec article table tr td.count_td {
     font-weight: 700;
     width: 80px;
     margin: 0;
-    text-align: left;
+    text-align: left
 }
 
 article form label {
@@ -1838,7 +1817,7 @@ article form label {
     width: inherit;
     height: inherit;
     margin: 0 0 5px;
-    text-indent: inherit;
+    text-indent: inherit
 }
 
 article form input {
@@ -1848,7 +1827,7 @@ article form input {
     margin: 0 0 20px;
     padding: 0 0 0 10px;
     border: 1px solid #c3c3c3;
-    outline: none;
+    outline: none
 }
 
 article form textarea {
@@ -1860,7 +1839,7 @@ article form textarea {
     margin: 0 0 20px;
     padding: 5px 0 0 8px;
     border: 1px solid #c3c3c3;
-    outline: none;
+    outline: none
 }
 
 article form input.button {
@@ -1878,35 +1857,35 @@ article form input.button {
     color: #fff;
     border: none;
     border-radius: 5px;
-    background-color: #f7961e;
+    background-color: #f7961e
 }
 
 article form input.button:hover {
-    background-color: #ffb139;
+    background-color: #ffb139
 }
 
 article.news_item span.opened_news_date {
     font-size: .9em;
     display: block;
     margin: 5px 0 0;
-    color: #999;
+    color: #999
 }
 
 article.news_item div.akcii_pg span.opened_news_date {
-    display: block;
+    display: block
 }
 
 article.news_item div.akcii_pg span.opened_news_date:first-child {
     display: inline-block;
-    margin: 0 28px 0 0;
+    margin: 0 28px 0 0
 }
 
 article.news_item div.akcii_pg {
-    margin: 15px 0 5px;
+    margin: 15px 0 5px
 }
 
 akcii_pg div#new-legal-person {
-    margin: 40px 0 0;
+    margin: 40px 0 0
 }
 
 div.pice_count {
@@ -1916,12 +1895,12 @@ div.pice_count {
     margin: 0;
     border-radius: 6px;
     background-color: #e6e6e6;
-    -ms-border-radius: 6px;
+    -ms-border-radius: 6px
 }
 
 div div.pice_count span.bgpm1 {
     cursor: pointer;
-    background-color: #999;
+    background-color: #999
 }
 
 div.pice_count span input {
@@ -1935,7 +1914,7 @@ div.pice_count span input {
     border: medium none;
     outline: none;
     outline: navajowhite;
-    background-color: transparent;
+    background-color: transparent
 }
 
 div.pice_count span {
@@ -1944,7 +1923,7 @@ div.pice_count span {
     width: 25.6px;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 div.pice_count span input[type=text] {
@@ -1954,7 +1933,7 @@ div.pice_count span input[type=text] {
     padding: 0;
     text-align: center;
     color: #000;
-    border: medium none;
+    border: medium none
 }
 
 div.pice_count span input {
@@ -1968,12 +1947,12 @@ div.pice_count span input {
     border: medium none;
     outline: none;
     outline: navajowhite;
-    background-color: transparent;
+    background-color: transparent
 }
 
 div.pice_count span.bgpm2 {
     cursor: pointer;
-    background-color: #999;
+    background-color: #999
 }
 
 div.pice_count span input {
@@ -1986,19 +1965,19 @@ div.pice_count span input {
     color: #fff;
     border: medium none;
     outline: none;
-    background-color: transparent;
+    background-color: transparent
 }
 
 div.pice_count span.bgpm1 input {
     border-radius: 0;
     border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px
 }
 
 div.pice_count span.bgpm2 input {
     border-radius: 3px;
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0
 }
 
 section.cartpage_sec article table tr td.summa_td {
@@ -2008,34 +1987,34 @@ section.cartpage_sec article table tr td.summa_td {
     width: 90px;
     margin: 0;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 section.cartpage_sec article table tr td.floating_td {
     width: 45px;
-    margin: 0;
+    margin: 0
 }
 
 section.cartpage_sec article table tr td.floating_td a {
     font-size: .9em;
     text-decoration: none;
-    border-bottom: 1px dotted #ff8200;
+    border-bottom: 1px dotted #ff8200
 }
 
 section.cartpage_sec article table tr td.floating_td a:hover {
-    border-bottom: none;
+    border-bottom: none
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo {
     position: relative;
-    width: 200px;
+    width: 200px
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo a {
     float: left;
     width: 86px;
     height: 86px;
-    margin: 0 10px 0 0;
+    margin: 0 10px 0 0
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo h4 {
@@ -2047,7 +2026,7 @@ section.cartpage_sec article table tr td div.maingoodinfo h4 {
     margin: 0 0 10px;
     padding: 0;
     text-align: left;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo h4 a {
@@ -2056,11 +2035,11 @@ section.cartpage_sec article table tr td div.maingoodinfo h4 a {
     height: inherit;
     margin: 0;
     text-decoration: none;
-    color: #000;
+    color: #000
 }
 
 section.cartpage_sec article table tr.tab_row:hover td div.maingoodinfo h4 a {
-    color: #f49d30;
+    color: #f49d30
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo span.articul_block {
@@ -2068,25 +2047,25 @@ section.cartpage_sec article table tr td div.maingoodinfo span.articul_block {
     display: block;
     float: right;
     margin: 0 0 7px;
-    color: #999;
+    color: #999
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo span.instok {
     bottom: 0;
     left: 95px;
-    width: 58px;
+    width: 58px
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo span.not_instok {
     bottom: 0;
     left: 95px;
-    width: 58px;
+    width: 58px
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo span.not_instok {
     bottom: 0;
     left: 95px;
-    width: 58px;
+    width: 58px
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo span.articul_block a {
@@ -2094,50 +2073,50 @@ section.cartpage_sec article table tr td div.maingoodinfo span.articul_block a {
     width: inherit;
     height: inherit;
     text-decoration: none;
-    color: #000;
+    color: #000
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo a span {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #454545;
+    background-color: #454545
 }
 
 section.cartpage_sec article table tr td div.maingoodinfo a span img {
     width: 100%;
     height: 100%;
     -webkit-transition: all .1s linear;
-    transition: all .1s linear;
+    transition: all .1s linear
 }
 
 section.cartpage_sec article table tr.tab_row:hover td div.maingoodinfo a span img {
-    opacity: .7;
+    opacity: .7
 }
 
 section.cartpage_sec article table tr th {
     padding: 20px 30px 10px 0;
     text-align: left;
     color: #777;
-    background-color: inherit;
+    background-color: inherit
 }
 
 section.cartpage_sec article table tr th.naming {
-    width: 211px;
+    width: 211px
 }
 
 section.cartpage_sec article table tr th.pricing {
     width: 81px;
-    padding: 0 0 0 10px;
+    padding: 0 0 0 10px
 }
 
 section.cartpage_sec article table tr th.counting {
-    padding: 0 20px 0 35px;
+    padding: 0 20px 0 35px
 }
 
 div.filter_block div.maingoodinfo {
     position: relative;
-    margin: 0 0 20px 20px;
+    margin: 0 0 20px 20px
 }
 
 div.filter_block div.maingoodinfo a {
@@ -2145,24 +2124,24 @@ div.filter_block div.maingoodinfo a {
     float: left;
     width: 86px;
     height: 86px;
-    margin: 0 15px 0 0;
+    margin: 0 15px 0 0
 }
 
 div.filter_block div.maingoodinfo a span {
     display: inline-block;
     width: 100%;
-    height: 100%;
+    height: 100%
 }
 
 div.filter_block div.maingoodinfo a span img {
     width: 100%;
     height: 100%;
     -webkit-transition: all .1s linear;
-    transition: all .1s linear;
+    transition: all .1s linear
 }
 
 div.filter_block div.maingoodinfo:hover a span img {
-    opacity: .7;
+    opacity: .7
 }
 
 div.filter_block div.maingoodinfo h4 {
@@ -2170,7 +2149,7 @@ div.filter_block div.maingoodinfo h4 {
     font-size: .9em;
     display: block;
     margin: 0 0 14px;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 div.filter_block div.maingoodinfo h4 a {
@@ -2180,11 +2159,11 @@ div.filter_block div.maingoodinfo h4 a {
     height: inherit;
     margin: 0;
     text-decoration: none;
-    color: #999;
+    color: #999
 }
 
 div.filter_block div.maingoodinfo:hover h4 a {
-    color: #f7961e;
+    color: #f7961e
 }
 
 div.filter_block div.maingoodinfo span.manufacturer_block {
@@ -2193,7 +2172,7 @@ div.filter_block div.maingoodinfo span.manufacturer_block {
     display: block;
     margin: 0 0 2px;
     text-align: left;
-    color: #999;
+    color: #999
 }
 
 div.filter_block div.maingoodinfo span.summa_asidebl {
@@ -2207,12 +2186,12 @@ div.filter_block div.maingoodinfo span.summa_asidebl {
     padding: 0;
     text-align: left;
     text-transform: uppercase;
-    color: #fff;
+    color: #fff
 }
 
 div.filter_block div.maingoodinfo span.manufacturer_block a {
     float: none;
-    color: #000;
+    color: #000
 }
 
 div.filter_block div.maingoodinfo a.aside_button {
@@ -2228,29 +2207,29 @@ div.filter_block div.maingoodinfo a.aside_button {
     text-transform: uppercase;
     color: #fff;
     border-radius: 5px;
-    background-color: #f7961e;
+    background-color: #f7961e
 }
 
 div.filter_block div.maingoodinfo a.aside_button:hover {
-    background-color: #ffb139;
+    background-color: #ffb139
 }
 
 div.filter_block div.maingoodinfo p {
     display: block;
     width: 98%;
     height: 111px;
-    margin: 10px 0 0;
+    margin: 10px 0 0
 }
 
 div.cart_itogo {
-    text-align: right;
+    text-align: right
 }
 
 div.cart_itogo div {
     font-size: 1.2em;
     margin: 16px 20px 0;
     padding: 10px 25px 0;
-    color: #777;
+    color: #777
 }
 
 div.cart_itogo a {
@@ -2264,11 +2243,11 @@ div.cart_itogo a {
     text-transform: uppercase;
     color: #fff;
     border-radius: 5px;
-    background-color: #f7961e;
+    background-color: #f7961e
 }
 
 div.cart_itogo a:hover {
-    background-color: #ffb139;
+    background-color: #ffb139
 }
 
 div.cart_itogo div span {
@@ -2278,7 +2257,7 @@ div.cart_itogo div span {
     display: inline-block;
     margin: 0 0 0 20px;
     text-transform: uppercase;
-    color: #000;
+    color: #000
 }
 
 ul.breadcrumbs {
@@ -2286,34 +2265,34 @@ ul.breadcrumbs {
     width: 97.3%;
     margin: 22px 0 10px;
     padding: 0;
-    list-style: none;
+    list-style: none
 }
 
 ul.breadcrumbs li {
     font-size: .97em;
     display: inline-block;
     margin: 0 0 5px;
-    color: #999;
+    color: #999
 }
 
 ul.breadcrumbs li:after {
     content: ' > ';
-    color: #999;
+    color: #999
 }
 
 ul.breadcrumbs li:last-child:after {
     display: inline-block;
     height: 3.9%;
-    content: none;
+    content: none
 }
 
 ul.breadcrumbs li a {
     font-size: .97em;
-    outline: none;
+    outline: none
 }
 
 div.breadcrumbs2_wrapper {
-    text-align: center;
+    text-align: center
 }
 
 ul.breadcrumbs2 {
@@ -2325,7 +2304,7 @@ ul.breadcrumbs2 {
     list-style: none;
     text-align: center;
     border-radius: 5px;
-    background-color: #444;
+    background-color: #444
 }
 
 ul.breadcrumbs2 li {
@@ -2340,41 +2319,41 @@ ul.breadcrumbs2 li {
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
     text-align: center;
-    border: none;
+    border: none
 }
 
 ul.breadcrumbs2 li:hover {
-    background-color: #6d5454;
+    background-color: #6d5454
 }
 
 ul.breadcrumbs2 li:first-child {
     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px
 }
 
 ul.breadcrumbs2 li:first-child span {
     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px
 }
 
 ul.breadcrumbs2 li:last-child {
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px
 }
 
 ul.breadcrumbs2 li:first-child a {
     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px
 }
 
 ul.breadcrumbs2 li:first-child b {
     border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px
 }
 
 ul.breadcrumbs2 li:last-child a {
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px
 }
 
 ul.breadcrumbs2 li a.arrow-forward:after {
@@ -2383,7 +2362,7 @@ ul.breadcrumbs2 li a.arrow-forward:after {
     font-weight: 700;
     line-height: 1;
     display: inline-block;
-    content: '\f002';
+    content: '\f002'
 }
 
 ul.breadcrumbs2 li a.arrow-back:after {
@@ -2392,7 +2371,7 @@ ul.breadcrumbs2 li a.arrow-back:after {
     font-weight: 700;
     line-height: 1;
     display: inline-block;
-    content: '\f001';
+    content: '\f001'
 }
 
 ul.breadcrumbs2 li:last-child b {
@@ -2403,7 +2382,7 @@ ul.breadcrumbs2 li:last-child b {
 ul.breadcrumbs2 li:last-child:after {
     display: inline-block;
     height: 3.9%;
-    content: none;
+    content: none
 }
 
 ul.breadcrumbs2 li span {
@@ -2414,7 +2393,7 @@ ul.breadcrumbs2 li span {
     padding: 4px 14px 0;
     color: #fff;
     outline: none;
-    background-color: #646464;
+    background-color: #646464
 }
 
 ul.breadcrumbs2 li a {
@@ -2427,11 +2406,11 @@ ul.breadcrumbs2 li a {
     vertical-align: middle;
     text-decoration: none;
     color: #fff;
-    outline: none;
+    outline: none
 }
 
 ul.breadcrumbs2 li a:hover {
-    text-decoration: none;
+    text-decoration: none
 }
 
 div.sortnview {
@@ -2440,12 +2419,12 @@ div.sortnview {
     width: 100%;
     margin: 0;
     padding: 15px 0 10px;
-    background-image: url(../img/light_back.png);
+    background-image: url(../img/light_back.png)
 }
 
 div.sortnview span {
     display: inline-block;
-    margin: 0 10px 0 15px;
+    margin: 0 10px 0 15px
 }
 
 div.sortnview img {
@@ -2453,21 +2432,21 @@ div.sortnview img {
     margin: 0 20px 0 0;
     cursor: pointer;
     -webkit-transition: all .1s linear;
-    transition: all .1s linear;
+    transition: all .1s linear
 }
 
 div.sortnview img:hover {
-    opacity: .6;
+    opacity: .6
 }
 
 div.sortnview img.selected_type_view {
-    opacity: .6;
+    opacity: .6
 }
 
 div.floatinrgh_sort {
     display: inline-block;
     float: right;
-    margin: 0;
+    margin: 0
 }
 
 article ul {
@@ -2476,20 +2455,8 @@ article ul {
     margin: 0;
     padding: 0;
     list-style-position: inside;
-    list-style-type: circle;
+    list-style-type: circle
 }
-
-
-/*section.cartpage_sec article ul {
-    font-size: .95em;
-    line-height: 1.75em;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    list-style-position: inside;
-    border-top-right-radius: 4px;
-    background-color: #999
-}*/
 
 section.cartpage_sec article ol {
     font-size: .95em;
@@ -2499,14 +2466,14 @@ section.cartpage_sec article ol {
     padding: 0;
     list-style-position: inside;
     border-top-right-radius: 4px;
-    background-color: #999;
+    background-color: #999
 }
 
 section.cartpage_sec article div.ch_formblock {
     margin: 0;
     padding: 20px;
     padding: 0;
-    background-color: #fff;
+    background-color: #fff
 }
 
 section.cartpage_sec article div.ch_formblock form p.nexting_btn {
@@ -2515,7 +2482,7 @@ section.cartpage_sec article div.ch_formblock form p.nexting_btn {
     width: 140px;
     height: 29px;
     margin: 16px 0 0 20px;
-    padding: 0;
+    padding: 0
 }
 
 section.cartpage_sec article div.ch_formblock form p.nexting_btn>span {
@@ -2530,7 +2497,7 @@ section.cartpage_sec article div.ch_formblock form p.nexting_btn>span {
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
     background-image: url(../img/select_arrow.png);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 }
 
 section.cartpage_sec article div.ch_formblock form p.nexting_btn input {
@@ -2548,11 +2515,11 @@ section.cartpage_sec article div.ch_formblock form p.nexting_btn input {
     color: #fff;
     border: none;
     border-radius: 5px;
-    background-color: #f7961e;
+    background-color: #f7961e
 }
 
 section.cartpage_sec article div.ch_formblock form p.nexting_btn input:hover {
-    background-color: #ffb94d;
+    background-color: #ffb94d
 }
 
 section.cartpage_sec article div.ch_formblock form {
@@ -2562,78 +2529,77 @@ section.cartpage_sec article div.ch_formblock form {
 }
 
 section.cartpage_sec article div.ch_formblock form>span {
-    display: block;
+    display: block
 }
 
 section.cartpage_sec article ul li {
     display: inline-block;
     width: auto;
     height: 41px;
-    /* padding: 0 0 0 40px; */
     margin: 0;
     border-top-right-radius: 4px;
-    background-color: #B9B9B9;
+    background-color: #b9b9b9
 }
 
 section.cartpage_sec article ul li.active_chbtn {
-    background-color: #777;
+    background-color: #777
 }
 
 section.cartpage_sec article ul li a {
-    font-weight: bold;
+    font-weight: 700;
     display: block;
     width: auto;
     height: auto;
-    padding: 9px 0 10px 0;
+    padding: 9px 0 10px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    /* padding: 0 0 0 40px; */
-    color: #fff;
+    color: #fff
 }
 
 section.cartpage_sec article ul li {
-    padding: 0 20px 0 20px;
-    transition: all .1s linear;
+    padding: 0 20px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear
 }
 
 section.secondpage_section article.search_results_block ul.search_results {
-    margin: 0;
+    margin: 0
 }
 
 section.secondpage_section article.search_results_block ul.search_results li span p {
-    margin: 0 0 20px;
+    margin: 0 0 20px
 }
 
 #towars {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 #towars div.flex-viewport {
-    width: 100%;
+    width: 100%
 }
 
 #towars div.flex-viewport ul.slides {
-    margin: 0 30px 50px 0;
+    margin: 0 30px 50px 0
 }
 
 #towars div.flex-viewport ul.slides li {
-    margin: 0 50px 50px 0;
+    margin: 0 50px 50px 0
 }
 
 div.good_bookmopt {
     position: relative;
-    z-index: 999;
+    z-index: 999
 }
 
 div.good_bookmopt ul.good_bookmarks {
     margin: 40px 0 0;
     list-style: none;
-    padding: 0 0 1.5% 0;
+    padding: 0 0 1.5%;
     border-bottom: 3px solid #e6e6e6;
-    text-align: justify;
+    text-align: justify
 }
 
 div.good_bookmopt ul.good_bookmarks li {
@@ -2643,18 +2609,17 @@ div.good_bookmopt ul.good_bookmarks li {
     margin: 0 1% 1.5% 0;
     padding: 0 15px;
     border-radius: 4px;
-    /* border-top-right-radius: 4px; */
     background-image: url(../img/light_back.png);
-    background-repeat: repeat;
+    background-repeat: repeat
 }
 
 div.good_bookmopt ul.good_bookmarks li:last-child {
-    margin: 0;
+    margin: 0
 }
 
 div.good_bookmopt ul.good_bookmarks li.active_chbtn {
     background-image: url(../img/dark_back.png);
-    background-repeat: repeat;
+    background-repeat: repeat
 }
 
 div.good_bookmopt ul.good_bookmarks li a {
@@ -2667,41 +2632,40 @@ div.good_bookmopt ul.good_bookmarks li a {
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    color: #000;
+    color: #000
 }
 
 div.good_bookmopt ul.good_bookmarks li.active_chbtn a {
-    color: #fff;
+    color: #fff
 }
 
 div.good_bookmopt>div {
-    margin: 20px 0;
+    margin: 20px 0
 }
 
 div#catalog_list div.cat_item_plits {
     clear: both;
-    /*overflow: hidden;*/
     height: 201px;
     margin: 25px 0 0;
     border-bottom: 25px solid #fff;
-    box-shadow: 0 3px 0 0 #e6e6e6;
+    box-shadow: 0 3px 0 0 #e6e6e6
 }
 
 div#catalog_list div.cat_item_plits:last-child {
-    margin: 25px 0 50px;
+    margin: 25px 0 50px
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo {
     float: left;
     width: 77.1%;
-    border-right: 3px solid #e6e6e6;
+    border-right: 3px solid #e6e6e6
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo a {
     position: relative;
     display: inline-block;
     float: left;
-    margin: 0 20px 0 0;
+    margin: 0 20px 0 0
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo h4 a {
@@ -2709,32 +2673,32 @@ div#catalog_list div.cat_item_plits div.maingoodinfo h4 a {
     width: 56%;
     margin: 0 0 20px;
     text-decoration: none;
-    color: #000;
+    color: #000
 }
 
 div#catalog_list div.cat_item_plits:hover div.maingoodinfo h4 a {
-    color: #f7961e;
+    color: #f7961e
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo a img {
     -webkit-transition: all .1s linear;
-    transition: all .1s linear;
+    transition: all .1s linear
 }
 
 div#catalog_list div.cat_item_plits:hover div.maingoodinfo a img {
-    opacity: .5;
+    opacity: .5
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo a span {
     display: block;
-    background-color: #575757;
+    background-color: #575757
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo h4 {
     font-family: a_avantebs;
     display: block;
     margin: 0 0 10px;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo h4 {
@@ -2742,29 +2706,29 @@ div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo h4 {
     display: block;
     clear: both;
     margin: 0 0 10px;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo span.manufacturer_block {
     display: block;
     margin: 0 0 7px;
     text-align: left;
-    color: #999;
+    color: #999
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo span.manufacturer_block a {
     float: none;
-    color: #000;
+    color: #000
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo span.articul_block {
     display: block;
-    color: #999;
+    color: #999
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo span.articul_block a {
     float: none;
-    color: #000;
+    color: #000
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo p {
@@ -2781,6 +2745,44 @@ div#catalog_list div.cat_item_plits div.pricenbuttons {
     width: 20%;
     height: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+}
+
+div#catalog_list div.cat_item_plits div.pricenbuttons .out_of_stok_list {
+    color: #999;
+    background-image: none;
+    margin: 0;
+    padding: 2px;
+    border: 1px dotted #ccc;
+    width: 80px;
+    height: 26px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons .out_of_stok_list {
+    color: #999;
+    background-image: none;
+    margin: 0;
+    padding: 4px;
+    border: 1px dotted #ccc;
+    width: 130px;
+    height: 14px;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center
+    /*display: none;*/
+}
+
+div#catalog_list.cat_item_list li div.cat_item_plits div.pricenbuttons .out_of_stok_list {
+    bottom: 85px;
+    padding: 0;
+    height: 20px
 }
 
 div#catalog_list div.cat_item_plits div.pricenbuttons div.goodsprice {
@@ -2788,25 +2790,22 @@ div#catalog_list div.cat_item_plits div.pricenbuttons div.goodsprice {
     font-size: 1.5em;
     display: block;
     margin: 0 0 10px;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 div#catalog_list div.cat_item_plits div.pricenbuttons span.salepercent {
-    display: none;
+    display: none
 }
 
 span.not_instok {
     font-size: .9em;
-    position: absolute;
-    bottom: 16px;
-    left: 15%;
     width: 70px;
     height: 15px;
     margin: 0 auto;
     padding: 0 0 0 25px;
     color: #999;
     background-image: url(../img/not_instock.png);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 }
 
 div#catalog_list div.cat_item_plits div.pricenbuttons span.goodcompare {
@@ -2817,17 +2816,17 @@ div#catalog_list div.cat_item_plits div.pricenbuttons span.goodcompare {
     height: 19px;
     padding: 0 0 0 25px;
     background-image: url(../img/compare.png);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 }
 
 div#catalog_list div.cat_item_plits div.pricenbuttons span.goodcompare a {
     text-decoration: none;
     color: #999;
-    border-bottom: 1px dotted #999;
+    border-bottom: 1px dotted #999
 }
 
 div#catalog_list div.cat_item_plits div.pricenbuttons span.goodcompare a:hover {
-    border: none;
+    border: none
 }
 
 .buybutton {
@@ -2845,45 +2844,39 @@ div#catalog_list div.cat_item_plits div.pricenbuttons span.goodcompare a:hover {
     transition: all .1s linear;
     border: none;
     outline: none;
-    position: relative;
-}
-
-div#catalog_list div.cat_item_plits div.pricenbuttons input.buybutton {
-    width: 70%;
-    margin: 0 auto;
+    position: relative
 }
 
 .buybutton.outnstock {
-    background-color: #ccc;
+    background-color: #ccc
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits {
     display: inline-table;
     clear: both;
-    /*overflow: hidden;*/
     width: 207.9px;
     height: auto;
     margin: 25px 30px 50px 0;
     border-bottom: 10px solid #fff;
-    box-shadow: 0 3px 0 0 #e6e6e6;
+    box-shadow: 0 3px 0 0 #e6e6e6
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits:nth-child(3n) {
-    margin: 0 0 50px;
+    margin: 0 0 50px
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo {
     float: none;
     width: 100%;
     margin: 0 0 10px;
-    border: none;
+    border: none
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo a {
     position: relative;
     display: inline-block;
     float: left;
-    margin: 0 0 20px;
+    margin: 0 0 20px
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo h4 a {
@@ -2893,56 +2886,74 @@ div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo h4 a {
     margin: 0 0 20px;
     margin: 0 0 10px;
     text-decoration: none;
-    color: #000;
+    color: #000
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits:hover div.maingoodinfo h4 a {
-    color: #f7961e;
+    color: #f7961e
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits:hover span.akcii_sprite {
     background-color: #ffd7a6;
 }
 
+div#catalog_list.cat_item_list li div.cat_item_plits span.akcii_sprite {
+    padding: 2px 10px;
+}
+
 div#catalog_list.cat_item_list div.cat_item_plits:hover span.rasp_sprite {
-    background-color: #ff848c;
+    background-color: #ff848c
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo a span {
     display: block;
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
-    background-color: #323232;
+    background-color: #323232
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits:hover div.maingoodinfo a img {
-    opacity: .5;
+    opacity: .5
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo span.manufacturer_block {
     display: block;
     margin: 55px 0 7px;
     text-align: left;
+    color: #999
+}
+
+div#catalog_list.cat_item_list li div.cat_item_plits div.maingoodinfo span.manufacturer_block {
+    display: block;
+    margin: 30px 0 7px;
+    text-align: left;
     color: #999;
+    line-height: 1em;
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo span.manufacturer_block a {
     float: none;
     width: 200px;
     margin: 0;
-    color: #000;
+    color: #000
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo span.articul_block {
     display: block;
+    color: #999
+}
+
+div#catalog_list.cat_item_list li div.cat_item_plits div.maingoodinfo span.articul_block {
+    display: block;
     color: #999;
+    line-height: 1em;
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo span.articul_block a {
     float: none;
     width: 200px;
     margin: 0;
-    color: #000;
+    color: #000
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.maingoodinfo p {
@@ -2956,36 +2967,45 @@ div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons {
     position: relative;
     float: none;
     width: auto;
-    height: 74px!important;
-    height: 100%;
+    height: 85px;
     text-align: left;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+}
+
+div#catalog_list.cat_item_list li div.cat_item_plits div.pricenbuttons {
+    float: none;
+    width: auto;
+    height: 85px;
+    text-align: left
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons p.price_word_usualy {
-    display: none;
+    display: none
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons div.goodsprice {
     font-family: a_avantebs;
     font-size: 1.3em;
     display: block;
-    margin: 20px 0 15px;
+    margin: 10px 0 0;
     text-transform: uppercase;
+    width: 100%;
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.salepercent {
-    display: none;
+    display: none
 }
 
 span.instok {
     font-size: .9em;
-    position: absolute;
-    bottom: 16px;
-    left: 15%;
     width: auto;
     height: 15px;
-    margin: 0 auto;
-    padding: 3px 5px 3px 24px;
+    padding: 3px 10px 3px 24px;
     background: url(../img/instock.png) #fff;
     background-repeat: no-repeat;
     background-position: 7px 3px;
@@ -2995,12 +3015,11 @@ span.instok {
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
     color: #f7961e;
-    font-weight: 700;
-    line-height: 1.2em;
+    line-height: 1.2em
 }
 
 span.instok:hover {
-    background-color: #fff;
+    background-color: #fff
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.goodcompare {
@@ -3011,36 +3030,42 @@ div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.goodcom
     height: 19px;
     padding: 0 0 0 25px;
     background-image: url(../img/compare.png);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.goodcompare a {
     text-decoration: none;
     color: #999;
-    border-bottom: 1px dotted #999;
+    border-bottom: 1px dotted #999
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.goodcompare a:hover {
-    border: none;
-}
-
-div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons input.buybutton {
-    position: relative;
-    bottom: 12px;
-    width: 50%;
-    margin: 25px 0 0;
+    border: none
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.instok {
-    right: 0;
-    left: auto;
+    /* right:0; */
+    /* left:auto; */
     top: 32.5px;
     margin: 0;
     line-height: 1.2em;
     padding: 6px 0 6px 20px;
     background-position: 2px 6px;
     border: none;
-    cursor: pointer;
+    cursor: pointer
+}
+
+div#catalog_list.cat_item_list li div.cat_item_plits div.pricenbuttons span.instok {
+    /* position:absolute; */
+    /* right:0; */
+    /* left:auto; */
+    top: 32.5px;
+    margin: 0;
+    line-height: 1.2em;
+    padding: 6px 0 6px 20px;
+    background-position: 2px 6px;
+    border: none;
+    cursor: pointer
 }
 
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.not_instok {
@@ -3049,42 +3074,60 @@ div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons span.not_ins
     left: auto;
     width: auto;
     margin: 0;
-    line-height: 1.2em;
-}
-
-div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons input.buybutton.outnstock {
-    cursor: pointer;
-    background-color: #cecece;
-}
-
-div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons input.buybutton.outnstock:hover {
-    background-color: #c6c6c6;
+    line-height: 1.2em
 }
 
 div.goodpage_info div.instock_compare {
-    position: relative;
     min-height: 35px;
     margin: 0;
-    padding: 20px;
+    padding: 30px 20px 20px;
     text-align: left;
     background-image: url(../img/light_back.png);
-    background-repeat: repeat
+    background-repeat: repeat;
+    height: 75px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
-div.goodpage_info div.instock_compare span.instok {
-    top: 15px;
-    left: 20px;
+span.out_of_stok {
+    border: 1px dotted #ccc;
+    padding: 5px 5px 5px 26px;
+    margin: 0;
+    width: 55px;
+    border-radius: 5px;
+    background-position: 5px 5px
 }
 
 div.goodpage_info div.instock_compare span.print_block {
     top: 40px;
-    cursor: pointer;
+    cursor: pointer
 }
 
 div.goodpage_info div.instock_compare span.not_instok {
     top: 15px;
     left: 20px;
-    width: 100%;
+    width: 100%
 }
 
 div.goodpage_info div.instock_compare span.goodcompare {
@@ -3095,13 +3138,13 @@ div.goodpage_info div.instock_compare span.goodcompare {
     height: 19px;
     padding: 0 0 0 25px;
     background-image: url(../img/compare.png);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 }
 
 div.goodpage_info div.instock_compare span.goodcompare a {
     text-decoration: none;
     color: #999;
-    border-bottom: 1px dotted #999;
+    border-bottom: 1px dotted #999
 }
 
 a.more_goods {
@@ -3121,11 +3164,11 @@ a.more_goods {
     color: #fff;
     border-radius: 5px;
     background: #444 url(../img/select_arrow.png) no-repeat right;
-    background-position: 93% 10px;
+    background-position: 93% 10px
 }
 
 a.more_goods:hover {
-    background-color: #666;
+    background-color: #666
 }
 
 a.all_goods {
@@ -3146,18 +3189,18 @@ a.all_goods {
     border-radius: 5px;
     border-color: #fff;
     background: #fff url(../img/select_arrow.png) no-repeat right;
-    background-position: 93% 10px;
+    background-position: 93% 10px
 }
 
 a.all_goods:hover {
-    background-color: #666;
+    background-color: #666
 }
 
 span.more_goods_inf {
     display: block;
     margin: 10px 0 12px auto;
     text-align: center;
-    color: #999;
+    color: #999
 }
 
 aside {
@@ -3167,7 +3210,7 @@ aside {
     margin: 0 4.54% 4px 0;
     padding: 45px 20px 30px 23px;
     background-image: url(../img/light_back.png);
-    background-repeat: repeat;
+    background-repeat: repeat
 }
 
 aside.secondpage_asd {
@@ -3177,13 +3220,13 @@ aside.secondpage_asd {
     margin: 4px 0 20px 4.546%;
     padding: 0;
     background-image: url(../img/light_back.png);
-    background-repeat: repeat;
+    background-repeat: repeat
 }
 
 div.filter_block {
     color: #fff;
     border-bottom: 40px solid #fff;
-    background-image: url(../img/dark_back.png);
+    background-image: url(../img/dark_back.png)
 }
 
 div.filter_block div.filter_hdr {
@@ -3195,14 +3238,14 @@ div.filter_block div.filter_hdr {
     text-transform: uppercase;
     color: #fff;
     border-bottom: 1px solid #2c2c2c;
-    box-shadow: 0 1px 0 0 #616161;
+    box-shadow: 0 1px 0 0 #616161
 }
 
 div.back_filterslid {
     font-size: .9em;
     margin: 0 25.4px 0 17px;
     text-align: center;
-    position: relative;
+    position: relative
 }
 
 div.back_filterslid label {
@@ -3215,7 +3258,7 @@ div.back_filterslid label {
     text-align: left;
     text-indent: inherit;
     color: #fff;
-    text-shadow: inherit;
+    text-shadow: inherit
 }
 
 div.submit_filtbutt {
@@ -3227,7 +3270,7 @@ div.submit_filtbutt {
     text-transform: uppercase;
     color: #fff;
     border-top: 1px solid #616161;
-    box-shadow: 0 -1px 0 0 #323232;
+    box-shadow: 0 -1px 0 0 #323232
 }
 
 div.submit_filtbutt input {
@@ -3246,13 +3289,12 @@ div.submit_filtbutt input {
     border-radius: 5px;
     outline: none;
     background: #f7961e;
-    background-position: 93% 10px;
+    background-position: 93% 10px
 }
 
 input.buybutton {
     font-family: a_avantebs;
     font-size: .85em;
-    position: relative;
     width: 107px;
     height: 29px;
     margin: 0;
@@ -3265,7 +3307,7 @@ input.buybutton {
     border-radius: 5px;
     outline: none;
     background: #f7961e;
-    background-position: 93% 10px;
+    background-position: 93% 10px
 }
 
 div.goodsprice {
@@ -3273,19 +3315,15 @@ div.goodsprice {
     font-size: 1.5em;
     display: block;
     margin: 0 0 18px;
-    text-transform: uppercase;
-}
-
-input.buybutton:hover {
-    background-color: #fea537;
+    text-transform: uppercase
 }
 
 input.buybutton.outnstock:hover {
-    background-color: #c6c6c6;
+    background-color: #c6c6c6
 }
 
 div.submit_filtbutt input:hover {
-    background-color: #fea537;
+    background-color: #fea537
 }
 
 div.back_filterslid p label {
@@ -3298,7 +3336,7 @@ div.back_filterslid p label {
     text-align: left;
     text-indent: inherit;
     text-transform: lowercase;
-    color: #fff;
+    color: #fff
 }
 
 div.back_filterslid input {
@@ -3311,94 +3349,69 @@ div.back_filterslid input {
     border: none;
     border-radius: 3px;
     outline: none;
-    background: #8e8e8e;
+    background: #8e8e8e
 }
 
 div.back_filterslid input::-webkit-input-placeholder {
-    color: #fff;
+    color: #fff
 }
 
 div.back_filterslid input::-moz-placeholder {
-    color: #fff;
+    color: #fff
 }
 
 div.back_filterslid input div#inner-editor {
-    color: #fff!important;
+    color: #fff!important
 }
 
 section.cartpage_sec article div.ch_formblock form div.chkbx_filt {
     margin: 0 0 20px;
-    padding: 17px 0;
+    padding: 17px 0
 }
 
 div.filter_block form div.chkbx_filt {
     margin: 0 0 20px;
-    padding: 17px 0 5px 20px;
+    padding: 17px 0 5px 20px
 }
 
 div.ch_formblock form fieldset input:focus {
-    outline: none;
+    outline: none
 }
 
 div.ch_formblock form fieldset textarea:focus {
-    outline: none;
+    outline: none
 }
 
 div.ch_formblock form fieldset.personalinfo,
 div.ch_formblock form fieldset.paymentvariable {
     display: inline-block;
-    /*float: left;*/
-    /*    outline: 2px dotted red;*/
     width: 460px;
-    position: relative;
+    position: relative
 }
-
-
-/*.has-error {
-    position: relative;
-}
-
-.has-error .help-block.form-error {
-    color: red;
-    position: absolute;
-    top: 49px;
-}*/
-
-
-/*div.ch_formblock form fieldset.personalinfo label,
-div.ch_formblock form fieldset.paymentvariable label {
-    font-size: 1em;
-    font-weight: 700;
-    display: block;
-    width: inherit;
-    height: initial;
-    margin: 30px 0 5px;
-    text-indent: inherit;
-}*/
 
 div.ch_formblock form fieldset.personalinfo input,
 div.ch_formblock form fieldset.paymentvariable input {
     width: 263px;
     height: 27px;
-    margin: 0 0 20px 0;
+    margin: 0 0 20px;
     padding: 0 0 0 10px;
-    border: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3
 }
 
 div.line:first-child {
     margin: 0 0 20px;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 div.line {
     margin: 40px 0 20px;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 div.ch_formblock form fieldset.deliveryinfo {
     display: inline-block;
     float: right;
-    width: 265px;
+    width: 265px
 }
 
 div.ch_formblock form fieldset.deliveryinfo span.citylabel {
@@ -3406,36 +3419,36 @@ div.ch_formblock form fieldset.deliveryinfo span.citylabel {
     font-weight: 700;
     display: block;
     margin: 0 0 5px;
-    color: #000;
+    color: #000
 }
 
 div.ch_formblock form fieldset.deliveryinfo select {
     width: 100%;
-    border: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3
 }
 
 div.ch_formblock form fieldset.deliveryinfo select option {
-    border: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3
 }
 
 div.ch_formblock form fieldset.deliveryinfo label {
     font-size: 1em;
     font-weight: 700;
     display: block;
-    margin: 0 0 5px;
+    margin: 0 0 5px
 }
 
 div.ch_formblock form fieldset.deliveryinfo div.homeroombl label {
     font-size: 1em;
     font-weight: 700;
     display: block;
-    margin: 0 0 5px;
+    margin: 0 0 5px
 }
 
 div.ch_formblock form fieldset.deliveryinfo div.homeroombl {
     display: inline-block;
     width: 130px;
-    margin: 0;
+    margin: 0
 }
 
 div.ch_formblock form fieldset.deliveryinfo div.homeroombl:last-child {
@@ -3463,13 +3476,12 @@ div.ch_formblock form fieldset.deliveryinfo input {
 
 div.ch_formblock form fieldset.commentinfo {
     display: none;
-    /*float: left;*/
     position: relative;
-    width: 460px;
+    width: 460px
 }
 
 div.ch_formblock form p.address_samov {
-    display: inline-block;
+    display: inline-block
 }
 
 div.ch_formblock form fieldset.commentinfo label {
@@ -3478,8 +3490,8 @@ div.ch_formblock form fieldset.commentinfo label {
     display: block;
     width: inherit;
     height: inherit;
-    margin: 15px 0 5px 0;
-    text-indent: inherit;
+    margin: 15px 0 5px;
+    text-indent: inherit
 }
 
 div.ch_formblock form fieldset.commentinfo textarea {
@@ -3488,17 +3500,18 @@ div.ch_formblock form fieldset.commentinfo textarea {
     height: 98px;
     max-height: 98px;
     padding: 5px 0 0 8px;
-    border: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3
 }
 
 .ntSaveForms {
-    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear
 }
 
 div.comment {
-    margin: 0 0 30px 0;
+    margin: 0 0 30px;
     padding: 5px 5px 5px 15px;
-    border-left: 3px solid #e0e0e0;
+    border-left: 3px solid #e0e0e0
 }
 
 div.comment a.autor_name {
@@ -4037,13 +4050,13 @@ footer div.copyright {
     float: left;
     width: 83.5%;
     height: 30px;
-    margin: 1% 0 1% 0;
+    margin: 1% 0;
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
     text-align: right;
     color: #777;
     background-size: initial;
-    padding: 0 4.5% 0 4.5%;
+    padding: 0 4.5%
 }
 
 footer div.copyright a {
@@ -4072,12 +4085,12 @@ footer div.copyright a.humanstxt {
     text-align: right;
     color: #777;
     background: none;
-    opacity: 0.5;
+    opacity: .5
 }
 
 footer div.copyright a.humanstxt:hover {
     background: none;
-    opacity: 1;
+    opacity: 1
 }
 
 footer div.copyright a:hover {
@@ -4101,7 +4114,7 @@ div.cart_block div.cart_block_inner {
     width: 1100px;
     height: 100%;
     margin: 0 auto;
-    border-top: 1px solid rgba(119, 119, 117, 0.48);
+    border-top: 1px solid rgba(119, 119, 117, .48)
 }
 
 div.cart_block div.cart_block_inner div.cart_header {
@@ -4218,7 +4231,7 @@ div.empty_cart_block div.cart_block_inner {
     width: 1100px;
     height: 100%;
     margin: 0 auto;
-    border-top: 1px solid rgba(119, 119, 117, 0.48);
+    border-top: 1px solid rgba(119, 119, 117, .48)
 }
 
 div.empty_cart_block div.cart_block_inner div.cart_header {
@@ -4427,23 +4440,9 @@ input[type=radio].css-checkbox2 {
     border: 0
 }
 
-input[type=radio].css-checkbox2 + label.css-label2,
-input[type=radio].css-checkbox2 + label.css-label2.clr {
-    font-size: 0.9em;
-    font-weight: bold;
-    line-height: 15px;
-    display: inline-block;
-    width: inherit;
-    height: 14px;
-    /*margin: 10px 35px 0 0;*/
-    margin: 8px 35px 8px 0;
-    padding-left: 23px;
-    cursor: pointer;
-    vertical-align: middle;
-    text-indent: inherit;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    /*    font-size: 0.9em;
+input[type=radio].css-checkbox2+label.css-label2,
+input[type=radio].css-checkbox2+label.css-label2.clr {
+    font-size: .9em;
     font-weight: 700;
     line-height: 15px;
     display: inline-block;
@@ -4455,7 +4454,7 @@ input[type=radio].css-checkbox2 + label.css-label2.clr {
     vertical-align: middle;
     text-indent: inherit;
     background-repeat: no-repeat;
-    background-position: 0 0;*/
+    background-position: 0 0
 }
 
 input[type=radio].css-checkbox2:checked+label.css-label2,
@@ -4868,7 +4867,11 @@ div#catalog_list div.cat_item_plits div.maingoodinfo a span.akcii_sprite {
     text-transform: lowercase;
     color: #fff;
     border-radius: 5px;
-    background-color: #f7961e
+    background-color: #f7961e;
+}
+
+div#catalog_list div.cat_item_plits div.maingoodinfo a span.akcii_sprite {
+    padding: 2px 10px;
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo a span.rasp_sprite {
@@ -4920,7 +4923,11 @@ div#catalog_list div.cat_item_plits div.maingoodinfo a span.salepercent {
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo:hover a span.salepercent {
-    background-color: #ed8c90
+    background-color: #ed8c90;
+}
+
+div#catalog_list li div.cat_item_plits div.maingoodinfo a span.salepercent {
+    padding: 2px 10px;
 }
 
 div#catalog_list div.cat_item_plits div.maingoodinfo:hover a span.rasp_sprite {
@@ -5174,27 +5181,26 @@ a.site-up.show {
 
 a.site-up.onscroll {
     color: #fff;
-    background-position: 60px 0;
+    background-position: 60px 0
 }
 
 .faq_attach {
     float: right;
     text-decoration: none;
-    color: #fff;
+    color: #fff
 }
 
 section>h1 {
-    margin: 3em 1em 1em 25px;
+    margin: 3em 1em 1em 25px
 }
 
 section.secondpage_section {
     display: inline-block;
     padding: 0;
-    /*overflow: hidden;*/
     float: right;
     width: 67.5%;
     margin: 0 50px 0 0;
-    min-height: 1800px;
+    min-height: 1800px
 }
 
 section.catalog_section {
@@ -5270,73 +5276,125 @@ div.goodpage_info div.customer_artic,
     color: #000
 }
 
-/*выпадение*/
-
 #ajax_hint {
-    left: 19px;
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
-        border-left-width: 1px;
+    border-left-width: 1px;
     border-left-style: solid;
-    border-left-color: rgb(221, 221, 221);
+    border-left-color: #ddd;
     border-right-width: 1px;
     border-right-style: solid;
-    border-right-color: rgb(221, 221, 221);
+    border-right-color: #ddd;
     position: absolute;
     top: 14px;
     left: 19px;
     z-index: 9999;
-    box-shadow: rgba(50, 50, 50, 0.341176) 8px 8px 30px 0px;
-    margin: 1em 0px;
+    box-shadow: rgba(50, 50, 50, .341176) 8px 8px 30px 0;
+    margin: 1em 0;
     display: none;
-    width: 84.7%;
+    width: 84.7%
 }
 
 .ajax_hint li:hover,
 .ajax_hint li.hover a {
     color: #000;
-    background: #ffc379;
+    background: #ffc379
 }
 
 .ajax_hint a {
     padding: 10px;
     text-decoration: none;
     color: #999;
-    display:flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
     align-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
-    line-height: 1.7em;
+    line-height: 1.7em
 }
-.ajax_hint a div{
-     display:flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: center;
-    align-items: flex-start;
-    width: 100%;
-}
-.ajax_hint a div .search_infoss{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: space-between;
-    align-items: flex-start;
-    flex-basis: 100%;
-    width: 100%;
 
+.ajax_hint a div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    width: 100%
 }
-.ajax_hint a img{
-margin: 0 15px 0 0;
+
+.ajax_hint a div .search_infoss {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    width: 100%
+}
+
+.ajax_hint a img {
+    margin: 0 15px 0 0
 }
 
 .ajax_hint li:hover a {
     text-decoration: none;
-    color: #000;
+    color: #000
 }
 
 .ajax_hint li {
@@ -5344,20 +5402,38 @@ margin: 0 15px 0 0;
     margin: 0;
     padding: 0;
     list-style: none outside none;
+    -webkit-transition: all .1s linear;
     transition: all .1s linear;
     border-top: 1px solid #ddd;
-    background: none repeat scroll 0 0 #fff;
-}
-.ajax_hint li:last-child>a {
-    text-align: center;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    background: none repeat scroll 0 0 #fff
 }
 
+.ajax_hint li:last-child>a {
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+}
 
 img.img_accii {
     float: right;
@@ -5397,13 +5473,23 @@ li.dealer {
     color: white
 }
 
-div.saleall {
+div.saleall10per {
     width: 90.91%;
     height: 25px;
     margin: 0 auto;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-    background-image: url(../img/saleall.png);
+    background-image: url(../img/saleall10.png);
+    background-repeat: repeat-x
+}
+
+div.saleall7per {
+    width: 90.91%;
+    height: 25px;
+    margin: 0 auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-image: url(../img/saleall7.png);
     background-repeat: repeat-x
 }
 
@@ -5433,87 +5519,83 @@ span.newsimage img {
     margin: 0 0 20px;
     padding: 0;
     border-bottom: 3px solid #e6e6e6;
-    border-top: 3px solid #e6e6e6;
+    border-top: 3px solid #e6e6e6
 }
 
 #on_line_montage {
     font-family: a_avantebs;
     font-size: .85em;
     display: inline-block;
-    /* float: left; */
     height: 20px;
     margin: 0;
-    padding: 5px 25px 4px 25px;
+    padding: 5px 25px 4px;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
     border-radius: 5px;
     background-color: #f7961e;
-    line-height: 1.5em;
+    line-height: 1.5em
 }
 
 #on_line_montage:hover {
-    background-color: #ffb139;
+    background-color: #ffb139
 }
 
 #obslugivanie_min {
     font-family: a_avantebs;
     font-size: .85em;
     display: inline-block;
-    /* float: left; */
     height: 20px;
     margin: 0;
-    padding: 5px 25px 4px 25px;
+    padding: 5px 25px 4px;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
     border-radius: 5px;
     background-color: #f7961e;
-    line-height: 1.5em;
+    line-height: 1.5em
 }
 
 #obslugivanie_min:hover {
-    background-color: #ffb139;
+    background-color: #ffb139
 }
 
 #obslugivanie_max {
     font-family: a_avantebs;
     font-size: .85em;
     display: inline-block;
-    /* float: left; */
     height: 20px;
     margin: 0;
-    padding: 5px 25px 4px 25px;
+    padding: 5px 25px 4px;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
     border-radius: 5px;
     background-color: #f7961e;
-    line-height: 1.5em;
+    line-height: 1.5em
 }
 
 #obslugivanie_max:hover {
-    background-color: #ffb139;
+    background-color: #ffb139
 }
 
 #project {
     font-family: a_avantebs;
     font-size: .85em;
     display: inline-block;
-    /* float: left; */
     height: 20px;
     margin: 0;
-    padding: 5px 25px 4px 25px;
+    padding: 5px 25px 4px;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
     border-radius: 5px;
     background-color: #f7961e;
-    line-height: 1.5em;
+    line-height: 1.5em
 }
 
 #project:hover {
-    background-color: #ffb139;
+    background-color: #ffb139
 }
 
 div.sdhsfdh7 {
@@ -5808,136 +5890,131 @@ div.SearchHelperText button {
 div#catalog_list.cat_item_list div.cat_item_plits div.pricenbuttons div.hiddenTooltip {
     position: absolute;
     right: 100px;
-    top: 35px;
+    top: 100px;
+}
+
+div#catalog_list.cat_item_list li div.cat_item_plits div.pricenbuttons div.hiddenTooltip {
+    display: none !important;
 }
 
 div.goodpage_info div.instock_compare div.hiddenTooltip {
     top: 25px;
-    right: 181px;
+    right: 181px
 }
 
 .hiddenTooltip {
     display: none;
-    padding: 0 0 20px 0;
+    padding: 0 0 20px;
     position: absolute;
     right: 124px;
     top: 163px;
-    /* border: 1px solid black; */
-    background-color: #fff;
     z-index: 9999;
-    border: 1px solid #FFFFFF;
-    background-color: #FFFFFF;
+    border: 1px solid #fff;
+    background-color: #fff;
     color: #FFF;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.63);
-    -moz-box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.63);
-    box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.63);
+    box-shadow: 0 0 16px 0 rgba(50, 50, 50, .63);
     min-width: 400px;
-    font-size: 0.9em;
+    font-size: .9em
 }
 
 .hiddenTooltip p {
     padding: 0 0 0 10px;
-    font-size: 0.9em;
+    font-size: .9em;
     text-transform: uppercase;
-    /*margin: 20px 0 10px 10px;*/
-    /*font-weight: bold;*/
-    text-align: left;
+    text-align: left
 }
 
 .hiddenTooltip table {
     border: none;
-    margin: 0;
+    margin: 0
 }
 
 .hiddenTooltip table tr {
-    border: none;
+    border: none
 }
 
 .hiddenTooltip table tr td {
     background-color: #fff;
-    color: #F7961E;
-    /* font-weight: bold; */
-    padding: 5px 20px 5px 20px;
+    color: #f7961e;
+    padding: 5px 20px
 }
 
 .hiddenTooltip table tr td .not_exist {
-    color: #ccc;
+    color: #ccc
 }
 
 .hiddenTooltip table tr td:first-child {
-    color: #000;
-    /* font-weight: bold; */
+    color: #000
 }
-
-.hiddenTooltip table tr td:nth-child(2n) {
-    /*color: #000;*/
-    /*font-weight: bold;*/
-}
-
-.hiddenTooltip table tr td a {}
 
 ul#stepForm,
 ul#stepForm li {
     margin: 0;
     padding: 0;
-    display: initial;
+    display: initial
 }
 
 ul#stepForm li {
-    list-style: none;
+    list-style: none
 }
 
 input.submitbutton,
 .nextbutton,
 .prevbutton {
-    /*    width: 100px;
-    height: 40px;
-    background-color: #663399;
-    padding: 4px;
-    border: 1px solid #339933;
-    cursor: pointer;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 7px;*/
-    font-size: 0.8em;
+    font-size: .8em
 }
 
 input.submitbutton {
-    background-color: #F7961E;
+    background-color: #f7961e
 }
 
 .buttonWrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
     align-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
     align-items: flex-start;
-    margin: 35px 0 0 0;
+    margin: 35px 0 0
 }
 
-li#sf1 > a {
-    display: none;
+li#sf1>a {
+    display: none
 }
 
-li#sf2 > a {
-    display: none;
+li#sf2>a {
+    display: none
 }
 
-li#sf3 > a {
-    display: none;
+li#sf3>a {
+    display: none
 }
 
 .ui-accordion-content {
-    height: auto !important;
+    height: auto!important
 }
 
 div.ch_formblock form fieldset.personalinfo input.warning,
 article form input.warning {
-    border: red solid 1px;
+    border: red solid 1px
 }
 
 label.warning {
@@ -5946,11 +6023,11 @@ label.warning {
     padding: 0!important;
     color: red;
     position: absolute;
-    right: 40px;
+    right: 40px
 }
 
 .isroot:first-child {
-    height: 0;
+    height: 0
 }
 
 .isroot {
@@ -5958,28 +6035,148 @@ label.warning {
     width: 100%;
     padding: 0;
     height: 40px;
-    vertical-align: bottom;
-}
-
-.isroot td {
-    /*font-weight: bold;*/
+    vertical-align: bottom
 }
 
 .hiddenTooltip table tr td.out_of_shop {
-    color: #8B8B8B;
+    color: #8b8b8b
 }
-
-
-/*fix livetex*/
 
 .lt-invite .button-group .lt-bttn.new-call-order,
 .lt-bttn-icon,
 .lt-bttn {
-    color: #406b8d !important;
+    color: #406b8d!important
 }
 
 .lt-widget-wrap .lt-i-label .lt-i-label__select {
-    opacity: 1.0 !important;
+    opacity: 1.0!important
 }
 
-.lt-invite .button-group .lt-bttn.new-chat {color: #fff !important;}
+.lt-invite .button-group .lt-bttn.new-chat {
+    color: #fff!important
+}
+
+span.attach_ico {
+    background: url(../img/attach.png) no-repeat;
+    background-position: 5px 0;
+    background-size: contain;
+    padding: 0 10px 0 25px;
+    background-color: #f7961f;
+    border-radius: 15px;
+    height: 18px;
+    opacity: .9;
+    line-height: 1.5em
+}
+
+.out_of_stok {
+    font-size: .9em;
+    width: 70px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 25px;
+    color: #999;
+    background-image: url(../img/not_instock.png);
+    background-repeat: no-repeat
+}
+
+.out_of_stok_list {
+    font-size: .9em;
+    width: 70px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0 0 0 25px;
+    color: #999;
+    background-image: url(../img/not_instock.png);
+    background-repeat: no-repeat
+}
+
+.pribor {
+    display: inline;
+    margin: 0
+}
+
+.material {
+    display: inline;
+    margin: 0
+}
+
+.spoiler label {
+    display: inline
+}
+
+.toplivo {
+    display: inline;
+    margin: 0
+}
+
+#sp4 input.konfig {
+    float: left;
+    margin: 43px -14px 0 30px
+}
+
+#sp4 label {
+    float: left
+}
+
+#sp4 label:last-child {
+    float: none
+}
+
+#sp5 {
+    clear: both
+}
+
+#sp5 h2 {
+    padding: 40px 0 0;
+    clear: b
+}
+
+#sp5 label {
+    display: block
+}
+
+#sp5 select {
+    width: 100px;
+    margin: 0 0 10px;
+    opacity: 1;
+    border: 1px #000 solid;
+    color: #000
+}
+
+.zakazaat {
+    -webkit-appearance: button;
+    cursor: pointer;
+    overflow: visible;
+    background-color: #f7961e;
+    color: #fff!important;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: a_avantebs;
+    border: none;
+    border-radius: 5px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    padding: 6px 20px 5px
+}
+
+#order_send {
+    -webkit-appearance: button;
+    cursor: pointer;
+    overflow: visible;
+    background-color: #f7961e;
+    color: #fff!important;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: a_avantebs;
+    border: none;
+    border-radius: 5px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    padding: 6px 20px 5px
+}
+
+.main_form_wrapper {
+    padding: 20px
+}

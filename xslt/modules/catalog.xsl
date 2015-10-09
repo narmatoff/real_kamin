@@ -560,8 +560,28 @@
 			<xsl:choose>
 				<xsl:when test="$item/page/properties/group/property[@name='common_quantity']/value&gt;0">
 					<div class="pricenbuttons">
-						<xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
+							<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+								<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
+							</xsl:if>
+
+
+
+
+							<xsl:choose>
+								<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+									
+									<!-- не показываем цену если снят с произщводства -->
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
+
+
 						<input class="buybutton" onclick="site.basket.add({@id}); yaCounter27431942.reachGoal('to_cart'); return true;" id="add_basket_{@id}" type="button" value="Купить" />
+
+
+
+
+
 						<span class="instok" data-id="{$item/page/@id}" data-show="{$item/page/properties/group/property[@name='rasprodazha']/value}">в наличии 
 							<xsl:choose>
 								<xsl:when test="$item/page/properties/group/property[@name='rasprodazha']/value">
@@ -576,67 +596,56 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</span>
-
-						<div class="hiddenTooltip"> <!-- for tooltip -->
-<!-- 							<p><b><xsl:value-of select="$item/page/properties/group/property[@name='stores_state']/title"/></b></p>
-							
-						<table>
-							<xsl:apply-templates select="$item/page/properties/group/property[@name='stores_state']/value"  mode="sklads"/>
-						</table> -->
+						<div class="hiddenTooltip"> 
 						</div>
-							<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
-								<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
-							</xsl:if>
+								</xsl:otherwise>
+							</xsl:choose>
 
-						<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
-								<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
-							</xsl:if>
-						<!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
+
+
+
+
+
 					</div>
 					<div class="clearfix"></div>
+
 				</xsl:when>
 				<xsl:when test="$item/page/properties/group/property[@name='price']/value = 5000000">
 					<div class="pricenbuttons">
 						<input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
-						<span class="not_instok">
+						<!-- <span class="not_instok"> -->
 							<xsl:choose>
 								<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
 									<xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/>
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:value-of select="'под заказ'"/>
+									<span class="out_of_stok">
+										
+										<xsl:value-of select="'под заказ'"/>
+									</span>
 								</xsl:otherwise>
 							</xsl:choose>
-						</span>
+						<!-- </span> -->
 					</div>
 					<div class="clearfix"></div>
 				</xsl:when>
 				<xsl:otherwise>
+
+
 					<div class="pricenbuttons">
-						<xsl:choose>
-                    		<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
-                    			товар снят с производства
-                    		</xsl:when>
-                    		<xsl:otherwise>
-                    			
-								<xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
 
-								<!-- <a id="{$item/page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
-								<input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
 
-								<!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
-                    		</xsl:otherwise>
-                    	</xsl:choose>
-								<span class="not_instok">
 									<xsl:choose>
-										<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
-											<xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/>
-										</xsl:when>
-										<xsl:otherwise>
-											<xsl:value-of select="'под заказ'"/>
-										</xsl:otherwise>
+											<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+												<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
+											</xsl:when>
+											<xsl:otherwise>
+                                        <xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
+                                        <span class="out_of_stok">под заказ</span>
+                                        <input id="{page/@id}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
+
+											</xsl:otherwise>
 									</xsl:choose>
-								</span>
 					</div>
 					<div class="clearfix"></div>
 				</xsl:otherwise>
@@ -700,37 +709,67 @@
 			<xsl:choose>
 				<xsl:when test="$item/page/properties/group/property[@name='common_quantity']/value&gt;0">
 					<div class="pricenbuttons">
-						<xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
-						<input class="buybutton" onclick="site.basket.add({@id}); yaCounter27431942.reachGoal('to_cart'); return true;" id="add_basket_{@id}" type="button" value="Купить" />
-						<span class="instok" data-id="{$item/page/@id}" data-show="{$item/page/properties/group/property[@name='rasprodazha']/value}">в наличии 
-							<xsl:choose>
-								<xsl:when test="$item/page/properties/group/property[@name='rasprodazha']/value">
-									&lt; 5
-								</xsl:when>
-								<xsl:when test="$item/page/properties/group/property[@name='common_quantity']/value &lt; 5">
-									&lt; 5
-								</xsl:when>
-								<xsl:otherwise>
-									<!-- <xsl:value-of select="$item/page/properties/group/property[@name='common_quantity']/value"/> -->
-										&gt; 5
-								</xsl:otherwise>
-							</xsl:choose>
-						</span>
-
-<!-- for tooltip -->
-						<!-- <div class="hiddenTooltip1">  -->
-<!-- 							<p><b><xsl:value-of select="$item/page/properties/group/property[@name='stores_state']/title"/></b></p>
-						<table>
-							<xsl:apply-templates select="$item/page/properties/group/property[@name='stores_state']/value"  mode="sklads"/>
-						</table> -->
-						<!-- </div> -->
 							<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
 								<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
 							</xsl:if>
 
-						<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+							<xsl:choose>
+								<xsl:when test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+									
+									<!-- не показываем цену если снят с произщводства -->
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:apply-templates select="document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata" mode="price" />
+									<input class="buybutton" onclick="site.basket.add({@id}); yaCounter27431942.reachGoal('to_cart'); return true;" id="add_basket_{@id}" type="button" value="Купить" />
+									<span class="instok" data-id="{$item/page/@id}" data-show="{$item/page/properties/group/property[@name='rasprodazha']/value}">в наличии 
+										<xsl:choose>
+											<xsl:when test="$item/page/properties/group/property[@name='rasprodazha']/value">
+												&lt; 5
+											</xsl:when>
+											<xsl:when test="$item/page/properties/group/property[@name='common_quantity']/value &lt; 5">
+												&lt; 5
+											</xsl:when>
+											<xsl:otherwise>
+												<!-- <xsl:value-of select="$item/page/properties/group/property[@name='common_quantity']/value"/> -->
+													&gt; 5
+											</xsl:otherwise>
+										</xsl:choose>
+									</span>
+								</xsl:otherwise>
+							</xsl:choose>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- for tooltip in courosel -->
+						<div class="hiddenTooltip"> 
+						</div>
+
+
+
+
+
+
+<!-- 							<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
 								<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
-							</xsl:if>
+							</xsl:if> -->
+
+<!-- 						<xsl:if test="$item/page/properties/group/property[@name='snyat_s_proizvodstva']">
+								<span class="out_of_stok_list"><xsl:value-of select="$item/page/properties/group/property[@name='snyat_s_proizvodstva']/title"/></span>
+							</xsl:if> -->
+
+
+
 						<!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
 					</div>
 					<div class="clearfix"></div>
@@ -740,7 +779,7 @@
 					<div class="pricenbuttons">
 						<input id="{$item/page/@id}" data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
 
-						<span class="not_instok">под заказ</span>
+						<span class="out_of_stok">под заказ</span>
 					</div>
 					<div class="clearfix"></div>
 				</xsl:when>
@@ -752,7 +791,7 @@
 
 						<input id="{$item/page/@id}"  data-tovarname="{$item/page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', $item/page/@id,'//0'))/udata/price/actual,'#')}" data-article="{$item/page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
 
-						<span class="not_instok">под заказ</span>
+						<span class="out_of_stok">под заказ</span>
 						<!-- <span class="goodcompare"><a href="/emarket/addToCompare/{@id}">сравнить</a></span> -->
 					</div>
 					<div class="clearfix"></div>
@@ -819,73 +858,138 @@
 				<div class="goodpage_info">
 					<xsl:choose>
 						<xsl:when test="page/properties/group/property[@name='common_quantity']/value&gt;0">
-							<div class="buy_price">
-								<xsl:apply-templates select="document(concat('udata://emarket/price/', page/@id,'//0'))/udata" mode="price" />
-								<input href="javascript://" onclick="site.basket.add({@pageId}); yaCounter27431942.reachGoal('to_cart'); return true;" id="add_basket_{@pageId}" class="buybutton" type="button" value="Купить" />
-							</div>
+
+
+								<xsl:choose>
+									<xsl:when test="page/properties/group/property[@name='snyat_s_proizvodstva']">
+										<!-- не показываем если снято с произщводства -->
+									</xsl:when>
+									<xsl:otherwise>
+										<!-- 999999 -->
+									<div class="buy_price">
+												<xsl:apply-templates select="document(concat('udata://emarket/price/', page/@id,'//0'))/udata" mode="price" />
+
+												<input href="javascript://" onclick="site.basket.add({@pageId}); yaCounter27431942.reachGoal('to_cart'); return true;" id="add_basket_{@pageId}" class="buybutton" type="button" value="Купить" />
+
+									</div>
+									</xsl:otherwise>
+								</xsl:choose>
+
+
+
 						</xsl:when>
 
 				<xsl:when test="page/properties/group/property[@name='price']/value = 5000000">
-					<div class="buy_price">
+
+								<xsl:choose>
+									<xsl:when test="page/properties/group/property[@name='snyat_s_proizvodstva']">
+										<!-- не показываем если снято с произщводства -->
+									</xsl:when>
+									<xsl:otherwise>
+										<!-- 999999 -->
+							<div class="buy_price">
+
+
 						<input id="{page/@id}" data-tovarname="{page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', page/@id,'//0'))/udata/price/actual,'#')}" data-article="{age/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock2" rel="nofollow" type="submit" value="Узнать цену"/>
 
-						<span class="not_instok">под заказ</span>
-					</div>
+						<span class="out_of_stok">под заказ</span>
+							</div>
+									</xsl:otherwise>
+								</xsl:choose>
+
+
+
+
+
+
+
+
 					<div class="clearfix"></div>
 				</xsl:when>
 						<xsl:otherwise>
+
+								<xsl:choose>
+									<xsl:when test="page/properties/group/property[@name='snyat_s_proizvodstva']">
+										<!-- не показываем если снято с произщводства -->
+									</xsl:when>
+									<xsl:otherwise>
+										<!-- 999999 -->
 							<div class="buy_price">
+
+
 								<xsl:apply-templates select="document(concat('udata://emarket/price/', page/@id,'//0'))/udata" mode="price" />
 
 								<!-- <a id="{page/@id}" href="#show1" class="buybutton outnstock">Под заказ</a> -->
 
 								<input id="{page/@id}"  data-tovarname="{page/properties/group/property[@name='nazvanie']/value}" data-price="{format-number(document(concat('udata://emarket/price/', page/@id,'//0'))/udata/price/actual,'#')}" data-article="{page/properties/group/property[@name='artikul']/value}" href="#show1" class="buybutton outnstock" rel="nofollow" type="submit" value="Заказать"/>
-
-
 							</div>
+									</xsl:otherwise>
+								</xsl:choose>
+
+
+
+
+
 						</xsl:otherwise>
 					</xsl:choose>
 					<div class="customer_artic"><span class="manufacturer_block">Производитель: <a href="{$brand_name/properties/group/property[@name='linkthis']/value}"><xsl:value-of select="page/properties/group/property[@name='brend']/value/item/@name" disable-output-escaping="yes"/></a></span><span class="articul_block">Артикул: <xsl:value-of select="page/properties/group/property[@name='artikul']/value" disable-output-escaping="yes"/></span>
 					<span class="print_block" onclick="location.href='/getpdf2.php?id={page/@id}'">версия для печати</span>
 					</div>
 					<div class="instock_compare">
-	<xsl:choose>
+						<xsl:choose>
 							<xsl:when test="page/properties/group/property[@name='common_quantity']/value&gt;0">
 
 																<!-- <span class="instok">в наличии <xsl:value-of select="page/properties/group/property[@name='common_quantity']/value"/></span> -->
 
-						<span class="instok" data-id="{$page-id}" data-show="{page/properties/group/property[@name='rasprodazha']/value}">в наличии 
+
+
+
 							<xsl:choose>
-								<xsl:when test="page/properties/group/property[@name='rasprodazha']/value">
-									&lt; 5
-								</xsl:when>
-								<xsl:when test="page/properties/group/property[@name='common_quantity']/value &lt; 5">
-									&lt; 5
+								<xsl:when test="page/properties/group/property[@name='snyat_s_proizvodstva']">
+									<!-- не показываем если снято с произщводства -->
+									<span class="out_of_stok">
+										<xsl:value-of select="page/properties/group/property[@name='snyat_s_proizvodstva']/title"/>
+									</span>
 								</xsl:when>
 								<xsl:otherwise>
-									<!-- <xsl:value-of select="$item/page/properties/group/property[@name='common_quantity']/value"/> -->
-										&gt; 5
+									<!-- //////////////////////////////////////////////////////////////////////// -->
+									<span class="instok" data-id="{$page-id}" data-show="{page/properties/group/property[@name='rasprodazha']/value}">в наличии 
+										<xsl:choose>
+											<xsl:when test="page/properties/group/property[@name='rasprodazha']/value">
+												&lt; 5
+											</xsl:when>
+											<xsl:when test="page/properties/group/property[@name='common_quantity']/value &lt; 5">
+												&lt; 5
+											</xsl:when>
+											<xsl:otherwise>
+												<!-- <xsl:value-of select="$item/page/properties/group/property[@name='common_quantity']/value"/> -->
+													&gt; 5
+											</xsl:otherwise>
+										</xsl:choose>
+									</span>
+									<div class="hiddenTooltip"> 
+										<!-- for tooltip -->
+					<!-- 					<p><b><xsl:value-of select="page/properties/group/property[@name='stores_state']/title"/></b></p>
+										<table>
+											<xsl:apply-templates select="page/properties/group/property[@name='stores_state']/value"  mode="sklads"/>	
+										</table> -->
+									</div>
+									<!-- //////////////////////////////////////////////////////////////////////////////// -->
 								</xsl:otherwise>
 							</xsl:choose>
-						</span>
-				<div class="hiddenTooltip"> <!-- for tooltip -->
-<!-- 					<p><b><xsl:value-of select="page/properties/group/property[@name='stores_state']/title"/></b></p>
-					<table>
-						<xsl:apply-templates select="page/properties/group/property[@name='stores_state']/value"  mode="sklads"/>	
-					</table> -->
-				</div>
-						<xsl:if test="page/properties/group/property[@name='snyat_s_proizvodstva']">
-							<span class="out_of_stok">
-								<xsl:value-of select="page/properties/group/property[@name='snyat_s_proizvodstva']/title"/>
-							</span>
-						</xsl:if>
 
+
+
+<!-- 						<xsl:if test="page/properties/group/property[@name='snyat_s_proizvodstva']">
+						</xsl:if>
+ -->
 
 								<!-- <span class="goodcompare"><a href="/emarket/addToCompare/page/{@id}">сравнить</a></span> -->
 								<!-- <span class="goodcompare"><a href="/emarket/addToCompare/page/{@id}">сравнить</a></span> -->
 							</xsl:when>
 							<xsl:otherwise>
-								<div class="pricenbuttons"><span class="not_instok">
+								<!-- <div class="pricenbuttons"> -->
+									<span class="out_of_stok">
 									<xsl:choose>
 										<xsl:when test="page/properties/group/property[@name='snyat_s_proizvodstva']">
 											<xsl:value-of select="page/properties/group/property[@name='snyat_s_proizvodstva']/title"/>
@@ -896,7 +1000,7 @@
 									</xsl:choose>						
 								</span>
 									<!-- <span class="goodcompare"><a href="/emarket/addToCompare/page/{@id}">сравнить</a></span> -->
-								</div>
+								<!-- </div> -->
 							</xsl:otherwise>
 						</xsl:choose>
 					</div>

@@ -115,7 +115,7 @@ $(document).ready(function() {
                     $('.ajax_hint').html(data).show();
                     var searchinVal = $('.searchin').val();
                     // console.log(searchinVal);
-                    $('.ajax_hint').append('<li><a href="/search/ajaxsearch_do/?search_string=' + searchinVal + '">Показать все</a></li>');
+                    // $('.ajax_hint').append('<li><a href="/search/ajaxsearch_do/?search_string=' + searchinVal + '">Показать все</a></li>');
 
                     // разделение цены по сотым/тыс
                     priceSep(".seppr");
